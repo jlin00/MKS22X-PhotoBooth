@@ -1,7 +1,8 @@
 import processing.video.*;
 
-Capture cam;
+//Capture cam;
 
+/*
 void setup() {
   size(640, 480); //default size 
 
@@ -24,3 +25,4 @@ void draw() {
   image(cam.get(),-width,0);
   popMatrix();
 }
+*/
