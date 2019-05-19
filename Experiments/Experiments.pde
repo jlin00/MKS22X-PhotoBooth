@@ -19,5 +19,8 @@ void draw() {
   if (cam.available() == true) {
     cam.read();
   }
-  image(cam, 0, 0);
+  pushMatrix();
+  scale(-1,1);
+  image(cam.get(),-width,0);
+  popMatrix();
 }
