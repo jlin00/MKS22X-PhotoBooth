@@ -11,11 +11,10 @@ void setup() {
 }
 
 void draw() {
- // if(cam.available()) {
-   // cam.read();
-  //}
-  //image(cam, 100, 100);
-  //if (mode.equals("booth")) {
-    
-  //}
+  if (mode.equals("booth")) {
+    if(cam.available()) {
+      cam.read();
+    }
+    image(cam, 600, 300);
+  }
 }
