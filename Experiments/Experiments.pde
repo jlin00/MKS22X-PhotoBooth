@@ -48,6 +48,9 @@ void setup(){
 
 void draw(){
   for (int i = 0; i < images.length; i++){
-    image(images[i], i * 40, 0);
+    PImage temp = images[i];
+    float percent = 100.0 / temp.width;
+    temp.resize((int)(percent * temp.width), (int)(percent * temp.height));
+    image(images[i], i * 120, 0); 
   }
 }
