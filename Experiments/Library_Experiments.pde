@@ -1,3 +1,4 @@
+/*
 String[] filenames;
 PImage[] images;
 
@@ -8,6 +9,7 @@ void addFiles(){
 }
 
 void setup(){
+  size(640, 480);
   addFiles();
   images = new PImage[filenames.length]; //make Arraylist
   for (int i = 0; i < filenames.length; i++){
@@ -16,7 +18,8 @@ void setup(){
 }
 
 void draw(){
-  for (PImage pic: images){
-    image(pic, 0, 0);
+  for (int i = 0; i < images.length; i++){
+    image(images[i], i * 40, 0);
   }
 }
+*/
