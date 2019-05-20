@@ -1,3 +1,4 @@
+/*
 void setup(){
   String path = sketchPath("Images");
   
@@ -9,3 +10,4 @@ void setup(){
   }
   //printArray(filenames);
 }
+*/

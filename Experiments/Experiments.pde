@@ -1,8 +1,9 @@
+/*
 import processing.video.*;
 
-//Capture cam;
+Capture cam;
 
-/*
+
 void setup() {
   size(640, 480); //default size 
 
