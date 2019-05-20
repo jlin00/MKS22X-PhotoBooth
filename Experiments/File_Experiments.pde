@@ -1,5 +1,6 @@
 import java.util.Date;
 
+/*
 void setup() {
 
   // Using just the path of this sketch to demonstrate,
@@ -42,6 +43,7 @@ void setup() {
 // of the noLoop() in setup()
 void draw() {
 }
+*/
 
 // This function returns all the files in a directory as an array of Strings  
 String[] listFileNames(String dir) {
