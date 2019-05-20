@@ -11,6 +11,6 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
   <th>Log Date</th>
   <th>Description</th>
   <tr>
-    <td>5/20/19</td>
+    <td>5/19/19</td>
     <td>Today, we created the new repository. We formatted the README and experimented with the with the Capture class as well as the DirectoryList library, which will be used in the Photo Library mode. We also added an Images folder where images will be saved and stored. </td>
   </tr>
