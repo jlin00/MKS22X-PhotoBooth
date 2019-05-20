@@ -14,3 +14,10 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>5/19/19</td>
     <td>Today, we created the new repository. We formatted the README and experimented with the with the Capture class as well as the DirectoryList library, which will be used in the Photo Library mode. We also added an Images folder where images will be saved and stored. </td>
   </tr>
+  <tr>
+    <td>5/20/19</td>
+    <td>Today, we experimented with displaying the image library and ran 
+into troubl with the school computers and webcams. We filled in our 
+empty classes with empty methods and began experimenting with the photo 
+booth mode</td>
+  </tr>
