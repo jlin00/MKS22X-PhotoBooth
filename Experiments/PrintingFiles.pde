@@ -1,5 +1,4 @@
-/*
-void setup(){
+/*void setup(){
   String path = sketchPath("Images");
   
   String[] filenames = listFileNames(path);
@@ -9,5 +8,4 @@ void setup(){
     }
   }
   //printArray(filenames);
-}
-*/
+}*/
