@@ -4,7 +4,7 @@ Capture cam;
 String mode;
 
 void setup() {
-  size(640,500);
+  size(640,550);
   mode = "booth";
   String[] cameras = Capture.list();
   
