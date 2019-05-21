@@ -11,7 +11,12 @@ class Button {
   }
   
   void action(){
-    
+    if (type.equals("pic")) {
+      if (clicked) {
+        cam.read();
+        image(cam, 0, 0);
+      }
+    }
     // depending on id, different buttons perform actions
       // if else statements OR switch
   }
