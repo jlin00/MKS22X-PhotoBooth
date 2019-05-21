@@ -4,17 +4,26 @@ Capture cam;
 String mode;
 
 void setup() {
-  size(1500,900);
+  size(640,500);
   mode = "booth";
-  cam = new Capture(this, 320, 240, 30);
+  String[] cameras = Capture.list();
+  
+  if (cameras.length == 0) {
+    println("There are no cameras available for capture.");
+    exit();
+  } 
+  cam = new Capture(this, 640, 480);
   cam.start();
 }
 
 void draw() {
   if (mode.equals("booth")) {
-    if(cam.available()) {
-      cam.read();
-    }
-    image(cam, 600, 300);
+      if (cam.available() == true) {
+    cam.read();
+  }
+  pushMatrix();
+  scale(-1,1);
+  image(cam.get(),-width,0);
+  popMatrix();
   }
 }

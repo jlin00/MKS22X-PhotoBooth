@@ -24,10 +24,8 @@ void draw() {
   scale(-1,1);
   image(cam.get(),-width,0);
   popMatrix();
-<<<<<<< HEAD
-=======
 }
-*/
+
 
 String[] filenames;
 PImage[] images;
