@@ -18,10 +18,10 @@ void setup() {
   mode = 1;
   
   //setup for loading images from directory for library
-  addFiles("Images");
-  libimages = new ArrayList<PImage>();
+  addFiles("Images"); //load images from Images directory 
+  libimages = new ArrayList<PImage>(); //initialize arraylist
   for (int i = 0; i < filenames.length; i++){
-    PImage temp = loadImage("Images/" + filenames[i]);
+    PImage temp = loadImage("Images/" + filenames[i]); //load each image based on filename
     libimages.add(temp);
   }
   
@@ -38,7 +38,8 @@ void setup() {
 void draw() {
   if (mode == 1){
     for (int i = 0; i < libimages.size(); i++){
-      image(libimages.get(i), i * 40, 0);
+      libimages.get(i).resize(100, 80);
+      image(libimages.get(i), i * 120, 0);
     }
   }
   if (mode == 2){
