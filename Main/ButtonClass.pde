@@ -4,15 +4,26 @@ class Button {
   PImage image;
   String type;
   
-  Button(float x, float y, String im, String id){
+  Button(float x, float y, PImage im, String id){
     size = new float[] { x, y };
-    image = loadImage(im);
+    image = im;
     type = id;
+  }
+  
+  void mouseClicked() {
+   // if (abs(mouseX - 340) <= size[0] / 2.0 && abs(mouseY - 500) <= size[1] / 2.0) {
+      clicked = true;
+    //}
+  }
+  
+  void display() {
+    image(image, 340, 500, size[0], size[1]);
   }
   
   void action(){
     if (type.equals("pic")) {
       if (clicked) {
+        println("yes");
         cam.read();
         image(cam, 0, 0);
       }
@@ -29,7 +40,7 @@ class Button {
 class SliderButton extends Button {
   float value;
   
-  SliderButton(float x, float y, String im) {
+  SliderButton(float x, float y, PImage im) {
     super(x,y,im, "slider");
   }
   

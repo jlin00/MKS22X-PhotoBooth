@@ -4,6 +4,7 @@ Capture cam;
 int mode;
 String[] filenames;
 ArrayList<PImage> libimages;
+PImage b; //temp
 
 //1- library, 2- booth, 3- editor
 void addFiles(String dir){
@@ -15,10 +16,7 @@ void addFiles(String dir){
 
 void setup() {
   size(640,550);
-<<<<<<< HEAD
   mode = 2;
-=======
-  mode = 1;
   
   //setup for loading images from directory for library
   addFiles("Images"); //load images from Images directory 
@@ -29,9 +27,8 @@ void setup() {
   }
   
   //setup for loading cameras 
->>>>>>> f622608522f46156296067730f7e7aa0f8546821
   String[] cameras = Capture.list();
-  loadImage("button.img");
+  b = loadImage("button.png");
   
   if (cameras.length == 0) {
     println("There are no cameras available for capture.");
@@ -48,24 +45,7 @@ void draw() {
     }
   }
   if (mode == 2){
-<<<<<<< HEAD
-     if (cam.available() == true) {
-       cam.read();
-      }
-      pushMatrix();
-    scale(-1,1);
-    image(cam.get(),-width,0);
-    popMatrix();
-    
-    Button capture = new Button(320.0, 500.0, "button.img", "pic");
-    capture.action();
-  }
-  if (mode == 3){
-  }
-  
-}
-=======
-    cam.start();
+     cam.start();
     if (cam.available() == true) {
       cam.read();
     }
@@ -73,8 +53,11 @@ void draw() {
   scale(-1,1);
   image(cam.get(),-width,0);
   popMatrix();
+  
+  Button play = new Button(50.0, 50.0, b, "pic");
+  play.display();
+  play.action();
   }
   if (mode == 3){
   }
 }
->>>>>>> f622608522f46156296067730f7e7aa0f8546821
