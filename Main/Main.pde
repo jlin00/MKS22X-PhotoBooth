@@ -1,11 +1,12 @@
 import processing.video.*;
 
 Capture cam;
-String mode;
+int mode;
+//1- library, 2- booth, 3- editor
 
 void setup() {
-  size(640,500);
-  mode = "booth";
+  size(640,550);
+  mode = 1;
   String[] cameras = Capture.list();
   
   if (cameras.length == 0) {
@@ -17,7 +18,10 @@ void setup() {
 }
 
 void draw() {
-  if (mode.equals("booth")) {
+  if (mode == 1){
+    
+  }
+  if (mode == 2){
       if (cam.available() == true) {
     cam.read();
   }
@@ -25,5 +29,7 @@ void draw() {
   scale(-1,1);
   image(cam.get(),-width,0);
   popMatrix();
+  }
+  if (mode == 3){
   }
 }
