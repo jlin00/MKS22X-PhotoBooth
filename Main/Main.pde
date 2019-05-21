@@ -6,11 +6,7 @@ int mode;
 
 void setup() {
   size(640,550);
-<<<<<<< HEAD
-  mode = "booth";
-=======
   mode = 1;
->>>>>>> c2539a4595d6b09ea3cf1dd85483d8163c4d75c6
   String[] cameras = Capture.list();
   
   if (cameras.length == 0) {
