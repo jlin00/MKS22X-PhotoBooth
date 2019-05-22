@@ -12,7 +12,7 @@ class Button {
   
   void mouseClicked() {
    // if (abs(mouseX - 340) <= size[0] / 2.0 && abs(mouseY - 500) <= size[1] / 2.0) {
-      clicked = true;
+      println("clicked");
     //}
   }
   
@@ -20,7 +20,7 @@ class Button {
     image(image, 340, 500, size[0], size[1]);
   }
   
-  void action(){
+  void draw(){
     if (type.equals("pic")) {
       if (clicked) {
         println("yes");

@@ -56,7 +56,6 @@ void draw() {
   
   Button play = new Button(50.0, 50.0, b, "pic");
   play.display();
-  play.action();
   }
   if (mode == 3){
   }
