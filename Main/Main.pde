@@ -4,7 +4,7 @@ Capture cam;
 int mode;
 String[] filenames;
 ArrayList<PImage> libimages;
-PImage b; //temp
+Button b;
 
 //1- library, 2- booth, 3- editor
 void addFiles(String dir){
@@ -16,7 +16,8 @@ void addFiles(String dir){
 
 void setup() {
   size(640,550);
-  mode = 2;
+  background(255);
+  mode = 3;
   
   //setup for loading images from directory for library
   addFiles("Images"); //load images from Images directory 
@@ -28,13 +29,16 @@ void setup() {
   
   //setup for loading cameras 
   String[] cameras = Capture.list();
-  b = loadImage("button.png");
   
   if (cameras.length == 0) {
     println("There are no cameras available for capture.");
     exit();
   } 
   cam = new Capture(this, 640, 480);
+  
+  
+  //creating a button
+  b = new Button(10,10,10,10,true,"test");
 }
 
 void draw() {
@@ -53,10 +57,8 @@ void draw() {
   scale(-1,1);
   image(cam.get(),-width,0);
   popMatrix();
-  
-  Button play = new Button(50.0, 50.0, b, "pic");
-  play.display();
   }
   if (mode == 3){
   }
+  b.display();
 }
