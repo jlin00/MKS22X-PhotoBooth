@@ -22,7 +22,7 @@ class Button {
     type = id;
   }
   
-  boolean overCircle(){
+  /*boolean overCircle(){
     if (!shape){
       float disX = x - mouseX;
       float disY = y - mouseY;
@@ -46,7 +46,7 @@ class Button {
         text("ffaeasasf", 10, 10);
       }
     }
-  }
+  }*/
   
   void display() {
     if (shape){

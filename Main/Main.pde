@@ -4,7 +4,7 @@ Capture cam;
 int mode;
 String[] filenames;
 ArrayList<PImage> libimages;
-Button b;
+ArrayList<Button> buttons;
 
 //1- library, 2- booth, 3- editor
 void addFiles(String dir){
@@ -16,12 +16,8 @@ void addFiles(String dir){
 
 void setup() {
   size(640,550);
-<<<<<<< HEAD
-  mode = 1;
-=======
   background(255);
   mode = 3;
->>>>>>> 79ee9c1d563a38c99af5df23c7ea227862b4d2ae
   
   //setup for loading images from directory for library
   addFiles("Images"); //load images from Images directory 
@@ -40,12 +36,32 @@ void setup() {
   } 
   cam = new Capture(this, 640, 480);
   
-  
-  //creating a button
-  b = new Button(10,10,10,10,true,"test");
+  Button play = new Button(10, 10, 10, 10, true, "test");
+  buttons.add(play);
+}
+
+void mouseClicked(){
+  for (Button b : buttons) {
+    if (b.shape) {
+      if (mouseX >= b.x && mouseX <= b.x+b.w && 
+              mouseY >= b.y && mouseY <= b.y+b.h){
+        if (b.type.equals("test")){
+          fill(0);
+          text("ffaeasasf", 10, 10);
+        }
+      }
+    } else {
+      float disX = b.x - mouseX;
+      float disY = b.y - mouseY;
+      if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
+        // stuff that circles do
+      }
+    }
+  }
 }
 
 void draw() {
+  
   if (mode == 1){
     background(153);
     for (int i = 0; i < libimages.size(); i++){
@@ -55,21 +71,14 @@ void draw() {
   }
   if (mode == 2){
      cam.start();
-    if (cam.available() == true) {
-      cam.read();
-    }
-  pushMatrix();
-  scale(-1,1);
-  image(cam.get(),-width,0);
-  popMatrix();
-<<<<<<< HEAD
-  
- // Button play = new Button(50.0, 50.0, b, "pic");
- // play.display();
-=======
->>>>>>> 79ee9c1d563a38c99af5df23c7ea227862b4d2ae
+     if (cam.available() == true) {
+        cam.read();
+     }
+     pushMatrix();
+     scale(-1,1);
+     image(cam.get(),-width,0);
+     popMatrix();
   }
   if (mode == 3){
   }
-  b.display();
 }
