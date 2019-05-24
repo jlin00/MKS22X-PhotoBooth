@@ -16,6 +16,7 @@ void setup() {
   cam.start();          
 }
 
+/*
 void draw() {
   if (cam.available() == true) {
     cam.read();
@@ -25,6 +26,7 @@ void draw() {
   image(cam.get(),-width,0);
   popMatrix();
 }
+*/
 
 
 String[] filenames;
@@ -52,5 +54,5 @@ void draw(){
     temp.resize((int)(percent * temp.width), (int)(percent * temp.height));
     image(images[i], i * 120, 0); 
   }
->>>>>>> aa10262fdb34eaecd6a06e57ba3c1adfeb28d296
 }
+*/

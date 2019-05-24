@@ -1,42 +1,66 @@
 class Button {
-  float[] size;
-  boolean clicked = false;
-  PImage image;
+  float x,y;
+  float w,h,d; //width and height or diameter
+  float size;
+  boolean shape; //true- rectangles, false- circles
   String type;
   
-  Button(float x, float y, PImage im, String id){
-    size = new float[] { x, y };
-    image = im;
+  Button(float x, float y, float w, float h, boolean shape, String id){
+    this.x = x;
+    this.y = y;
+    this.w = w;
+    this.h = h;
+    this.shape = shape;
     type = id;
   }
   
-  void mouseClicked() {
-   // if (abs(mouseX - 340) <= size[0] / 2.0 && abs(mouseY - 500) <= size[1] / 2.0) {
-      println("clicked");
-    //}
+  Button(float x, float y, float d, boolean shape, String id){
+    this.x = x;
+    this.y = y;
+    this.d = d;
+    this.shape = shape;
+    type = id;
+  }
+  
+  boolean overCircle(){
+    if (!shape){
+      float disX = x - mouseX;
+      float disY = y - mouseY;
+      return (sqrt(sq(disX) + sq(disY)) < d/2);
+    }
+    return false;
+  }
+  
+  boolean overRect(){
+    if (shape){
+      return (mouseX >= x && mouseX <= x+w && 
+              mouseY >= y && mouseY <= y+h);
+    }
+    return false;
+  }
+  
+  void mouseClicked(){
+    if ((shape && overRect()) || overCircle()){
+      if (type.equals("test")){
+        fill(0);
+        text("ffaeasasf", 10, 10);
+      }
+    }
   }
   
   void display() {
-    image(image, 340, 500, size[0], size[1]);
+    if (shape){
+      rect(x,y,w,h);
+    }
+    else{
+      ellipse(x,y,d,d);
+    }
   }
   
   void draw(){
-    if (type.equals("pic")) {
-      if (clicked) {
-        println("yes");
-        cam.read();
-        image(cam, 0, 0);
-      }
-    }
-    // depending on id, different buttons perform actions
-      // if else statements OR switch
-  }
-  
-  boolean isClicked() {
-    return clicked;
   }
 }
-
+/*
 class SliderButton extends Button {
   float value;
   
@@ -66,3 +90,4 @@ class ButtonPanel {
   void scroll() {
   }
 }
+*/
