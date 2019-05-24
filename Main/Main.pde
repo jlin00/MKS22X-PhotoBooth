@@ -56,7 +56,7 @@ void mouseClicked(){
       float disY = b.y - mouseY;
       if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
         if (b.type.equals("test")){
-          saveFrame("IMG####.png");
+          saveFrame("Images/IMG##.jpg");
         }
       }
     }
