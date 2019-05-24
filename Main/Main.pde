@@ -38,7 +38,7 @@ void setup() {
   } 
   cam = new Capture(this, 640, 480);
   
-  Button play = new Button(300, 450, 50, 50, true, "test");
+  Button play = new Button(300, 490, 50, 50, true, "test");
   buttons.add(play);
 }
 
