@@ -37,12 +37,8 @@ void setup() {
     exit();
   } 
   cam = new Capture(this, 640, 480);
-  
-<<<<<<< HEAD
+ 
   Button play = new Button(384, 612, 50, false, "test");
-=======
-  Button play = new Button(300, 490, 50, 50, true, "test");
->>>>>>> a0f523442256a27df0d5cccf90c8a2c593293472
   buttons.add(play);
 }
 
@@ -59,7 +55,9 @@ void mouseClicked(){
       float disX = b.x - mouseX;
       float disY = b.y - mouseY;
       if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
-        fill(0);
+        if (b.type.equals("test")){
+          saveFrame("IMG####.png");
+        }
       }
     }
   }
