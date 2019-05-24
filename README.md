@@ -21,3 +21,20 @@ into troubl with the school computers and webcams. We filled in our
 empty classes with empty methods and began experimenting with the photo 
 booth mode</td>
   </tr>
+  <tr>
+    <td>5/21/19</td>
+    <td>Today, we played with the camera and started to implement the 
+Button class, and also started to try and take pictures</td>
+  </tr>
+  <tr>
+    <td>5/22/19</td>
+    <td>Today, we frustratingly worked on the Button class by trying to 
+implement the mouseClicked method, before deciding to implement instead 
+an arrayList of buttons in the main</td>
+  </tr>
+  <tr>
+    <td>5/24/19</td>
+    <td>Today, we correctly implemented and fixed the Button class along 
+with the mouseClicked method, and worked on taking pictures while 
+resizing the photo booth itself</td>
+  </tr>
