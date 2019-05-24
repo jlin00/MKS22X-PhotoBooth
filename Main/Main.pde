@@ -17,7 +17,7 @@ void addFiles(String dir){
 void setup() {
   size(640,550);
   background(255);
-  mode = 1;
+  mode = 2;
   
   buttons = new ArrayList<Button>();
   
@@ -38,7 +38,7 @@ void setup() {
   } 
   cam = new Capture(this, 640, 480);
   
-  Button play = new Button(10, 10, 100, 100, true, "test");
+  Button play = new Button(300, 450, 50, 50, true, "test");
   buttons.add(play);
 }
 
