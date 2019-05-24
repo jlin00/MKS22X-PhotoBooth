@@ -13,8 +13,8 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
   <tr>
     <td>5/19/19</td>
     <td>
-    Grace:
-      -worked on filling in the Main folder by creating new classes
+    <p>Grace: <br>
+      -worked on filling in the Main folder by creating new classes</p>
     Jackie:
       -worked in Experiments folder and working with the camera and photo library
 
