@@ -15,7 +15,7 @@ void addFiles(String dir){
 }
 
 void setup() {
-  size(640,550);
+  size(768,650);
   background(255);
   mode = 2;
   
@@ -38,7 +38,7 @@ void setup() {
   } 
   cam = new Capture(this, 640, 480);
   
-  Button play = new Button(300, 450, 50, 50, true, "test");
+  Button play = new Button(384, 612, 50, false, "test");
   buttons.add(play);
 }
 
@@ -49,14 +49,13 @@ void mouseClicked(){
               mouseY >= b.y && mouseY <= b.y+b.h){
         if (b.type.equals("test")){
           fill(0);
-          text("ffaeasasf", 10, 10);
         }
       }
     } else {
       float disX = b.x - mouseX;
       float disY = b.y - mouseY;
       if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
-        // stuff that circles do
+        fill(0);
       }
     }
   }
@@ -78,6 +77,8 @@ void draw() {
      }
      pushMatrix();
      scale(-1,1);
+     scale(1.2);
+     translate(126,0);
      image(cam.get(),-width,0);
      popMatrix();
   }

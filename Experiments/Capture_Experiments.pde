@@ -1,4 +1,4 @@
-  
+/*  
 
 // Click within the image to change 
 // the value of the rectangle after
@@ -18,3 +18,5 @@ void mouseClicked() {
     value = 0;
   }
 }
+
+*/

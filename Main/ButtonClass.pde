@@ -22,32 +22,6 @@ class Button {
     type = id;
   }
   
-  /*boolean overCircle(){
-    if (!shape){
-      float disX = x - mouseX;
-      float disY = y - mouseY;
-      return (sqrt(sq(disX) + sq(disY)) < d/2);
-    }
-    return false;
-  }
-  
-  boolean overRect(){
-    if (shape){
-      return (mouseX >= x && mouseX <= x+w && 
-              mouseY >= y && mouseY <= y+h);
-    }
-    return false;
-  }
-  
-  void mouseClicked(){
-    if ((shape && overRect()) || overCircle()){
-      if (type.equals("test")){
-        fill(0);
-        text("ffaeasasf", 10, 10);
-      }
-    }
-  }*/
-  
   void display() {
     if (shape){
       rect(x,y,w,h);
