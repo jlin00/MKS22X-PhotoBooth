@@ -17,7 +17,9 @@ void addFiles(String dir){
 void setup() {
   size(640,550);
   background(255);
-  mode = 3;
+  mode = 1;
+  
+  buttons = new ArrayList<Button>();
   
   //setup for loading images from directory for library
   addFiles("Images"); //load images from Images directory 
@@ -36,7 +38,7 @@ void setup() {
   } 
   cam = new Capture(this, 640, 480);
   
-  Button play = new Button(10, 10, 10, 10, true, "test");
+  Button play = new Button(10, 10, 100, 100, true, "test");
   buttons.add(play);
 }
 
@@ -80,5 +82,9 @@ void draw() {
      popMatrix();
   }
   if (mode == 3){
+    
+  }
+  for (Button b : buttons) {
+    b.display();
   }
 }
