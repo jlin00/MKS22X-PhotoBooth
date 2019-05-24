@@ -16,7 +16,7 @@ void addFiles(String dir){
 
 void setup() {
   size(640,550);
-  mode = 2;
+  mode = 1;
   
   //setup for loading images from directory for library
   addFiles("Images"); //load images from Images directory 
@@ -39,6 +39,7 @@ void setup() {
 
 void draw() {
   if (mode == 1){
+    background(153);
     for (int i = 0; i < libimages.size(); i++){
       libimages.get(i).resize(100, 80);
       image(libimages.get(i), i * 120, 0);
@@ -54,8 +55,8 @@ void draw() {
   image(cam.get(),-width,0);
   popMatrix();
   
-  Button play = new Button(50.0, 50.0, b, "pic");
-  play.display();
+ // Button play = new Button(50.0, 50.0, b, "pic");
+ // play.display();
   }
   if (mode == 3){
   }

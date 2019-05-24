@@ -50,7 +50,7 @@ class SliderButton extends Button {
   void slide(float f) {
   }
   
-  void action(){
+  void action() {
   }
 }
 
