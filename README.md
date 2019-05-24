@@ -13,10 +13,10 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
   <tr>
     <td>5/19/19</td>
     <td>
-    <p>Grace: <br>
-      -worked on filling in the Main folder by creating new classes</p>
-    Jackie:
-      -worked in Experiments folder and working with the camera and photo library
+    -**Grace:** :octocat:
+          - worked on filling in the Main folder by creating new classes
+    -**Jackie:** :hatched_chick:
+          - worked in Experiments folder and working with the camera and photo library
 
     Today, we created the new repository. We formatted the README and experimented with the with the Capture class as well as the DirectoryList library, which will be used in the Photo Library mode. We also added an Images folder where images will be saved and stored. </td>
   </tr>
