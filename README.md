@@ -25,7 +25,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>5/20/19</td>
     <td>
     Grace: :octocat:
-    <br>worked on getting to know the webcam and its proportions, along with displaying image on school computers and laptop
+    <br>- worked on getting to know the webcam and its proportions, along with displaying image on school computers and laptop
     <br>
     Jackie: :hatched_chick:
     <br>worked on displaying all the images in the library mode and listing out the files
