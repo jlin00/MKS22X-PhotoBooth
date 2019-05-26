@@ -16,7 +16,7 @@ void addFiles(String dir){
 
 void setup() {
   size(768,650);
-  background(255);
+  background(0);
   mode = 2;
   
   buttons = new ArrayList<Button>();
@@ -38,25 +38,27 @@ void setup() {
   } 
   cam = new Capture(this, 640, 480);
  
-  Button play = new Button(384, 612, 50, false, "test");
+  Button play = new Button(384, 612, 50, false, "take");
   buttons.add(play);
+  
+  
 }
 
-void mouseClicked(){
+void mousePressed(){
   for (Button b : buttons) {
     if (b.shape) {
       if (mouseX >= b.x && mouseX <= b.x+b.w && 
               mouseY >= b.y && mouseY <= b.y+b.h){
-        if (b.type.equals("test")){
-          fill(0);
-        }
+         //code for rectangular button actions
       }
     } else {
       float disX = b.x - mouseX;
       float disY = b.y - mouseY;
       if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
-        if (b.type.equals("test")){
-          saveFrame("Images/IMG##.jpg");
+        if (b.type.equals("take")){
+          b.contract();
+          saveFrame("Images/IMG###.jpg");
+          b.uncontract();
         }
       }
     }
@@ -80,7 +82,7 @@ void draw() {
      pushMatrix();
      scale(-1,1);
      scale(1.2);
-     translate(126,0);
+     translate(128,0);
      image(cam.get(),-width,0);
      popMatrix();
   }

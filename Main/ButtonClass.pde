@@ -28,10 +28,22 @@ class Button {
     }
     else{
       ellipse(x,y,d,d);
+      if (type.equals("take")){
+        ellipse(x,y,d*0.8,d*0.8);
+      }
     }
   }
   
-  void draw(){
+  void contract(){ //contract the capture button when clicked
+    strokeWeight(6);
+    ellipse(x,y,d*0.8,d*0.8);
+  }
+  
+  void uncontract(){
+    for (int i = 5; i > 0; i--){
+      strokeWeight(i);
+      ellipse(x,y,d*0.8,d*0.8);
+    }
   }
 }
 /*
