@@ -15,31 +15,61 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br>worked on filling in the Main folder by creating new classes
+    <br>
     Jackie: :hatched_chick:
-    <br>worked in Experiments folder and working with the camera and photo library <br> <br>
+    <br>worked in Experiments folder and working with the camera and photo library
+    <br><br>
     Today, we created the new repository. We formatted the README and experimented with the with the Capture class as well as the DirectoryList library, which will be used in the Photo Library mode. We also added an Images folder where images will be saved and stored. </td>
   </tr>
   <tr>
     <td>5/20/19</td>
-    <td>Today, we experimented with displaying the image library and ran
-into troubl with the school computers and webcams. We filled in our
+    <td>
+    Grace: :octocat:
+    <br>worked on getting to know the webcam and its proportions, along with displaying image on school computers and laptop
+    <br>
+    Jackie: :hatched_chick:
+    <br>worked on displaying all the images in the library mode and listing out the files
+    <br><br>
+    Today, we experimented with displaying the image library and ran
+into trouble with the school computers and webcams. We filled in our
 empty classes with empty methods and began experimenting with the photo
 booth mode</td>
   </tr>
   <tr>
     <td>5/21/19</td>
-    <td>Today, we played with the camera and started to implement the
+    <td>
+    Grace: :octocat:
+    <br>worked on implementing the rest of the empty classes and working on the Button class
+    <br>
+    Jackie: :hatched_chick:
+    <br>worked with the Button class and changing the camera size as well as taking pictures
+    <br><br>
+    Today, we played with the camera and started to implement the
 Button class, and also started to try and take pictures</td>
   </tr>
   <tr>
     <td>5/22/19</td>
-    <td>Today, we frustratingly worked on the Button class by trying to
+    <td>
+    Grace: :octocat:
+    <br>worked on mouseClicked method and trying to click on buttons before changing to new implementation
+    <br>
+    Jackie: :hatched_chick:
+    <br>wrote methods to check if mouse was over a button and/or clicking a button
+    <br><br>
+    Today, we frustratingly worked on the Button class by trying to
 implement the mouseClicked method, before deciding to implement instead
 an arrayList of buttons in the main</td>
   </tr>
   <tr>
     <td>5/24/19</td>
-    <td>Today, we correctly implemented and fixed the Button class along
+    <td>
+    Grace: :octocat:
+    <br>correctly implemented the Button class using the mouseClicked method and Jackie's previous code in the Main class
+    <br>
+    Jackie: :hatched_chick:
+    <br>resized the photobooth and pictures, and took pictures to be saved in the Images folder
+    <br><br>
+    Today, we correctly implemented and fixed the Button class along
 with the mouseClicked method, and worked on taking pictures while
 resizing the photo booth itself</td>
   </tr>
