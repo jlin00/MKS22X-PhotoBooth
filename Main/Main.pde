@@ -1,14 +1,16 @@
 import processing.video.*;
 
 Capture cam;
-int mode;
-String[] filenames;
+int mode; //1- library, 2- booth, 3- editor
+String[] filenames; //names of all files in Images folder 
 ArrayList<PImage> libimages;
-ArrayList<Button> booth_buttons;
-int scroll;
+ArrayList<Button> booth_buttons; //buttons in mode 2
+int scroll; //used with mouse wheel 
+boolean stopScroll; //variable to check if library can still be scrolled 
+int picNum; //used to name image 
 
-//1- library, 2- booth, 3- editor
-void addFiles(String dir) {
+
+void addFiles(String dir){ //add all the filenames from images into array
   String path = sketchPath(dir);
   filenames = listFileNames(path);
   //printArray(filenames);
@@ -18,7 +20,8 @@ void addFiles(String dir) {
 void setup() {
   size(768, 650);
   background(0);
-  mode = 1;
+  stopScroll = false;
+  mode = 1; //always start in library mode
 
   booth_buttons = new ArrayList<Button>();
 
@@ -41,25 +44,27 @@ void setup() {
   } 
   cam = new Capture(this, 640, 480);
 
-  Button play = new Button(384, 612, 50, false, "take");
-  booth_buttons.add(play);
+  //booth_buttons 
+  Button play = new Button(384, 612, 50, false, "take"); //capture button
+  booth_buttons.add(play); 
 }
 
-void mousePressed() {
-  for (Button b : booth_buttons) {
-    if (b.shape) {
+void mouseClicked(){ //if mouse is clicked 
+  for (Button b : booth_buttons) { //loops through booth buttons 
+    if (b.shape) { //if rectangular button
       if (mouseX >= b.x && mouseX <= b.x+b.w && 
         mouseY >= b.y && mouseY <= b.y+b.h) {
         //code for rectangular button actions
       }
-    } else {
+    } else { //if circular buttons
       float disX = b.x - mouseX;
       float disY = b.y - mouseY;
       if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
-        if (b.type.equals("take")) {
+        if (b.type.equals("take")) { //if capture button 
           b.contract();
-          PImage slice = get(0, 0, 768, 576);
-          slice.save("Images/IMG###.jpg");
+          PImage slice = get(0, 0, 768, 576); //only saves portion of screen 
+          slice.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
+          picNum++;
           b.uncontract();
         }
       }
@@ -70,14 +75,32 @@ void mousePressed() {
 void mouseWheel(MouseEvent event){ //only necessary for library mode
   float e = event.getCount();
   scroll -= e;
+  int first_ycor = 60; //ycor of first image
+  int last_ycor = (libimages.size() - 1) / 4 * 145 + 60; //ycor of the last image
+  if (first_ycor + scroll > 60){ //if cannot scroll down further
+    stopScroll = true;
+  }
+  else if (last_ycor + scroll < 500){ //if cannot scroll up futher 
+    stopScroll = true;
+  }
+  else stopScroll = false;
+  
+  if (stopScroll) scroll += e;
   //println(e);
-  println(scroll);
+  //println(scroll);
 }
 
 void draw() {
 
-  if (mode == 1) {
+  if (mode == 1) { //library mode
     background(245);
+    for (int i = 0; i < libimages.size(); i++) {
+      libimages.get(i).resize(188, 141);
+      int xcor = i % 4 * 192 + 2;
+      int ycor = i / 4 * 145 + 60 + scroll;
+      image(libimages.get(i), xcor, ycor);
+    }
+    //heading
     fill(188,215,255);
     noStroke();
     rect(0,0,768,50);
@@ -86,23 +109,14 @@ void draw() {
     PFont font = createFont("NEOTERICc - Bold DEMO VERSION.ttf",23);
     textFont(font);
     text("Photo Library",384,32);
-    for (int i = 0; i < libimages.size(); i++) {
-      libimages.get(i).resize(188, 141);
-      int ycor = i / 4 * 145 + 60 + scroll;
-      if (ycor < 60){
-        image(libimages.get(i), i % 4 * 192 + 2, ycor - scroll);
-        scroll = 0;
-      }
-      else image(libimages.get(i), i % 4 * 192 + 2, ycor);
-    }
   }
-  if (mode == 2) {
+  if (mode == 2) { //booth mode 
     cam.start();
     if (cam.available() == true) {
       cam.read();
     }
     pushMatrix();
-    scale(-1, 1);
+    scale(-1, 1); //flip image on x axis 
     scale(1.2);
     translate(128, 0);
     image(cam.get(), -width, 0);
@@ -112,6 +126,6 @@ void draw() {
       b.display();
     }
   }
-  if (mode == 3) {
+  if (mode == 3) { //edit mode
   }
 }
