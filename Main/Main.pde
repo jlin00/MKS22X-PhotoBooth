@@ -5,12 +5,13 @@ int mode;
 String[] filenames;
 ArrayList<PImage> libimages;
 ArrayList<Button> booth_buttons;
+int scroll;
 
 //1- library, 2- booth, 3- editor
 void addFiles(String dir) {
   String path = sketchPath(dir);
   filenames = listFileNames(path);
-  printArray(filenames);
+  //printArray(filenames);
   //println(path);
 }
 
@@ -66,6 +67,13 @@ void mousePressed() {
   }
 }
 
+void mouseWheel(MouseEvent event){ //only necessary for library mode
+  float e = event.getCount();
+  scroll -= e;
+  //println(e);
+  println(scroll);
+}
+
 void draw() {
 
   if (mode == 1) {
@@ -80,7 +88,12 @@ void draw() {
     text("Photo Library",384,32);
     for (int i = 0; i < libimages.size(); i++) {
       libimages.get(i).resize(188, 141);
-      image(libimages.get(i), i % 4 * 192 + 2, i / 4 * 145 + 60);
+      int ycor = i / 4 * 145 + 60 + scroll;
+      if (ycor < 60){
+        image(libimages.get(i), i % 4 * 192 + 2, ycor - scroll);
+        scroll = 0;
+      }
+      else image(libimages.get(i), i % 4 * 192 + 2, ycor);
     }
   }
   if (mode == 2) {
