@@ -4,6 +4,7 @@ class Button {
   float size;
   boolean shape; //true- rectangles, false- circles
   String type;
+  boolean popup; //for buttons that are not always available
   
   Button(float x, float y, float w, float h, boolean shape, String id){
     this.x = x;
@@ -12,6 +13,7 @@ class Button {
     this.h = h;
     this.shape = shape;
     type = id;
+    popup = true;
   }
   
   Button(float x, float y, float d, boolean shape, String id){
@@ -20,6 +22,7 @@ class Button {
     this.d = d;
     this.shape = shape;
     type = id;
+    popup = true;
   }
   
   void display() {
@@ -50,6 +53,10 @@ class Button {
       strokeWeight(i);
       ellipse(x,y,d*0.8,d*0.8);
     }
+  }
+  
+  void setPopup(boolean x){
+    popup = x;
   }
 }
 /*
