@@ -2,14 +2,21 @@ import processing.video.*;
 
 Capture cam;
 int mode; //1- library, 2- booth, 3- editor
+
+//mode 1
 String[] filenames; //names of all files in Images folder 
 ArrayList<PImage> libimages;
-ArrayList<Button> booth_buttons; //buttons in mode 2
-ArrayList<Button> lib_buttons; //buttons in mode 1
-ArrayList<Button> edit_buttons; //buttons in mode 3
 int scroll; //used with mouse wheel 
 boolean stopScroll; //variable to check if library can still be scrolled 
+ArrayList<Button> lib_buttons; //buttons in mode 1
+
+//mode 2
 int picNum; //used to name image 
+ArrayList<Button> booth_buttons; //buttons in mode 2
+
+//mode 3
+PImage to_edit;
+ArrayList<Button> edit_buttons; //buttons in mode 3
 
 
 void addFiles(String dir){ //add all the filenames from images into array
@@ -22,7 +29,7 @@ void addFiles(String dir){ //add all the filenames from images into array
 void setup() {
   size(768, 650);
   background(0);
-  stopScroll = false;
+  stopScroll = false; //default scroll method 
   mode = 1; //always start in library mode
 
   //initializing ArrayLists 
@@ -54,10 +61,8 @@ void setup() {
   booth_buttons.add(take); 
   
   //lib_buttons
-  Button go_to_booth = new Button(675, 12.5, 75, 25, true, "redirect_booth");
+  Button go_to_booth = new Button(675, 12.5, 75, 25, true, "redirect");
   lib_buttons.add(go_to_booth);
-  Button go_to_editor = new Button(18, 12.5, 75, 25, true, "redirect_editor");
-  lib_buttons.add(go_to_editor);
 }
 
 void mouseClicked(){ //if mouse is clicked 
@@ -88,17 +93,11 @@ void mouseClicked(){ //if mouse is clicked
     if (b.shape) { //if rectangular button
       if (mouseX >= b.x && mouseX <= b.x+b.w && 
         mouseY >= b.y && mouseY <= b.y+b.h) {
-          if (b.type.equals("redirect_booth")){
+          if (b.type.equals("redirect")){
             text_clicked();
             text("BOOTH", 714, 30);
             undo_text_clicked();
             mode = 2;
-          }
-          if (b.type.equals("redirect_editor")){
-            text_clicked();
-            text("EDITOR", 56, 30);
-            
-            undo_text_clicked();
           }
       }
     } else { //if circular buttons
@@ -140,13 +139,7 @@ void draw() {
       image(libimages.get(i), xcor, ycor);
     }
     //heading
-    fill(188,215,255);
-    noStroke();
-    rect(0,0,768,50);
-    fill(255);
-    textAlign(CENTER);
-    PFont font = createFont("NEOTERICc - Bold DEMO VERSION.ttf",23);
-    textFont(font);
+    heading_settings();
     
     for (Button b : lib_buttons){
       b.display();
@@ -157,10 +150,10 @@ void draw() {
     textSize(14);
     fill(0);
     text("BOOTH", 714, 30);
-    text("EDITOR", 56, 30);
   }
   
-  if (mode == 2) { //booth mode 
+  if (mode == 2) { //booth mode
+    background(245);
     cam.start();
     if (cam.available() == true) {
       cam.read();
@@ -178,5 +171,10 @@ void draw() {
   }
   
   if (mode == 3) { //edit mode
+    background(245);
+    //heading
+    heading_settings();
+    text("Photo Editor",384,32);
+    
   }
 }

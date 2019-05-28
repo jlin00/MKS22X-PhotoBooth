@@ -7,3 +7,13 @@ void text_clicked(){
 void undo_text_clicked(){
   fill(0);
 }
+
+void heading_settings(){ //setup for heading of each mode 
+  fill(188,215,255);
+  noStroke();
+  rect(0,0,768,50);
+  fill(255);
+  textAlign(CENTER);
+  PFont font = createFont("NEOTERICc - Bold DEMO VERSION.ttf",23);
+  textFont(font);
+}
