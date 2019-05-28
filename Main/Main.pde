@@ -5,6 +5,8 @@ int mode; //1- library, 2- booth, 3- editor
 String[] filenames; //names of all files in Images folder 
 ArrayList<PImage> libimages;
 ArrayList<Button> booth_buttons; //buttons in mode 2
+ArrayList<Button> lib_buttons; //buttons in mode 1
+ArrayList<Button> edit_buttons; //buttons in mode 3
 int scroll; //used with mouse wheel 
 boolean stopScroll; //variable to check if library can still be scrolled 
 int picNum; //used to name image 
@@ -23,7 +25,10 @@ void setup() {
   stopScroll = false;
   mode = 1; //always start in library mode
 
+  //initializing ArrayLists 
   booth_buttons = new ArrayList<Button>();
+  lib_buttons = new ArrayList<Button>();
+  edit_buttons = new ArrayList<Button>();
 
   //setup for loading images from directory for library
   addFiles("Images"); //load images from Images directory 
@@ -45,8 +50,12 @@ void setup() {
   cam = new Capture(this, 640, 480);
 
   //booth_buttons 
-  Button play = new Button(384, 612, 50, false, "take"); //capture button
-  booth_buttons.add(play); 
+  Button take = new Button(384, 612, 50, false, "take"); //capture button
+  booth_buttons.add(take); 
+  
+  //lib_buttons
+  Button go_to_booth = new Button(675, 12.5, 75, 25, true, "redirect");
+  lib_buttons.add(go_to_booth);
 }
 
 void mouseClicked(){ //if mouse is clicked 
@@ -108,8 +117,18 @@ void draw() {
     textAlign(CENTER);
     PFont font = createFont("NEOTERICc - Bold DEMO VERSION.ttf",23);
     textFont(font);
+    
+    for (Button b : lib_buttons){
+      b.display();
+    }
+    
+    //formatting button label
     text("Photo Library",384,32);
+    textSize(16);
+    fill(0);
+    text("Booth", 712, 30);
   }
+  
   if (mode == 2) { //booth mode 
     cam.start();
     if (cam.available() == true) {
@@ -126,6 +145,7 @@ void draw() {
       b.display();
     }
   }
+  
   if (mode == 3) { //edit mode
   }
 }

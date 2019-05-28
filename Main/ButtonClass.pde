@@ -24,7 +24,10 @@ class Button {
   
   void display() {
     if (shape){
-      rect(x,y,w,h);
+      if (type.equals("redirect")){
+        rect(x,y,w,h,6);
+      }
+      else rect(x,y,w,h);
     }
     else{
       ellipse(x,y,d,d);
