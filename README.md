@@ -121,7 +121,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     </ul><br>
     </td>
   </tr>
-    <tr>
+  <tr>
     <td>5/27/19</td>
     <td>
     Grace: :octocat:
@@ -134,6 +134,36 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
       <li>added new type of button (redirect)</li>
       <li>wrote code so that redirect button functioned</li>
       <li>added more images for demonstration purposes</li>
+    </ul><br>
+    </td>
+  </tr>
+  <tr>
+    <td>5/28/19</td>
+    <td>
+    Grace: :octocat:
+    <br><ul>
+      <li></li>
+      <li></li>
+    </ul><br>
+    Jackie: :hatched_chick:
+    <br><ul>
+      <li></li>
+      <li></li>
+    </ul><br>
+    </td>
+  </tr>
+  <tr>
+    <td>5/28/19</td>
+    <td>
+    Grace: :octocat:
+    <br><ul>
+      <li></li>
+      <li></li>
+    </ul><br>
+    Jackie: :hatched_chick:
+    <br><ul>
+      <li></li>
+      <li></li>
     </ul><br>
     </td>
   </tr>
