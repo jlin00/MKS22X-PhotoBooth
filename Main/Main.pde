@@ -61,50 +61,59 @@ void setup() {
   booth_buttons.add(take); 
   
   //lib_buttons
-  Button go_to_booth = new Button(675, 12.5, 75, 25, true, "redirect");
+  Button go_to_booth = new Button(675, 12.5, 75, 25, true, "redirectB");
   lib_buttons.add(go_to_booth);
+  Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
+  booth_buttons.add(go_to_lib);
 }
 
 void mouseClicked(){ //if mouse is clicked 
-  for (Button b : booth_buttons) { //loops through booth buttons 
-    if (b.shape) { //if rectangular button
-      if (mouseX >= b.x && mouseX <= b.x+b.w && 
-        mouseY >= b.y && mouseY <= b.y+b.h) {
-        //code for rectangular button actions
-      }
-    } else { //if circular buttons
-      float disX = b.x - mouseX;
-      float disY = b.y - mouseY;
-      if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
-        if (b.type.equals("take")) { //if capture button 
-          b.contract();
-          PImage slice = get(0, 50, 768, 576); //only saves portion of screen 
-          slice.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
-          picNum++;
-          b.uncontract();
-          fill(255);
-          rect(0,50,768,576);
+  if (mode == 2) {
+    for (Button b : booth_buttons) { //loops through booth buttons 
+      if (b.shape) { //if rectangular button
+        if (mouseX >= b.x && mouseX <= b.x+b.w && 
+          mouseY >= b.y && mouseY <= b.y+b.h) {
+          if (b.type.equals("redirectL")){
+              text_clicked();
+              text("LIBRARY", 714, 30);
+              undo_text_clicked();
+              mode = 1;
+          }
+        }
+      } else { //if circular buttons
+        float disX = b.x - mouseX;
+        float disY = b.y - mouseY;
+        if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
+          if (b.type.equals("take")) { //if capture button 
+            b.contract();
+            PImage slice = get(0, 50, 768, 576); //only saves portion of screen 
+            slice.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
+            picNum++;
+            b.uncontract();
+            fill(255);
+            rect(0,50,768,576);
+          }
         }
       }
     }
-  }
-  
-  for (Button b: lib_buttons){
-    if (b.shape) { //if rectangular button
-      if (mouseX >= b.x && mouseX <= b.x+b.w && 
-        mouseY >= b.y && mouseY <= b.y+b.h) {
-          if (b.type.equals("redirect")){
-            text_clicked();
-            text("BOOTH", 714, 30);
-            undo_text_clicked();
-            mode = 2;
-          }
-      }
-    } else { //if circular buttons
-      float disX = b.x - mouseX;
-      float disY = b.y - mouseY;
-      if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
-        //code for circular button actions
+  } else if (mode == 1) {
+    for (Button b: lib_buttons){
+      if (b.shape) { //if rectangular button
+        if (mouseX >= b.x && mouseX <= b.x+b.w && 
+          mouseY >= b.y && mouseY <= b.y+b.h) {
+            if (b.type.equals("redirectB")){
+              text_clicked();
+              text("BOOTH", 714, 30);
+              undo_text_clicked();
+              mode = 2;
+            } 
+        }
+      } else { //if circular buttons
+        float disX = b.x - mouseX;
+        float disY = b.y - mouseY;
+        if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
+          //code for circular button actions
+        }
       }
     }
   }
@@ -166,11 +175,17 @@ void draw() {
     popMatrix();
     
     heading_settings();
-    text("Photo Booth",384,32);
     
     for (Button b : booth_buttons) {
       b.display();
     }
+    
+    text("Photo Booth",384,32);
+    textSize(14);
+    fill(0);
+    text("LIBRARY", 712, 30);
+    
+    
   }
   
   if (mode == 3) { //edit mode
