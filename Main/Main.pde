@@ -56,6 +56,8 @@ void setup() {
   //lib_buttons
   Button go_to_booth = new Button(675, 12.5, 75, 25, true, "redirect");
   lib_buttons.add(go_to_booth);
+  Button go_to_editor = new Button(18, 12.5, 75, 25, true, "redirect");
+  lib_buttons.add(go_to_editor);
 }
 
 void mouseClicked(){ //if mouse is clicked 
@@ -76,6 +78,23 @@ void mouseClicked(){ //if mouse is clicked
           picNum++;
           b.uncontract();
         }
+      }
+    }
+  }
+  
+  for (Button b: lib_buttons){
+    if (b.shape) { //if rectangular button
+      if (mouseX >= b.x && mouseX <= b.x+b.w && 
+        mouseY >= b.y && mouseY <= b.y+b.h) {
+          if (b.type.equals("redirect")){
+            mode = 2;
+          }
+      }
+    } else { //if circular buttons
+      float disX = b.x - mouseX;
+      float disY = b.y - mouseY;
+      if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
+        //code for circular button actions
       }
     }
   }
@@ -124,9 +143,10 @@ void draw() {
     
     //formatting button label
     text("Photo Library",384,32);
-    textSize(16);
+    textSize(14);
     fill(0);
-    text("Booth", 712, 30);
+    text("BOOTH", 714, 30);
+    text("EDITOR", 56, 30);
   }
   
   if (mode == 2) { //booth mode 
