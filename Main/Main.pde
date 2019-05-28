@@ -27,7 +27,7 @@ void addFiles(String dir){ //add all the filenames from images into array
 }
 
 void setup() {
-  size(768, 650);
+  size(768, 700);
   background(0);
   stopScroll = false; //default scroll method 
   mode = 1; //always start in library mode
@@ -57,7 +57,7 @@ void setup() {
   cam = new Capture(this, 640, 480);
 
   //booth_buttons 
-  Button take = new Button(384, 612, 50, false, "take"); //capture button
+  Button take = new Button(384, 662, 50, false, "take"); //capture button
   booth_buttons.add(take); 
   
   //lib_buttons
@@ -78,12 +78,12 @@ void mouseClicked(){ //if mouse is clicked
       if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
         if (b.type.equals("take")) { //if capture button 
           b.contract();
-          PImage slice = get(0, 0, 768, 576); //only saves portion of screen 
+          PImage slice = get(0, 50, 768, 576); //only saves portion of screen 
           slice.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
           picNum++;
           b.uncontract();
           fill(255);
-          rect(0,0,768,576);
+          rect(0,50,768,576);
         }
       }
     }
@@ -118,7 +118,7 @@ void mouseWheel(MouseEvent event){ //only necessary for library mode
   if (first_ycor + scroll > 60){ //if cannot scroll down further
     stopScroll = true;
   }
-  else if (last_ycor + scroll < 500){ //if cannot scroll up futher 
+  else if (last_ycor + scroll < 550){ //if cannot scroll up futher 
     stopScroll = true;
   }
   else stopScroll = false;
@@ -161,10 +161,13 @@ void draw() {
     pushMatrix();
     scale(-1, 1); //flip image on x axis 
     scale(1.2);
-    translate(128, 0);
+    translate(128, 42);
     image(cam.get(), -width, 0);
     popMatrix();
-
+    
+    heading_settings();
+    text("Photo Booth",384,32);
+    
     for (Button b : booth_buttons) {
       b.display();
     }

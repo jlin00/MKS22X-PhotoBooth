@@ -30,9 +30,9 @@ class Button {
       else rect(x,y,w,h);
     }
     else{
+      stroke(0);
       ellipse(x,y,d,d);
       if (type.equals("take")){
-        stroke(0);
         strokeWeight(1);
         fill(255);
         ellipse(x,y,d*0.8,d*0.8);
