@@ -103,9 +103,6 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <br><ul>
       <li>added contracting effect to capture button to be activated upon mouseClick </li>
       <li>adjusted Booth Mode so that only a portion of the screen is captured and saved</li>
-      <li>regrouped Buttons from different modes in different ArrayLists </li>
-      <li>worked in Library Mode to figure out dimensions for displaying images, also added a header</li>
-      <li>read documentation for mouseWheel and added scrolling feature</li>
     </ul><br>
     </td>
   </tr>
@@ -114,11 +111,29 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br><ul>
-      <li></li>
+      <li>taking a well-deserved break :) </li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      <li></li>
+      <li>regrouped Buttons from different modes in different ArrayLists </li>
+      <li>worked in Library Mode to figure out dimensions for displaying images, also added a header</li>
+      <li>read documentation for mouseWheel and added scrolling feature</li>
+    </ul><br>
+    </td>
+  </tr>
+    <tr>
+    <td>5/27/19</td>
+    <td>
+    Grace: :octocat:
+    <br><ul>
+      <li>taking a well-deserved break :) </li>
+    </ul><br>
+    Jackie: :hatched_chick:
+    <br><ul>
+      <li>started formatting edit mode, edited formats of other two modes </li>
+      <li>added new type of button (redirect)</li>
+      <li>wrote code so that redirect button functioned</li>
+      <li>added more images for demonstration purposes</li>
     </ul><br>
     </td>
   </tr>
