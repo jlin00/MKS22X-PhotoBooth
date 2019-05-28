@@ -54,9 +54,9 @@ void setup() {
   booth_buttons.add(take); 
   
   //lib_buttons
-  Button go_to_booth = new Button(675, 12.5, 75, 25, true, "redirect");
+  Button go_to_booth = new Button(675, 12.5, 75, 25, true, "redirect_booth");
   lib_buttons.add(go_to_booth);
-  Button go_to_editor = new Button(18, 12.5, 75, 25, true, "redirect");
+  Button go_to_editor = new Button(18, 12.5, 75, 25, true, "redirect_editor");
   lib_buttons.add(go_to_editor);
 }
 
@@ -77,6 +77,8 @@ void mouseClicked(){ //if mouse is clicked
           slice.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
           picNum++;
           b.uncontract();
+          fill(255);
+          rect(0,0,768,576);
         }
       }
     }
@@ -86,8 +88,17 @@ void mouseClicked(){ //if mouse is clicked
     if (b.shape) { //if rectangular button
       if (mouseX >= b.x && mouseX <= b.x+b.w && 
         mouseY >= b.y && mouseY <= b.y+b.h) {
-          if (b.type.equals("redirect")){
+          if (b.type.equals("redirect_booth")){
+            text_clicked();
+            text("BOOTH", 714, 30);
+            undo_text_clicked();
             mode = 2;
+          }
+          if (b.type.equals("redirect_editor")){
+            text_clicked();
+            text("EDITOR", 56, 30);
+            
+            undo_text_clicked();
           }
       }
     } else { //if circular buttons

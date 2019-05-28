@@ -24,7 +24,7 @@ class Button {
   
   void display() {
     if (shape){
-      if (type.equals("redirect")){
+      if (type.substring(0,8).equals("redirect")){
         rect(x,y,w,h,6);
       }
       else rect(x,y,w,h);
