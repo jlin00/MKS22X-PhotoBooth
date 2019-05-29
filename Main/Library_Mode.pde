@@ -4,9 +4,6 @@
 String[] filenames; //names of all files in Images folder 
 ArrayList<PImage> libimages;
 
-// variable for coordinates of each image
-//ArrayList<int[]> imageLocations;
-
 //variables for actions in library mode 
 int scroll; //used with mouse wheel 
 boolean stopScroll; //variable to check if library can still be scrolled 
@@ -36,10 +33,8 @@ void setup_lib(){
   //initializing variables 
   stopScroll = false; //default scroll method 
   lib_buttons = new ArrayList<Button>();
-  //imageLocations = new ArrayList<int[]>();
   
   //setup for loading images from directory for library
-  
   loadLibrary();
     
   //action buttons in library 
@@ -54,8 +49,6 @@ void draw_lib(){
     int xcor = i % 4 * 192 + 2;
     int ycor = i / 4 * 145 + 60 + scroll;
     image(libimages.get(i), xcor, ycor, 188, 141);
-    //int[] temp = new int[] { xcor, ycor, i };
-    //imageLocations.add(temp);
   }
   
   //heading
@@ -86,18 +79,7 @@ void mouseClicked_lib(){
     }
   }
   
-  // clicking images to go to editor mode
-  /*
-  for (int i = 0; i < imageLocations.size(); i++) { // int[] i : imageLocations
-    int[] t = imageLocations.get(i);
-    if (mouseX >= t[0] && mouseX <= t[0]+188 && 
-        mouseY >= t[1] + scroll && mouseY <= t[1]+141 + scroll) {
-          mode = 3;
-          to_edit = libimages.get(t[2]);
-        }
-  }
-  */
-  
+  // clicking images to go to editor mode  
   for (int i = 0; i < libimages.size(); i++){
     int xcor = i % 4 * 192 + 2;
     int ycor = i / 4 * 145 + 60 + scroll;

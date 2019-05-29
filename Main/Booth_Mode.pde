@@ -15,10 +15,10 @@ void setup_booth(){
   booth_buttons.add(take); 
   Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL"); //redirect to library button 
   booth_buttons.add(go_to_lib);
-  Button save = new Button (700, 662, 75, 25, true, "save"); //save button 
+  Button save = new Button (575, 662, 75, 25, true, "save"); //save button 
   save.setPopup(false);
   booth_buttons.add(0,save);
-  Button cancel = new Button(600, 662, 75, 25, true, "cancel"); // cancel button
+  Button cancel = new Button(675, 662, 75, 25, true, "cancel"); // cancel button
   cancel.setPopup(false);
   booth_buttons.add(1,cancel);
 }
@@ -52,8 +52,8 @@ void draw_booth(){
   text("LIBRARY", 712, 30);
   if (toBeSaved) {
     textSize(16);
-    text("SAVE", 735, 680);
-    text("CANCEL", 640, 680);
+    text("SAVE", 615, 680);
+    text("CANCEL", 710, 680);
   }
 }
 
