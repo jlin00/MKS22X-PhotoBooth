@@ -77,3 +77,22 @@ void mouseClicked_lib(){
     }
   }
 }
+
+//mouse_Wheel method for library to be used in main 
+void mouseWheel_lib(MouseEvent event){
+  float e = event.getCount();
+  scroll -= 15*e;
+  int first_ycor = 60; //ycor of first image
+  int last_ycor = (libimages.size() - 1) / 4 * 145 + 60; //ycor of the last image
+  if (first_ycor + scroll > 60){ //if cannot scroll down further
+    stopScroll = true;
+  }
+  else if (last_ycor + scroll < 550){ //if cannot scroll up futher 
+    stopScroll = true;
+  }
+  else stopScroll = false;
+  
+  if (stopScroll) scroll += 15*e;
+  //println(e);
+  //println(scroll);
+}

@@ -18,3 +18,7 @@ void draw_editor(){
   heading_settings();
   text("Photo Editor",384,32);
 }
+
+//mouseClicked method for editor mode to be used in main 
+void mouseClicked_editor(){
+}

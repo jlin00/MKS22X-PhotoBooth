@@ -31,26 +31,12 @@ void mouseClicked(){ //if mouse is clicked
     mouseClicked_booth();
   }
   else {
-    
+    mouseClicked_editor();
   }
 }
 
 void mouseWheel(MouseEvent event){ //only necessary for library mode
-  float e = event.getCount();
-  scroll -= 25*e;
-  int first_ycor = 60; //ycor of first image
-  int last_ycor = (libimages.size() - 1) / 4 * 145 + 60; //ycor of the last image
-  if (first_ycor + scroll > 60){ //if cannot scroll down further
-    stopScroll = true;
-  }
-  else if (last_ycor + scroll < 550){ //if cannot scroll up futher 
-    stopScroll = true;
-  }
-  else stopScroll = false;
-  
-  if (stopScroll) scroll += 25*e;
-  //println(e);
-  //println(scroll);
+  mouseWheel_lib(event);
 }
 
 void draw() {
