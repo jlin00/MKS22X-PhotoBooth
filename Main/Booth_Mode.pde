@@ -18,6 +18,9 @@ void setup_booth(){
   Button save = new Button (700, 662, 75, 25, true, "save"); //save button 
   save.setPopup(false);
   booth_buttons.add(0,save);
+  Button cancel = new Button(600, 662, 75, 25, true, "cancel"); // cancel button
+  cancel.setPopup(false);
+  booth_buttons.add(1,cancel);
 }
 
 //draw for booth mode to be used in main 
@@ -48,6 +51,7 @@ void draw_booth(){
   if (toBeSaved) {
     textSize(16);
     text("SAVE", 735, 680);
+    text("CANCEL", 640, 680);
   }
 }
 
@@ -71,6 +75,11 @@ void mouseClicked_booth(){
           slice.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
           picNum++;
           b.setPopup(false);
+          booth_buttons.get(1).setPopup(false);
+          toBeSaved = false;
+        } else if (b.type.equals("cancel") && b.popup == true) {
+          b.setPopup(false);
+          booth_buttons.get(0).setPopup(false);
           toBeSaved = false;
         }
       }
@@ -85,6 +94,7 @@ void mouseClicked_booth(){
         if (b.type.equals("take")){ 
           b.contract();
           booth_buttons.get(0).setPopup(true);
+          booth_buttons.get(1).setPopup(true);
           b.uncontract();
           fill(255);
           rect(0,50,768,576);
