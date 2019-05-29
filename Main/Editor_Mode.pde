@@ -13,6 +13,10 @@ void setup_editor(){
   edit_buttons.add(go_to_lib);
   Button go_to_booth = new Button(18, 12.5, 75, 25, true, "redirectB"); //redirect to editor button 
   edit_buttons.add(go_to_booth);
+  Button save = new Button (18, 662, 75, 25, true, "save"); //save button 
+  edit_buttons.add(0,save);
+  Button cancel = new Button(675, 662, 75, 25, true, "cancel"); // cancel button
+  edit_buttons.add(1,cancel);
 }
 
 //draw for editor mode to be used in main 
@@ -22,6 +26,9 @@ void draw_editor(){
   //heading
   heading_settings();
   text("Photo Editor",384,32);
+  
+  //footer
+  footer_settings();
   
   image(to_edit, 153.5, 115, 461, 346);
   
@@ -33,6 +40,9 @@ void draw_editor(){
   fill(0);
   text("LIBRARY", 712, 30);
   text("BOOTH", 56, 30);
+  textSize(16);
+  text("SAVE", 55, 680);
+  text("CANCEL", 710, 680);
 }
 
 //mouseClicked method for editor mode to be used in main 
@@ -49,6 +59,15 @@ void mouseClicked_editor(){
           text_clicked();
           text("BOOTH", 56, 30);
           mode = 2;
+        }
+        if (b.type.equals("save")){
+          to_edit.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
+          loadLibrary(); 
+          mode = 1;
+        }
+        if (b.type.equals("cancel")){
+          loadLibrary(); 
+          mode = 1; 
         }
       }
     }

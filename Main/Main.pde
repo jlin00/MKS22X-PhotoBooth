@@ -30,7 +30,7 @@ void mouseClicked(){ //if mouse is clicked
   else if (mode == 2) {
     mouseClicked_booth();
   }
-  else {
+  else if (mode == 3){
     mouseClicked_editor();
   }
 }

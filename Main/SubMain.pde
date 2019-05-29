@@ -13,3 +13,10 @@ void heading_settings(){ //setup for heading of each mode
   PFont font = createFont("NEOTERICc - Bold DEMO VERSION.ttf",23);
   textFont(font);
 }
+
+void footer_settings(){ //setup for footer of editor 
+  fill(188,215,255);
+  noStroke();
+  rect(0,649,768,51);
+  fill(255);
+}
