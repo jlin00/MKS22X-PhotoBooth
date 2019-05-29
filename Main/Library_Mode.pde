@@ -62,3 +62,5 @@ void draw_lib(){
   fill(0);
   text("BOOTH", 714, 30);
 }
+
+//mouseClicked method for library to be used in main 

@@ -45,3 +45,45 @@ void draw_booth(){
   fill(0);
   text("LIBRARY", 712, 30);
 }
+
+//mouseClicked method for booth to be used in main 
+void mouseClicked_booth(){
+  for (Button b : booth_buttons) { //loops through booth buttons  
+    if (b.shape) { //if rectangular button
+      if (mouseX >= b.x && mouseX <= b.x+b.w && mouseY >= b.y && mouseY <= b.y+b.h){
+        
+        //redirect to library action 
+        if (b.type.equals("redirectL")){ 
+          text_clicked();
+          text("LIBRARY", 714, 30);
+          undo_text_clicked();
+          mode = 1;
+        }
+        
+        //save image action 
+        if (b.type.equals("save") && b.popup == true){
+          PImage slice = get(0, 50, 768, 576); //only saves portion of screen 
+          slice.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
+          picNum++;
+          b.setPopup(false);
+        }
+      }
+    }
+    
+    else { //if circular button
+      float disX = b.x - mouseX;
+      float disY = b.y - mouseY;
+      if (sqrt(sq(disX) + sq(disY)) < b.d/2){
+        
+        //capture picture action
+        if (b.type.equals("take")){ 
+          b.contract();
+          booth_buttons.get(0).setPopup(true);
+          b.uncontract();
+          fill(255);
+          rect(0,50,768,576);
+        }
+      }
+    }
+  }
+}
