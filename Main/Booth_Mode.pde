@@ -2,6 +2,7 @@
 
 //variables 
 int picNum; //used to name image 
+boolean toBeSaved = false; // keep track of just taken photo
 ArrayList<Button> booth_buttons; 
 
 //setup for booth mode to be used in main 
@@ -23,7 +24,7 @@ void setup_booth(){
 void draw_booth(){
   background(188,215,255);
   cam.start();
-  if (cam.available() == true) {
+  if (cam.available() == true && !toBeSaved) {
     cam.read();
   }
   pushMatrix();
@@ -66,6 +67,7 @@ void mouseClicked_booth(){
           slice.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
           picNum++;
           b.setPopup(false);
+          toBeSaved = false;
         }
       }
     }
@@ -82,6 +84,7 @@ void mouseClicked_booth(){
           b.uncontract();
           fill(255);
           rect(0,50,768,576);
+          toBeSaved = true;
         }
       }
     }
