@@ -2,8 +2,6 @@
 
 //variables 
 PImage to_edit; //image to be edited 
-int picWidth;
-int picHeight;
 ArrayList<Button> edit_buttons; //buttons in mode 3
 
 //setup for editor mode to be used in main
@@ -11,8 +9,8 @@ void setup_editor(){
   //initializing variables
   edit_buttons = new ArrayList<Button>();
   
-  Button goToLib = new Button(675, 12.5, 75, 25, true, "redirectL");
-  edit_buttons.add(goToLib);
+  Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
+  edit_buttons.add(go_to_lib);
 }
 
 //draw for editor mode to be used in main 
@@ -23,8 +21,7 @@ void draw_editor(){
   heading_settings();
   text("Photo Editor",384,32);
   
-  to_edit.resize(picWidth*2, picHeight*2);
-  image(to_edit, 290 - (picWidth / 2.0), 300 - (picHeight / 2.0));
+  image(to_edit, 0, 50,768,576);
   
   for (Button b : edit_buttons) {
     b.display();

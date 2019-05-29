@@ -51,10 +51,10 @@ void setup_lib(){
 void draw_lib(){
   background(245);
   for (int i = 0; i < libimages.size(); i++) {
-    libimages.get(i).resize(188, 141);
+    //libimages.get(i).resize(188, 141);
     int xcor = i % 4 * 192 + 2;
     int ycor = i / 4 * 145 + 60 + scroll;
-    image(libimages.get(i), xcor, ycor);
+    image(libimages.get(i), xcor, ycor, 188, 141);
     int[] temp = new int[] { xcor, ycor, i };
     imageLocations.add(temp);
   }
@@ -94,8 +94,6 @@ void mouseClicked_lib(){
         mouseY >= t[1] && mouseY <= t[1]+141) {
           mode = 3;
           to_edit = libimages.get(t[2]);
-          picWidth = to_edit.width;
-          picHeight = to_edit.height;
         }
   }
 }
