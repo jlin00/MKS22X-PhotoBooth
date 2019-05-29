@@ -3,10 +3,6 @@ import processing.video.*;
 Capture cam;
 int mode; //1- library, 2- booth, 3- editor
 
-//mode 2
-int picNum; //used to name image 
-ArrayList<Button> booth_buttons; //buttons in mode 2
-
 //mode 3
 PImage to_edit;
 ArrayList<Button> edit_buttons; //buttons in mode 3
@@ -19,10 +15,10 @@ void setup() {
 
   //setup the three modes 
   setup_lib();
+  setup_booth();
   
   
   //initializing ArrayLists 
-  booth_buttons = new ArrayList<Button>();
   edit_buttons = new ArrayList<Button>();
 
   //setup for loading cameras 
@@ -33,15 +29,6 @@ void setup() {
     exit();
   } 
   cam = new Capture(this, 640, 480);
-
-  //booth_buttons 
-  Button take = new Button(384, 662, 50, false, "take"); //capture button
-  booth_buttons.add(take); 
-  Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL"); //redirect to library button 
-  booth_buttons.add(go_to_lib);
-  Button save = new Button (700, 662, 75, 25, true, "save"); //save button 
-  save.setPopup(false);
-  booth_buttons.add(0,save);
 }
 
 void mouseClicked(){ //if mouse is clicked 
@@ -122,36 +109,12 @@ void mouseWheel(MouseEvent event){ //only necessary for library mode
 }
 
 void draw() {
-
   if (mode == 1) { //library mode
     draw_lib();
   }
   
   if (mode == 2) { //booth mode
-    background(245);
-    cam.start();
-    if (cam.available() == true) {
-      cam.read();
-    }
-    pushMatrix();
-    scale(-1, 1); //flip image on x axis 
-    scale(1.2);
-    translate(128, 42);
-    image(cam.get(), -width, 0);
-    popMatrix();
-    
-    heading_settings();
-    
-    for (Button b : booth_buttons) {
-      b.display();
-    }
-    
-    text("Photo Booth",384,32);
-    textSize(14);
-    fill(0);
-    text("LIBRARY", 712, 30);
-    
-    
+    draw_booth();
   }
   
   if (mode == 3) { //edit mode
