@@ -56,7 +56,6 @@ void mouseClicked_booth(){
         if (b.type.equals("redirectL")){ 
           text_clicked();
           text("LIBRARY", 714, 30);
-          undo_text_clicked();
           mode = 1;
         }
         

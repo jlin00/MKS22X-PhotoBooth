@@ -24,29 +24,14 @@ void setup() {
 }
 
 void mouseClicked(){ //if mouse is clicked 
-  if (mode == 2) {
+  if (mode == 1) {
+    mouseClicked_lib();
+  }
+  else if (mode == 2) {
     mouseClicked_booth();
   }
-  else if (mode == 1) {
-     for (Button b: lib_buttons){
-      if (b.shape) { //if rectangular button
-        if (mouseX >= b.x && mouseX <= b.x+b.w && 
-          mouseY >= b.y && mouseY <= b.y+b.h) {
-            if (b.type.equals("redirectB")){
-              text_clicked();
-              text("BOOTH", 714, 30);
-              undo_text_clicked();
-              mode = 2;
-            } 
-        }
-      } else { //if circular buttons
-        float disX = b.x - mouseX;
-        float disY = b.y - mouseY;
-        if (sqrt(sq(disX) + sq(disY)) < b.d/2) {
-          //code for circular button actions
-        }
-      }
-    }
+  else {
+    
   }
 }
 

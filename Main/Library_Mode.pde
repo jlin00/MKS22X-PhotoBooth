@@ -64,3 +64,16 @@ void draw_lib(){
 }
 
 //mouseClicked method for library to be used in main 
+void mouseClicked_lib(){
+  for (Button b: lib_buttons){
+    if (b.shape) { //if rectangular button
+      if (mouseX >= b.x && mouseX <= b.x+b.w && mouseY >= b.y && mouseY <= b.y+b.h) {
+        if (b.type.equals("redirectB")){
+          text_clicked();
+          text("BOOTH", 714, 30);
+          mode = 2;
+        } 
+      }
+    }
+  }
+}

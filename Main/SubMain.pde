@@ -4,10 +4,6 @@ void text_clicked(){
   fill(172,172,172);
 }
 
-void undo_text_clicked(){
-  fill(0);
-}
-
 void heading_settings(){ //setup for heading of each mode 
   fill(188,215,255);
   noStroke();
