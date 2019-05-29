@@ -17,13 +17,7 @@ void addFiles(String dir){ //add all the filenames from images into array
   //println(path);
 }
 
-//setup for library mode to be used in main 
-void setup_lib(){
-  //initializing variables 
-  stopScroll = false; //default scroll method 
-  lib_buttons = new ArrayList<Button>();
-  
-  //setup for loading images from directory for library
+void loadLibrary() {
   addFiles("Images"); //load images from Images directory 
   libimages = new ArrayList<PImage>(); //initialize arraylist
   for (int i = 0; i < filenames.length; i++){
@@ -32,7 +26,17 @@ void setup_lib(){
       libimages.add(temp);
     }
   }
+}
+
+//setup for library mode to be used in main 
+void setup_lib(){
+  //initializing variables 
+  stopScroll = false; //default scroll method 
+  lib_buttons = new ArrayList<Button>();
   
+  //setup for loading images from directory for library
+  
+  loadLibrary();
     
   //action buttons in library 
   Button go_to_booth = new Button(675, 12.5, 75, 25, true, "redirectB");

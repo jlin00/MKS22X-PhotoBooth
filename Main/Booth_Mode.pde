@@ -57,6 +57,7 @@ void mouseClicked_booth(){
           text_clicked();
           text("LIBRARY", 714, 30);
           mode = 1;
+          loadLibrary();
         }
         
         //save image action 
