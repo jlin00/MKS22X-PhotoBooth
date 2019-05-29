@@ -94,6 +94,8 @@ void mouseClicked_lib(){
         mouseY >= t[1] && mouseY <= t[1]+141) {
           mode = 3;
           to_edit = libimages.get(t[2]);
+          picWidth = to_edit.width;
+          picHeight = to_edit.height;
         }
   }
 }
