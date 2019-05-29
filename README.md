@@ -142,18 +142,24 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br><ul>
-      <li></li>
-      <li></li>
+      <li>create new buttons to switch between modes</li>
+      <li>froze image in booth mode after capturing</li>
+      <li>worked on creating save and cancel button (pair programming)</li>
+      <li>worked on skeleton code for transitioning from library to editor</li>
+      <li>formatted editor mod</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      <li></li>
-      <li></li>
+      <li>modified save and cancel button (pair programming)</li>
+      <li>transferred methods from main into new classes devote to the three modes</li>
+      <li>fixed issue with scrolling when transitioning from library to editor</li>
+      <li>fixed issue with resize in editor mode (formatting)</li>
+      <li>added new image samples </li>
     </ul><br>
     </td>
   </tr>
   <tr>
-    <td>5/28/19</td>
+    <td>5/29/19</td>
     <td>
     Grace: :octocat:
     <br><ul>
