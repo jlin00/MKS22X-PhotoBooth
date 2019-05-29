@@ -3,11 +3,6 @@ import processing.video.*;
 Capture cam;
 int mode; //1- library, 2- booth, 3- editor
 
-//mode 3
-PImage to_edit;
-ArrayList<Button> edit_buttons; //buttons in mode 3
-
-
 void setup() {
   size(768, 700);
   background(0);
@@ -16,10 +11,7 @@ void setup() {
   //setup the three modes 
   setup_lib();
   setup_booth();
-  
-  
-  //initializing ArrayLists 
-  edit_buttons = new ArrayList<Button>();
+  setup_editor();
 
   //setup for loading cameras 
   String[] cameras = Capture.list();
@@ -118,10 +110,6 @@ void draw() {
   }
   
   if (mode == 3) { //edit mode
-    background(245);
-    //heading
-    heading_settings();
-    text("Photo Editor",384,32);
-    
+    draw_editor();
   }
 }
