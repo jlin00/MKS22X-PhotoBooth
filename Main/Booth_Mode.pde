@@ -45,6 +45,10 @@ void draw_booth(){
   textSize(14);
   fill(0);
   text("LIBRARY", 712, 30);
+  if (toBeSaved) {
+    textSize(16);
+    text("SAVE", 735, 680);
+  }
 }
 
 //mouseClicked method for booth to be used in main 
