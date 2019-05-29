@@ -11,6 +11,8 @@ void setup_editor(){
   
   Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
   edit_buttons.add(go_to_lib);
+  Button go_to_booth = new Button(18, 12.5, 75, 25, true, "redirectB"); //redirect to editor button 
+  edit_buttons.add(go_to_booth);
 }
 
 //draw for editor mode to be used in main 
@@ -30,6 +32,7 @@ void draw_editor(){
   textSize(14);
   fill(0);
   text("LIBRARY", 712, 30);
+  text("BOOTH", 56, 30);
 }
 
 //mouseClicked method for editor mode to be used in main 
@@ -41,7 +44,12 @@ void mouseClicked_editor(){
           text_clicked();
           text("LIBRARY", 714, 30);
           mode = 1;
-        } 
+        }
+        if (b.type.equals("redirectB")){
+          text_clicked();
+          text("BOOTH", 56, 30);
+          mode = 2;
+        }
       }
     }
   }
