@@ -21,7 +21,7 @@ void draw_editor(){
   heading_settings();
   text("Photo Editor",384,32);
   
-  image(to_edit, 0, 50,768,576);
+  image(to_edit, 153.5, 115, 461, 346);
   
   for (Button b : edit_buttons) {
     b.display();
