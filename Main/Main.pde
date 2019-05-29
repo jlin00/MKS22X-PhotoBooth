@@ -3,13 +3,6 @@ import processing.video.*;
 Capture cam;
 int mode; //1- library, 2- booth, 3- editor
 
-//mode 1
-String[] filenames; //names of all files in Images folder 
-ArrayList<PImage> libimages;
-int scroll; //used with mouse wheel 
-boolean stopScroll; //variable to check if library can still be scrolled 
-ArrayList<Button> lib_buttons; //buttons in mode 1
-
 //mode 2
 int picNum; //used to name image 
 ArrayList<Button> booth_buttons; //buttons in mode 2
@@ -19,33 +12,18 @@ PImage to_edit;
 ArrayList<Button> edit_buttons; //buttons in mode 3
 
 
-void addFiles(String dir){ //add all the filenames from images into array
-  String path = sketchPath(dir);
-  filenames = listFileNames(path);
-  //printArray(filenames);
-  //println(path);
-}
-
 void setup() {
   size(768, 700);
   background(0);
-  stopScroll = false; //default scroll method 
   mode = 1; //always start in library mode
 
+  //setup the three modes 
+  setup_lib();
+  
+  
   //initializing ArrayLists 
   booth_buttons = new ArrayList<Button>();
-  lib_buttons = new ArrayList<Button>();
   edit_buttons = new ArrayList<Button>();
-
-  //setup for loading images from directory for library
-  addFiles("Images"); //load images from Images directory 
-  libimages = new ArrayList<PImage>(); //initialize arraylist
-  for (int i = 0; i < filenames.length; i++) {
-    if (!filenames[i].substring(0, 1).equals(".")) {
-      PImage temp = loadImage("Images/" + filenames[i]); //load each image based on filename
-      libimages.add(temp);
-    }
-  }
 
   //setup for loading cameras 
   String[] cameras = Capture.list();
@@ -59,15 +37,11 @@ void setup() {
   //booth_buttons 
   Button take = new Button(384, 662, 50, false, "take"); //capture button
   booth_buttons.add(take); 
+  Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL"); //redirect to library button 
+  booth_buttons.add(go_to_lib);
   Button save = new Button (700, 662, 75, 25, true, "save"); //save button 
   save.setPopup(false);
   booth_buttons.add(0,save);
-  
-  //lib_buttons
-  Button go_to_booth = new Button(675, 12.5, 75, 25, true, "redirectB");
-  lib_buttons.add(go_to_booth);
-  Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
-  booth_buttons.add(go_to_lib);
 }
 
 void mouseClicked(){ //if mouse is clicked 
@@ -150,25 +124,7 @@ void mouseWheel(MouseEvent event){ //only necessary for library mode
 void draw() {
 
   if (mode == 1) { //library mode
-    background(245);
-    for (int i = 0; i < libimages.size(); i++) {
-      libimages.get(i).resize(188, 141);
-      int xcor = i % 4 * 192 + 2;
-      int ycor = i / 4 * 145 + 60 + scroll;
-      image(libimages.get(i), xcor, ycor);
-    }
-    //heading
-    heading_settings();
-    
-    for (Button b : lib_buttons){
-      b.display();
-    }
-    
-    //formatting button label
-    text("Photo Library",384,32);
-    textSize(14);
-    fill(0);
-    text("BOOTH", 714, 30);
+    draw_lib();
   }
   
   if (mode == 2) { //booth mode
