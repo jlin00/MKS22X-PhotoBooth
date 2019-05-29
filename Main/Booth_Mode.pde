@@ -21,6 +21,9 @@ void setup_booth(){
   Button cancel = new Button(675, 662, 75, 25, true, "cancel"); // cancel button
   cancel.setPopup(false);
   booth_buttons.add(1,cancel);
+  Button go_to_editor = new Button(18, 12.5, 75, 25, true, "redirectE"); //redirect to editor button 
+  go_to_editor.setPopup(false);
+  booth_buttons.add(2,go_to_editor);
 }
 
 //draw for booth mode to be used in main 
@@ -54,6 +57,8 @@ void draw_booth(){
     textSize(16);
     text("SAVE", 615, 680);
     text("CANCEL", 710, 680);
+    textSize(14);
+    text("EDITOR", 56, 30);
   }
 }
 
@@ -78,11 +83,22 @@ void mouseClicked_booth(){
           picNum++;
           b.setPopup(false);
           booth_buttons.get(1).setPopup(false);
+          booth_buttons.get(2).setPopup(false);
           toBeSaved = false;
-        } else if (b.type.equals("cancel") && b.popup == true) {
+        } 
+        else if (b.type.equals("cancel") && b.popup == true) {
           b.setPopup(false);
           booth_buttons.get(0).setPopup(false);
+          booth_buttons.get(2).setPopup(false);
           toBeSaved = false;
+        }
+        else if (b.type.equals("redirectE") && b.popup == true){
+          b.setPopup(false);
+          booth_buttons.get(0).setPopup(false);
+          booth_buttons.get(1).setPopup(false);
+          toBeSaved = false;
+          to_edit = get(0, 50, 768, 576);
+          mode = 3;
         }
       }
     }
@@ -97,6 +113,7 @@ void mouseClicked_booth(){
           b.contract();
           booth_buttons.get(0).setPopup(true);
           booth_buttons.get(1).setPopup(true);
+          booth_buttons.get(2).setPopup(true);
           b.uncontract();
           fill(255);
           rect(0,50,768,576);
