@@ -28,11 +28,7 @@ class Button {
   void display() {
     if (shape){
       noStroke();
-      if (type.equals("redirectL") || type.equals("redirectB") || 
-          type.equals("save") || type.equals("cancel")){
-        if (popup) rect(x,y,w,h,6);
-      }
-      else rect(x,y,w,h);
+      rect(x,y,w,h,6);
     }
     else{
       stroke(0);

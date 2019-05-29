@@ -40,7 +40,9 @@ void draw_booth(){
   heading_settings();
     
   for (Button b : booth_buttons) {
-    b.display();
+    if (b.popup){
+      b.display();
+    }
   }
   
   //creates heading 
