@@ -49,4 +49,3 @@ void draw(){
   }
   edit.updatePixels();
   image(edit, 50, 50);
-}
