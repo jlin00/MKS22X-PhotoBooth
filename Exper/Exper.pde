@@ -1,6 +1,8 @@
 PImage orig;
-float multiplier = 1.0 / 9;
-float[][] kernel = {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
+float multiplier = 1.0 / 16;
+float[][] kernel = { {1, 2, 1},
+                     {2, 4, 2},
+                     {1, 2, 1} };
 
 
 void setup(){
@@ -33,9 +35,11 @@ void draw(){
             c = orig.pixels[pos];
           }
           
-          sum_r += multiplier * (red(c));
-          sum_g += multiplier * (green(c));
-          sum_b += multiplier * (blue(c));
+          float kernelNum = kernel[kx+1][ky+1];
+          
+          sum_r += multiplier * kernelNum * (red(c));
+          sum_g += multiplier * kernelNum * (green(c));
+          sum_b += multiplier * kernelNum * (blue(c));
           
           //edit.pixels[y * orig.width + x] = color(sum_r, sum_g, sum_b);
         }
