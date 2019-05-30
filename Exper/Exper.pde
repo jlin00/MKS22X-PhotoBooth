@@ -1,10 +1,10 @@
-PImage orig;
-float multiplier = 1.0;
-float[][] kernel = { {0, -1, 0},
-                     {-1, 5, -1},
-                     {0, -1, 0} };
+/*PImage orig;
+float multiplier = 1.0/9;
+float[][] kernel = { {1, 1, 1},
+                     {1, 1, 1},
+                     {1, 1, 1} };
 
-
+*/
 void setup(){
   size(1200,800);
   background(255);
@@ -13,7 +13,7 @@ void setup(){
   
 }
 
-
+/*
 void draw(){
   orig.loadPixels();
   PImage edit = createImage(orig.width, orig.height, RGB);
@@ -49,4 +49,4 @@ void draw(){
   }
   edit.updatePixels();
   image(edit, 50, 50);
-}
+}*/
