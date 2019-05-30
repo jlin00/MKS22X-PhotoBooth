@@ -1,8 +1,8 @@
 PImage orig;
 float multiplier = 1.0;
-float[][] kernel = { {-1, -1, -1},
-                     {-1, 8, -1},
-                     {-1, -1, -1} };
+float[][] kernel = { {0, -1, 0},
+                     {-1, 5, -1},
+                     {0, -1, 0} };
 
 
 void setup(){
