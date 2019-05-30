@@ -17,6 +17,9 @@ void setup_editor(){
   edit_buttons.add(0,save);
   Button cancel = new Button(675, 662, 75, 25, true, "cancel"); // cancel button
   edit_buttons.add(1,cancel);
+  
+  Button grayScale = new Button(18, 600, 100, 25, true, "greyFilter");
+  edit_buttons.add(grayScale);
 }
 
 //draw for editor mode to be used in main 
@@ -43,6 +46,7 @@ void draw_editor(){
   textSize(16);
   text("SAVE", 55, 680);
   text("CANCEL", 710, 680);
+  text("GRAYSCALE", 65, 620);
 }
 
 //mouseClicked method for editor mode to be used in main 
@@ -68,6 +72,9 @@ void mouseClicked_editor(){
         if (b.type.equals("cancel")){
           loadLibrary(); 
           mode = 1; 
+        }
+        if (b.type.equals("greyFilter")) {
+          grayscale(to_edit);
         }
       }
     }
