@@ -49,7 +49,4 @@ void draw(){
   }
   edit.updatePixels();
   image(edit, 50, 50);
-<<<<<<< HEAD
-=======
 }*/
->>>>>>> 5e196225fcd4427ced56e5df29a0f5629fbcf25d
