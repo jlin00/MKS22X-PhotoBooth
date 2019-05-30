@@ -146,7 +146,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
       <li>froze image in booth mode after capturing</li>
       <li>worked on creating save and cancel button (pair programming)</li>
       <li>worked on skeleton code for transitioning from library to editor</li>
-      <li>formatted editor mod</li>
+      <li>formatted editor mode</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
@@ -160,6 +160,20 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
   </tr>
   <tr>
     <td>5/29/19</td>
+    <td>
+    Grace: :octocat:
+    <br><ul>
+      <li>read very complicated documentation about kernel image processing</li>
+    </ul><br>
+    Jackie: :hatched_chick:
+    <br><ul>
+      <li>read very complicated documentation about kernel image processing</li>
+      <li>created a few new buttons in booth and editor mode to facilitate the transition between modes</li>
+    </ul><br>
+    </td>
+  </tr>
+  <tr>
+    <td>5/30/19</td>
     <td>
     Grace: :octocat:
     <br><ul>
