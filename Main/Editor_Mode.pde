@@ -74,7 +74,7 @@ void mouseClicked_editor(){
           mode = 1; 
         }
         if (b.type.equals("greyFilter")) {
-          grayscale(to_edit);
+          redscale(to_edit);
         }
       }
     }
