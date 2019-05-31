@@ -1,4 +1,4 @@
-PImage orig;
+/*PImage orig;
 
 void draw() {
   orig.loadPixels();
@@ -12,4 +12,4 @@ void draw() {
   
   edit.updatePixels();
   image(edit, 50, 50);
-}
+}*/
