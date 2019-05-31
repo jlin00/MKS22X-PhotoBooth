@@ -4,9 +4,12 @@
 PImage to_edit; //image to be edited, immutable
 PImage copy; //copy of to_edit
 ArrayList<Button> edit_buttons; //buttons in mode 3
+ArrayList<Sticker> stickers;
 
 //setup for editor mode to be used in main
 void setup_editor(){
+  PImage dogSticker = loadImage("puppy.png");
+  
   //initializing variables
   edit_buttons = new ArrayList<Button>();
   
@@ -40,6 +43,14 @@ void setup_editor(){
   //kernel image processing 
   Button blur = new Button(18, 625, 100, 25, true, "blur");
   edit_buttons.add(blur);
+  
+  Button dogS = new Button(0, 300, 100, 25, true, "dogS");
+  edit_buttons.add(dogS);
+  
+  stickers = new ArrayList<Sticker>();
+  
+  Sticker dog = new Sticker(dogSticker, 30, 30);
+  stickers.add(dog);
 }
 
 //draw for editor mode to be used in main 
@@ -72,6 +83,8 @@ void draw_editor(){
 
 //mouseClicked method for editor mode to be used in main 
 void mouseClicked_editor(){
+  
+  // going through the buttons
   for (Button b: edit_buttons){
     if (b.shape) { //if rectangular button
       if (mouseX >= b.x && mouseX <= b.x+b.w && mouseY >= b.y && mouseY <= b.y+b.h) {
@@ -128,7 +141,11 @@ void mouseClicked_editor(){
         }
         if (b.type.equals("blur")) {
           copy = to_edit.copy();
-          copy = convolute(copy, blur);
+          copy = convoluteBlur(copy, blur);
+        }
+        
+        if (b.type.equals("dogS")) {
+          stickers.get(0).display();
         }
       }
     }
