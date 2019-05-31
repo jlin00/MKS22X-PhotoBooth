@@ -187,6 +187,21 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
+      <li>wrote the pseudocode for processing every pixel of an image through kernels (convolute method)</li>
+      <li>experimented with different kernels and filters</li>
+      <li>wrote color filters such as redscale, greenscale and invert</li>
+    </ul><br>
+    </td>
+  </tr>
+  <tr>
+    <td>5/31/19</td>
+    <td>
+    Grace: :octocat:
+    <br><ul>
+      <li></li>
+    </ul><br>
+    Jackie: :hatched_chick:
+    <br><ul>
       <li></li>
       <li></li>
     </ul><br>
