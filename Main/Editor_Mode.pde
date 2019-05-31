@@ -75,7 +75,7 @@ void mouseClicked_editor(){
           mode = 1; 
         }
         if (b.type.equals("grayFilter")) {
-          grayscale(to_edit);
+          invert(to_edit);
         }
       }
     }

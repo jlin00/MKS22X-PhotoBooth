@@ -69,3 +69,15 @@ void purplescale(PImage edit) {
   }
   edit.updatePixels();
 }
+
+void invert(PImage edit) {
+  edit.loadPixels();
+  for (int i = 0; i < edit.pixels.length; i++){
+    color current_color = edit.pixels[i];
+    float new_color_red = 255 - red(current_color);
+    float new_color_green = 255 - green(current_color);
+    float new_color_blue = 255 - blue(current_color);
+    edit.pixels[i] = color(new_color_red, new_color_green, new_color_blue);
+  }
+  edit.updatePixels();
+}
