@@ -21,6 +21,9 @@ void setup_editor(){
   //grayscale
   Button grayScale = new Button(18, 600, 100, 25, true, "grayFilter");
   edit_buttons.add(grayScale);
+  
+  Button blur = new Button(18, 625, 100, 25, true, "blur");
+  edit_buttons.add(blur);
 }
 
 //draw for editor mode to be used in main 
@@ -48,6 +51,7 @@ void draw_editor(){
   text("SAVE", 55, 680);
   text("CANCEL", 710, 680);
   text("GRAYSCALE", 65, 620);
+  text("BLUR", 65, 640);
 }
 
 //mouseClicked method for editor mode to be used in main 
@@ -75,7 +79,10 @@ void mouseClicked_editor(){
           mode = 1; 
         }
         if (b.type.equals("grayFilter")) {
-          invert(to_edit);
+          grayscale(to_edit);
+        }
+        if (b.type.equals("blur")) {
+          to_edit = convolute(to_edit, blur);
         }
       }
     }
