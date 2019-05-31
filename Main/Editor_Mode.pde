@@ -18,9 +18,24 @@ void setup_editor(){
   Button cancel = new Button(675, 662, 75, 25, true, "cancel"); // cancel button
   edit_buttons.add(1,cancel);
   
-  //grayscale
-  Button grayScale = new Button(18, 600, 100, 25, true, "grayFilter");
+  //color filters
+  Button grayScale = new Button(0, 600, 100, 25, true, "grayFilter");
   edit_buttons.add(grayScale);
+  Button redScale = new Button(100, 600, 100, 25, true, "redFilter");
+  edit_buttons.add(redScale);
+  Button orangeScale = new Button(200, 600, 100, 25, true, "orangeFilter");
+  edit_buttons.add(orangeScale);
+  Button yellowScale = new Button(300, 600, 100, 25, true, "yellowFilter");
+  edit_buttons.add(yellowScale);
+  Button greenScale = new Button(400, 600, 100, 25, true, "greenFilter");
+  edit_buttons.add(greenScale);
+  Button blueScale = new Button(500, 600, 100, 25, true, "blueFilter");
+  edit_buttons.add(blueScale);
+  Button purpleScale = new Button(600, 600, 100, 25, true, "purpleFilter");
+  edit_buttons.add(purpleScale);
+  Button invert = new Button(700, 600, 100, 25, true, "invertFilter");
+  edit_buttons.add(invert);
+
 }
 
 //draw for editor mode to be used in main 
@@ -75,6 +90,30 @@ void mouseClicked_editor(){
           mode = 1; 
         }
         if (b.type.equals("grayFilter")) {
+          grayscale(to_edit);
+        }
+        if (b.type.equals("grayFilter")) {
+          grayscale(to_edit);
+        }
+        if (b.type.equals("redFilter")) {
+          redscale(to_edit);
+        }
+        if (b.type.equals("orangeFilter")) {
+          orangescale(to_edit);
+        }
+        if (b.type.equals("yellowFilter")) {
+          yellowscale(to_edit);
+        }
+        if (b.type.equals("greenFilter")) {
+          greenscale(to_edit);
+        }
+        if (b.type.equals("blueFilter")) {
+          bluescale(to_edit);
+        }
+        if (b.type.equals("purpleFilter")) {
+          purplescale(to_edit);
+        }
+        if (b.type.equals("invertFilter")) {
           invert(to_edit);
         }
       }
