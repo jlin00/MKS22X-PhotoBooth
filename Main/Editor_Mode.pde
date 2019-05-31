@@ -91,6 +91,6 @@ void editBar(){
     if (i == 5) bluescale(copy);
     if (i == 6) purplescale(copy);
     if (i == 7) invert(copy);
-    image(copy, i * 120, 500, 100, 75);
+    image(copy, i * 125 + 20, 500, 100, 75);
   }
 }
