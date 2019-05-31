@@ -22,7 +22,23 @@ void setup_editor(){
   //color filters
   Button grayScale = new Button(0, 600, 100, 25, true, "grayFilter");
   edit_buttons.add(grayScale);
+<<<<<<< HEAD
   Button redScale = new Button(100, 600, 100, 30, true, "redFilter");
+=======
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+  Button redScale = new Button(100, 600, 100, 30, true, "redFilter");
+=======
+<<<<<<< HEAD
+>>>>>>> ae19bdcbb0d5be429f368f1e1be5ae7ef99b7fef
+  
+  Button blur = new Button(18, 625, 100, 25, true, "blur");
+  edit_buttons.add(blur);
+
+  Button redScale = new Button(100, 600, 100, 25, true, "redFilter");
+>>>>>>> a70d5aa73aedf94d2f69c4c1d94916b8f2a72ac2
+>>>>>>> e9a199882f46ce250e0fd433e6c8ddc6e5375858
   edit_buttons.add(redScale);
   Button orangeScale = new Button(200, 600, 100, 40, true, "orangeFilter");
   edit_buttons.add(orangeScale);
@@ -36,10 +52,14 @@ void setup_editor(){
   edit_buttons.add(purpleScale);
   Button invert = new Button(700, 600, 100, 10, true, "invertFilter");
   edit_buttons.add(invert);
+<<<<<<< HEAD
   
   //kernel image processing 
   Button blur = new Button(18, 625, 100, 25, true, "blur");
   edit_buttons.add(blur);
+=======
+
+>>>>>>> e9a199882f46ce250e0fd433e6c8ddc6e5375858
 }
 
 //draw for editor mode to be used in main 
@@ -100,6 +120,16 @@ void mouseClicked_editor(){
         }
         if (b.type.equals("blur")) {
           to_edit = convolute(to_edit, blur);
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+=======
+=======
+        if (b.type.equals("grayFilter")) {
+          grayscale(to_edit);
+>>>>>>> a70d5aa73aedf94d2f69c4c1d94916b8f2a72ac2
+>>>>>>> ae19bdcbb0d5be429f368f1e1be5ae7ef99b7fef
+>>>>>>> e9a199882f46ce250e0fd433e6c8ddc6e5375858
         }
         if (b.type.equals("redFilter")) {
           copy = to_edit.copy();
@@ -128,6 +158,16 @@ void mouseClicked_editor(){
         if (b.type.equals("invertFilter")) {
           copy = to_edit.copy();
           invert(copy);
+<<<<<<< HEAD
+=======
+=======
+          invert(to_edit);
+<<<<<<< HEAD
+=======
+>>>>>>> a7b9c3f275eec9aca2fd11d0c556c4da114d5403
+>>>>>>> a70d5aa73aedf94d2f69c4c1d94916b8f2a72ac2
+>>>>>>> ae19bdcbb0d5be429f368f1e1be5ae7ef99b7fef
+>>>>>>> e9a199882f46ce250e0fd433e6c8ddc6e5375858
         }
       }
     }

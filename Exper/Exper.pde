@@ -19,7 +19,8 @@ void setup(){
 
 
 void draw(){
-  image(convolute(), 50, 50);
+  orig = convolute();
+  image(orig, 50, 50);
 }
 
 PImage convolute() {
