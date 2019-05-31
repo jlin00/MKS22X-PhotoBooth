@@ -21,11 +21,10 @@ void setup_editor(){
   //color filters
   Button grayScale = new Button(0, 600, 100, 25, true, "grayFilter");
   edit_buttons.add(grayScale);
-<<<<<<< HEAD
   
   Button blur = new Button(18, 625, 100, 25, true, "blur");
   edit_buttons.add(blur);
-=======
+
   Button redScale = new Button(100, 600, 100, 25, true, "redFilter");
   edit_buttons.add(redScale);
   Button orangeScale = new Button(200, 600, 100, 25, true, "orangeFilter");
@@ -41,7 +40,6 @@ void setup_editor(){
   Button invert = new Button(700, 600, 100, 25, true, "invertFilter");
   edit_buttons.add(invert);
 
->>>>>>> a7b9c3f275eec9aca2fd11d0c556c4da114d5403
 }
 
 //draw for editor mode to be used in main 
@@ -99,12 +97,8 @@ void mouseClicked_editor(){
         if (b.type.equals("grayFilter")) {
           grayscale(to_edit);
         }
-<<<<<<< HEAD
         if (b.type.equals("blur")) {
           to_edit = convolute(to_edit, blur);
-=======
-        if (b.type.equals("grayFilter")) {
-          grayscale(to_edit);
         }
         if (b.type.equals("redFilter")) {
           redscale(to_edit);
@@ -126,7 +120,6 @@ void mouseClicked_editor(){
         }
         if (b.type.equals("invertFilter")) {
           invert(to_edit);
->>>>>>> a7b9c3f275eec9aca2fd11d0c556c4da114d5403
         }
       }
     }
