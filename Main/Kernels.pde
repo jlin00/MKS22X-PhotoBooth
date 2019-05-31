@@ -34,20 +34,21 @@ PImage convolute(PImage orig, float[][] kernel) {
   PImage edit = createImage(orig.width, orig.height, RGB);
   edit.loadPixels();
   
-  for (int x = 0; x < orig.width - 3; x++){
-    for (int y = 0; y < orig.height - 3; y++){
+  for (int x = 0; x < orig.width; x++){
+    for (int y = 0; y < orig.height; y++){
       float sum_r = 0;
       float sum_g = 0;
       float sum_b = 0;
       for (int kx = -3; kx <= 3; kx++){
         for (int ky = -3; ky <= 3; ky++){
           int pos = (y + ky) * orig.width + (x + kx);
-          color c = color(0,0,0);
-          if (pos < 0) {
-            c = color(0,0,0);
-          }
-          else {
+          color c;
+          try{
             c = orig.pixels[pos];
+          }
+          catch (ArrayIndexOutOfBoundsException e){
+            //println("stuff");
+            c = color(0);
           }
           
           float kernelNum = kernel[kx+3][ky+3];
