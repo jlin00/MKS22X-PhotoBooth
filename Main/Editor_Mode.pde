@@ -98,9 +98,6 @@ void mouseClicked_editor(){
           copy = to_edit.copy();
           grayscale(copy);
         }
-        if (b.type.equals("blur")) {
-          to_edit = convolute(to_edit, blur);
-        }
         if (b.type.equals("redFilter")) {
           copy = to_edit.copy();
           redscale(copy);
@@ -128,6 +125,10 @@ void mouseClicked_editor(){
         if (b.type.equals("invertFilter")) {
           copy = to_edit.copy();
           invert(copy);
+        }
+        if (b.type.equals("blur")) {
+          copy = to_edit.copy();
+          copy = convolute(copy, blur);
         }
       }
     }
