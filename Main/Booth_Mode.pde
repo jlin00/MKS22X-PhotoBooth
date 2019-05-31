@@ -98,6 +98,7 @@ void mouseClicked_booth(){
           booth_buttons.get(1).setPopup(false);
           toBeSaved = false;
           to_edit = get(0, 50, 768, 576);
+          copy = to_edit.copy();
           mode = 3;
         }
       }
