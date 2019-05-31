@@ -19,10 +19,10 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      <li>created new repository</li> 
-      <li>formatted the README</li> 
+      <li>created new repository</li>
+      <li>formatted the README</li>
       <li>experimented with accessing a folder of images through directory list library</li>  
-      <li>experimented with display data from webcam on screen using Capture class</li> 
+      <li>experimented with display data from webcam on screen using Capture class</li>
       </ul><br>
     </td>
   </tr>
@@ -33,7 +33,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <br><ul>
       <li>worked on getting to know the webcam and its proportions, along with displaying image on school computers and laptop</li>
       <li>worked on implementing the rest of the empty classes and working on the Button class</li>
-      <li>fixed merge issues</li> 
+      <li>fixed merge issues</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
@@ -50,14 +50,14 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br><ul>
-      <li>created new ButtonClass class, added instance variables and method headers to it</li> 
+      <li>created new ButtonClass class, added instance variables and method headers to it</li>
       <li>experimented with mouseClick method in order to use button to take a picture</li>
-      <li>edited instance variables in Main</li> 
+      <li>edited instance variables in Main</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
       <li>experimented with setup (including size of screen, size of capture area)</li>
-      <li>worked with Grace to move experimental code into Main class (especially the Capture class)</li> 
+      <li>worked with Grace to move experimental code into Main class (especially the Capture class)</li>
     </ul><br>
     </td>
     <i>Note: tried to implement mouseClick method in ButtonClass, which didn't work, will be moved to Main</i>
@@ -72,7 +72,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     Jackie: :hatched_chick:
     <br><ul>
       <li>experimented with pseudocode from Processing tutorials to use mouseClick </li>
-      <li>added new instance variables and constructors in ButtonClass, defined two new shapes for buttons</li> 
+      <li>added new instance variables and constructors in ButtonClass, defined two new shapes for buttons</li>
       <li>wrote methods in ButtonClass to check if mouse was over a button and/or clicking a button</li>
     </ul><br>
     </td>
@@ -112,6 +112,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     Grace: :octocat:
     <br><ul>
       <li>taking a well-deserved break :) </li>
+      <li>ha very sick</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
@@ -127,6 +128,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     Grace: :octocat:
     <br><ul>
       <li>taking a well-deserved break :) </li>
+      <li>still sick</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
@@ -177,8 +179,11 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br><ul>
-      <li></li>
-      <li></li>
+      <li>wrote version of convolution and edited the correct version
+      </li>
+      <li>wrote greyscale and added to filters class</li>
+      <li>experimented with different kernels and filters</li>
+      <li>tried to fix blurring to make it less subtle</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
