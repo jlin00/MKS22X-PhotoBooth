@@ -18,7 +18,8 @@ void setup_editor(){
   Button cancel = new Button(675, 662, 75, 25, true, "cancel"); // cancel button
   edit_buttons.add(1,cancel);
   
-  Button grayScale = new Button(18, 600, 100, 25, true, "greyFilter");
+  //grayscale
+  Button grayScale = new Button(18, 600, 100, 25, true, "grayFilter");
   edit_buttons.add(grayScale);
 }
 
@@ -73,8 +74,8 @@ void mouseClicked_editor(){
           loadLibrary(); 
           mode = 1; 
         }
-        if (b.type.equals("greyFilter")) {
-          redscale(to_edit);
+        if (b.type.equals("grayFilter")) {
+          grayscale(to_edit);
         }
       }
     }
