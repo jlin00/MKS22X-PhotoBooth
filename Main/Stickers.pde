@@ -13,13 +13,14 @@ class Sticker implements Draggable, Resizeable {
     this.x = 300;
     this.y = 300;
     appear = false;
-    
-
   }
   
   void display() {
     image.resize(w, h);
     image(image, x, y);
+  }
+  
+  void mouseClicked_sticker() {
   }
   
   void drag(float x, float y) {

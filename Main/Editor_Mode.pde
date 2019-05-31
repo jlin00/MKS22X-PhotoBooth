@@ -6,9 +6,11 @@ PImage copy; //copy of to_edit
 ArrayList<Button> edit_buttons; //buttons in mode 3
 ArrayList<Sticker> stickers;
 
+PImage dogSticker;
+
 //setup for editor mode to be used in main
 void setup_editor(){
-  PImage dogSticker = loadImage("puppy.png");
+  dogSticker = loadImage("puppy.png");
   
   //initializing variables
   edit_buttons = new ArrayList<Button>();
@@ -49,8 +51,7 @@ void setup_editor(){
   
   stickers = new ArrayList<Sticker>();
   
-  Sticker dog = new Sticker(dogSticker, 30, 30);
-  stickers.add(dog);
+  
 }
 
 //draw for editor mode to be used in main 
@@ -87,6 +88,7 @@ void draw_editor(){
 
 //mouseClicked method for editor mode to be used in main 
 void mouseClicked_editor(){
+  stickers.get(0).mouseClicked_sticker();
   
   // going through the buttons
   for (Button b: edit_buttons){
@@ -155,6 +157,8 @@ void mouseClicked_editor(){
         }
         
         if (b.type.equals("dogS")) {
+          Sticker dog = new Sticker(dogSticker, 30, 30);
+          stickers.add(dog);
           stickers.get(0).appear = true;
         }
       }
