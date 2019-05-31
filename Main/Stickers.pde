@@ -4,6 +4,7 @@ class Sticker implements Draggable, Resizeable {
   float x;
   float y;
   PImage image;
+  boolean appear;
   
   Sticker(PImage image, int x, int y) {
     this.image = image;
@@ -11,8 +12,9 @@ class Sticker implements Draggable, Resizeable {
     h = y;
     this.x = 300;
     this.y = 300;
+    appear = false;
     
-    display();
+
   }
   
   void display() {

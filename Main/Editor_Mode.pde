@@ -70,6 +70,10 @@ void draw_editor(){
     b.display();
   }
   
+  for (Sticker s : stickers) {
+    if (s.appear) s.display();
+  }
+  
   textSize(14);
   fill(0);
   text("LIBRARY", 712, 30);
@@ -92,11 +96,17 @@ void mouseClicked_editor(){
           text_clicked();
           text("LIBRARY", 714, 30);
           mode = 1;
+          for (Sticker s : stickers) {
+            s.appear = false;
+          }
         }
         if (b.type.equals("redirectB")){
           text_clicked();
           text("BOOTH", 56, 30);
           mode = 2;
+          for (Sticker s : stickers) {
+            s.appear = false;
+          }
         }
         if (b.type.equals("save")){
           copy.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
@@ -145,7 +155,7 @@ void mouseClicked_editor(){
         }
         
         if (b.type.equals("dogS")) {
-          stickers.get(0).display();
+          stickers.get(0).appear = true;
         }
       }
     }
