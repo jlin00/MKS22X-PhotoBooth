@@ -22,7 +22,16 @@ void setup_editor(){
   //color filters
   Button grayScale = new Button(0, 600, 100, 25, true, "grayFilter");
   edit_buttons.add(grayScale);
+<<<<<<< HEAD
   Button redScale = new Button(100, 600, 100, 30, true, "redFilter");
+=======
+<<<<<<< HEAD
+  
+  Button blur = new Button(18, 625, 100, 25, true, "blur");
+  edit_buttons.add(blur);
+=======
+  Button redScale = new Button(100, 600, 100, 25, true, "redFilter");
+>>>>>>> a70d5aa73aedf94d2f69c4c1d94916b8f2a72ac2
   edit_buttons.add(redScale);
   Button orangeScale = new Button(200, 600, 100, 40, true, "orangeFilter");
   edit_buttons.add(orangeScale);
@@ -37,6 +46,7 @@ void setup_editor(){
   Button invert = new Button(700, 600, 100, 10, true, "invertFilter");
   edit_buttons.add(invert);
 
+>>>>>>> a7b9c3f275eec9aca2fd11d0c556c4da114d5403
 }
 
 //draw for editor mode to be used in main 
@@ -64,6 +74,7 @@ void draw_editor(){
   text("SAVE", 55, 680);
   text("CANCEL", 710, 680);
   text("GRAYSCALE", 65, 620);
+  text("BLUR", 65, 640);
 }
 
 //mouseClicked method for editor mode to be used in main 
@@ -91,8 +102,19 @@ void mouseClicked_editor(){
           mode = 1; 
         }
         if (b.type.equals("grayFilter")) {
+<<<<<<< HEAD
           copy = to_edit.copy();
           grayscale(copy);
+=======
+          grayscale(to_edit);
+        }
+<<<<<<< HEAD
+        if (b.type.equals("blur")) {
+          to_edit = convolute(to_edit, blur);
+=======
+        if (b.type.equals("grayFilter")) {
+          grayscale(to_edit);
+>>>>>>> a70d5aa73aedf94d2f69c4c1d94916b8f2a72ac2
         }
         if (b.type.equals("redFilter")) {
           copy = to_edit.copy();
@@ -119,8 +141,13 @@ void mouseClicked_editor(){
           purplescale(copy);
         }
         if (b.type.equals("invertFilter")) {
+<<<<<<< HEAD
           copy = to_edit.copy();
           invert(copy);
+=======
+          invert(to_edit);
+>>>>>>> a7b9c3f275eec9aca2fd11d0c556c4da114d5403
+>>>>>>> a70d5aa73aedf94d2f69c4c1d94916b8f2a72ac2
         }
       }
     }

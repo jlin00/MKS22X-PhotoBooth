@@ -14,11 +14,15 @@ void setup(){
   background(255);
   
   orig = loadImage("monkey.jpeg");
-  
+  //edited = loadImage("monkey.jpeg");
 }
 
 
 void draw(){
+  image(convolute(), 50, 50);
+}
+
+PImage convolute() {
   orig.loadPixels();
   PImage edit = createImage(orig.width, orig.height, RGB);
   edit.loadPixels();
@@ -52,5 +56,5 @@ void draw(){
     }
   }
   edit.updatePixels();
-  image(edit, 50, 50);
+  return edit;
 }
