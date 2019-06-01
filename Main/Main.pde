@@ -39,6 +39,10 @@ void mouseWheel(MouseEvent event){ //only necessary for library mode
   mouseWheel_lib(event);
 }
 
+void mouseDragged() {
+  mouseDragged_edit();
+}
+
 void draw() {
   if (mode == 1) { //library mode
     draw_lib();

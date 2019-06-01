@@ -4,13 +4,10 @@
 PImage to_edit; //image to be edited
 PImage copy; //copy of to_edit
 ArrayList<Button> edit_buttons; //buttons in mode 3
-<<<<<<< HEAD
 int[] filters; 
-=======
 ArrayList<Sticker> stickers;
 
 PImage dogSticker;
->>>>>>> d8a492c56abab273b21a6deb3e05e161ba37a6b2
 
 //setup for editor mode to be used in main
 void setup_editor(){
@@ -29,9 +26,7 @@ void setup_editor(){
   edit_buttons.add(0,save);
   Button cancel = new Button(675, 662, 75, 25, true, "cancel"); // cancel button
   edit_buttons.add(1,cancel);
-<<<<<<< HEAD
-=======
-  
+
   //color filters
   Button grayScale = new Button(0, 600, 100, 25, true, "grayFilter");
   edit_buttons.add(grayScale);
@@ -59,8 +54,6 @@ void setup_editor(){
   
   stickers = new ArrayList<Sticker>();
   
-  
->>>>>>> d8a492c56abab273b21a6deb3e05e161ba37a6b2
 }
 
 //draw for editor mode to be used in main 
@@ -95,9 +88,17 @@ void draw_editor(){
   editBar();
 }
 
+void mouseDragged_edit() {
+  for (Sticker s : stickers) {
+    s.drag();
+  }
+}
+
 //mouseClicked method for editor mode to be used in main 
 void mouseClicked_editor(){
-  stickers.get(0).mouseClicked_sticker();
+ // if (stickers.size() > 0) {
+   // stickers.get(0).mouseClicked_sticker();
+ // }
   
   // going through the buttons
   for (Button b: edit_buttons){
@@ -128,27 +129,6 @@ void mouseClicked_editor(){
           loadLibrary(); 
           mode = 1; 
         }
-<<<<<<< HEAD
-      }
-    }
-  }
-}
-
-void editBar(){
-  for (int i = 0; i < 8; i++){
-    copy = to_edit.copy();
-    if (i == 0) grayscale(copy);
-    if (i == 1) redscale(copy);
-    if (i == 2) orangescale(copy);
-    if (i == 3) yellowscale(copy);
-    if (i == 4) greenscale(copy);
-    if (i == 5) bluescale(copy);
-    if (i == 6) purplescale(copy);
-    if (i == 7) invert(copy);
-    image(copy, i * 125 + 20, 550, 100, 75);
-  }
-}
-=======
         if (b.type.equals("grayFilter")) {
           copy = to_edit.copy();
           grayscale(copy);
@@ -187,7 +167,7 @@ void editBar(){
         }
         
         if (b.type.equals("dogS")) {
-          Sticker dog = new Sticker(dogSticker, 30, 30);
+          Sticker dog = new Sticker(dogSticker, 80, 80);
           stickers.add(dog);
           stickers.get(0).appear = true;
         }
@@ -195,4 +175,18 @@ void editBar(){
     }
   }
 }
->>>>>>> d8a492c56abab273b21a6deb3e05e161ba37a6b2
+
+void editBar(){
+  for (int i = 0; i < 8; i++){
+    copy = to_edit.copy();
+    if (i == 0) grayscale(copy);
+    if (i == 1) redscale(copy);
+    if (i == 2) orangescale(copy);
+    if (i == 3) yellowscale(copy);
+    if (i == 4) greenscale(copy);
+    if (i == 5) bluescale(copy);
+    if (i == 6) purplescale(copy);
+    if (i == 7) invert(copy);
+    image(copy, i * 125 + 20, 550, 100, 75);
+  }
+}
