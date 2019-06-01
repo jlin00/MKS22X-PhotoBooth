@@ -90,14 +90,14 @@ void draw_editor(){
 
 void mouseDragged_edit() {
   for (Sticker s : stickers) {
-    println("yee");
+    //println("yee");
     s.drag();
   }
 }
 
 void mousePressed_edit() {
   for (Sticker s : stickers) {
-    println("yaa");
+    //println("yaa");
     s.press();
   }
 }

@@ -14,14 +14,17 @@ class Sticker {
     this.y = 300;
     appear = false;
     
-    if (mouseX > bx-w && mouseX < bx+w && mouseY > by-y && mouseY < by+y) {
-      over = true;  
-    }
+    
   }
   
   void display() {
     image.resize(w, h);
     image(image, x, y);
+    
+    if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
+      println("hehe");
+      over = true;  
+    }
   }
   
   void press() {
