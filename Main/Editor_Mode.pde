@@ -125,7 +125,8 @@ void mouseClicked_editor(){
           stickers = new ArrayList<Sticker>();
         }
         if (b.type.equals("save")){
-          copy.save("Images/IMG" + (picNum + filenames.length) + ".jpg");
+          PImage slice = get(153, 115, 461, 346);
+          slice.save("Images/IMG"+ (picNum+filenames.length) + ".jpg");
           loadLibrary(); 
           mode = 1;
         }

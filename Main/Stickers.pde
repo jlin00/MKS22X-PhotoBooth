@@ -21,7 +21,7 @@ class Sticker {
     image(image, x, y);
     
     if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
-      println("hehe");
+      //println("hehe");
       over = true;  
     } else {
       over = false;
