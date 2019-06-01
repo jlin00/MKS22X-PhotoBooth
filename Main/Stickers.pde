@@ -4,7 +4,7 @@ class Sticker {
   PImage image;
   boolean appear;
   boolean over = false;
-  float bx, by, xOffset, yOffset;
+  float xOffset, yOffset;
   
   Sticker(PImage image, int x, int y) {
     this.image = image;
@@ -13,8 +13,7 @@ class Sticker {
     this.x = 300;
     this.y = 300;
     appear = false;
-    
-    
+ 
   }
   
   void display() {
@@ -28,14 +27,14 @@ class Sticker {
   }
   
   void press() {
-    xOffset = mouseX-bx;
-    yOffset = mouseY-by;
+    xOffset = mouseX-x;
+    yOffset = mouseY-y;
   }
   
   void drag() {
     if (over) {
-      bx = mouseX-xOffset;
-      by = mouseY-yOffset;
+      x = mouseX-xOffset;
+      y = mouseY-yOffset;
     }
   }
   
