@@ -90,7 +90,15 @@ void draw_editor(){
 
 void mouseDragged_edit() {
   for (Sticker s : stickers) {
+    println("yee");
     s.drag();
+  }
+}
+
+void mousePressed_edit() {
+  for (Sticker s : stickers) {
+    println("yaa");
+    s.press();
   }
 }
 

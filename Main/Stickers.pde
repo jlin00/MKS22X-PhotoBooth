@@ -1,11 +1,10 @@
-class Sticker implements Draggable, Resizeable {
-  int w;
-  int h;
-  float x;
-  float y;
+class Sticker {
+  int w, h;
+  float x, y;
   PImage image;
   boolean appear;
-  boolean follow;
+  boolean over = false;
+  float bx, by, xOffset, yOffset;
   
   Sticker(PImage image, int x, int y) {
     this.image = image;
@@ -14,6 +13,10 @@ class Sticker implements Draggable, Resizeable {
     this.x = 300;
     this.y = 300;
     appear = false;
+    
+    if (mouseX > bx-w && mouseX < bx+w && mouseY > by-y && mouseY < by+y) {
+      over = true;  
+    }
   }
   
   void display() {
@@ -21,11 +24,16 @@ class Sticker implements Draggable, Resizeable {
     image(image, x, y);
   }
   
-  void mouseClicked_sticker() {
+  void press() {
+    xOffset = mouseX-bx;
+    yOffset = mouseY-by;
   }
   
   void drag() {
-    
+    if (over) {
+      bx = mouseX-xOffset;
+      by = mouseY-yOffset;
+    }
   }
   
   void resizes(float x, float y) {

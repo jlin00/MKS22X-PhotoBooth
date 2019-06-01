@@ -43,6 +43,10 @@ void mouseDragged() {
   mouseDragged_edit();
 }
 
+void mousePressed() {
+  mousePressed_edit();
+}
+
 void draw() {
   if (mode == 1) { //library mode
     draw_lib();
