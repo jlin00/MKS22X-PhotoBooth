@@ -23,6 +23,8 @@ class Sticker {
     if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
       println("hehe");
       over = true;  
+    } else {
+      over = false;
     }
   }
   

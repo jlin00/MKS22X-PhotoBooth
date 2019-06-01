@@ -173,7 +173,7 @@ void mouseClicked_editor(){
         if (b.type.equals("dogS")) {
           Sticker dog = new Sticker(dogSticker, 80, 80);
           stickers.add(dog);
-          stickers.get(0).appear = true;
+          stickers.get(stickers.size()-1).appear = true;
         }
       }
     }
