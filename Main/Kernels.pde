@@ -39,6 +39,44 @@ PImage convolute(PImage orig, float[][] kernel) {
       float sum_r = 0;
       float sum_g = 0;
       float sum_b = 0;
+      for (int kx = -1; kx <= 1; kx++){
+        for (int ky = -1; ky <= 1; ky++){
+          int pos = (y + ky) * orig.width + (x + kx);
+          color c;
+          try{
+            c = orig.pixels[pos];
+          }
+          catch (ArrayIndexOutOfBoundsException e){
+            //println("stuff");
+            c = color(0);
+          }
+          
+          float kernelNum = kernel[kx+1][ky+1];
+          
+          sum_r += multiplier * kernelNum * (red(c));
+          sum_g += multiplier * kernelNum * (green(c));
+          sum_b += multiplier * kernelNum * (blue(c));
+          
+          //edit.pixels[y * orig.width + x] = color(sum_r, sum_g, sum_b);
+        }
+      }
+      edit.pixels[y * orig.width + x] = color(sum_r, sum_g, sum_b);
+    }
+  }
+  edit.updatePixels();
+  return edit;
+}
+
+PImage convoluteBlur(PImage orig, float[][] kernel) {
+  orig.loadPixels();
+  PImage edit = createImage(orig.width, orig.height, RGB);
+  edit.loadPixels();
+  
+  for (int x = 0; x < orig.width; x++){
+    for (int y = 0; y < orig.height; y++){
+      float sum_r = 0;
+      float sum_g = 0;
+      float sum_b = 0;
       for (int kx = -3; kx <= 3; kx++){
         for (int ky = -3; ky <= 3; ky++){
           int pos = (y + ky) * orig.width + (x + kx);
