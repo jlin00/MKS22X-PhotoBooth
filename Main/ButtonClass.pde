@@ -1,8 +1,10 @@
 class Button {
+  PImage img; 
   float x,y;
   float w,h,d; //width and height or diameter
   float size;
   boolean shape; //true- rectangles, false- circles
+  boolean pic; 
   String type;
   boolean popup; //for buttons that are not always available
   
@@ -14,6 +16,7 @@ class Button {
     this.shape = shape;
     type = id;
     popup = true;
+    pic = false;
   }
   
   Button(float x, float y, float d, boolean shape, String id){
@@ -23,14 +26,28 @@ class Button {
     this.shape = shape;
     type = id;
     popup = true;
+    pic = false;
+  }
+  
+  Button(float x, float y, PImage img, String id){
+    this.x = x;
+    this.y = y;
+    type = id;
+    this.img = img;
+    popup = true;
+    pic = true;
   }
   
   void display() {
-    if (shape){
-      noStroke();
-      rect(x,y,w,h,6);
+    if (pic){
+      image(img, x, y, img.width, img.height);
     }
     else{
+      if (shape){
+      noStroke();
+      rect(x,y,w,h,6);
+      }
+      else{
       stroke(0);
       ellipse(x,y,d,d);
       if (type.equals("take")){
@@ -40,6 +57,7 @@ class Button {
       }
     }
   }
+}
   
   void contract(){ //contract the capture button when clicked
     strokeWeight(6);
