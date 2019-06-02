@@ -207,3 +207,59 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     </ul><br>
     </td>
   </tr>
+  <tr>
+    <td>6/1/19</td>
+    <td>
+    Grace: :octocat:
+    <br><ul>
+      <li></li>
+    </ul><br>
+    Jackie: :hatched_chick:
+    <br><ul>
+      <li></li>
+      <li></li>
+    </ul><br>
+    </td>
+  </tr>
+  <tr>
+    <td>6/2/19</td>
+    <td>
+    Grace: :octocat:
+    <br><ul>
+      <li></li>
+    </ul><br>
+    Jackie: :hatched_chick:
+    <br><ul>
+      <li></li>
+      <li></li>
+    </ul><br>
+    </td>
+  </tr>
+  <tr>
+    <td>6/3/19</td>
+    <td>
+    Grace: :octocat:
+    <br><ul>
+      <li></li>
+    </ul><br>
+    Jackie: :hatched_chick:
+    <br><ul>
+      <li></li>
+      <li></li>
+    </ul><br>
+    </td>
+  </tr>
+  <tr>
+    <td>6/4/19</td>
+    <td>
+    Grace: :octocat:
+    <br><ul>
+      <li></li>
+    </ul><br>
+    Jackie: :hatched_chick:
+    <br><ul>
+      <li></li>
+      <li></li>
+    </ul><br>
+    </td>
+  </tr>
