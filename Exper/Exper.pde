@@ -13,8 +13,8 @@ void setup(){
 
 
 void draw(){
-  image(orig, 0, 0, 500, 500);
-  image(copy, 600, 0, 500, 500);
+  image(orig, 0, 0, 300, 300);
+  image(copy, 600, 0, 300, 300);
 }
 
 PImage saturation(PImage img, int adj){
@@ -28,11 +28,13 @@ PImage saturation(PImage img, int adj){
     float img_brightness = brightness(current_color);
     
     //float new_saturation = img_saturation + (255 - img_saturation) * 10.0/10;
-    float new_saturation = img_saturation + adj; 
-    if (new_saturation >= 80) new_saturation = 80;
-    if (new_saturation <= 0) new_saturation = 0;
-    edit.pixels[i] = color(img_hue, img_saturation + 70, img_brightness);
+    if (adj > 80) adj = 80;
+    if (adj < -255) adj = -255;
+    edit.pixels[i] = color(img_hue, img_saturation + adj, img_brightness);
   }
   edit.updatePixels();
   return edit;
+}
+
+PImage brightness(PImage img, int adj){
 }
