@@ -239,6 +239,25 @@ void mouseClicked_editor(){
           stickers.add(dog);
           stickers.get(stickers.size()-1).appear = true;
         }
+        
+        if (b.type.equals("colorFilters")){
+          filterMode = 1;;
+        }
+        if (b.type.equals("kernelFilters")){
+          filterMode = 2;;
+        }
+        if (b.type.equals("adjust")){
+          filterMode = 3;;
+        }
+        if (b.type.equals("sticker")){
+          filterMode = 4;;
+        }
+        if (b.type.equals("frames")){
+          filterMode = 5;;
+        }
+        if (b.type.equals("drawing")){
+          filterMode = 6;;
+        }
       }
     }
   }
