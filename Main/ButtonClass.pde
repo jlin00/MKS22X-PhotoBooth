@@ -30,9 +30,13 @@ class Button {
   void display() {
     if (shape){
       noStroke();
-      if (type.equals("left") || type.equals("right")){
-        fill(180);
-      }
+      if (type.equals("left") || type.equals("right")) fill(180);
+      else if (type.equals("colorFilters") && filterMode == 1) fill (225);
+      else if (type.equals("kernelFilters") && filterMode == 2) fill (225);
+      else if (type.equals("adjust") && filterMode == 3) fill (225);
+      else if (type.equals("sticker") && filterMode == 4) fill (225);
+      else if (type.equals("frames") && filterMode == 5) fill (225);
+      else if (type.equals("drawing") && filterMode == 16) fill (225);
       else fill(255);
       rect(x,y,w,h,6);
     }     

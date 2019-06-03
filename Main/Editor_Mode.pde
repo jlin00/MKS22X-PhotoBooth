@@ -48,6 +48,20 @@ void setup_editor(){
   Button right = new Button (753, 550, 10, 75, true, "right"); //right arrow button 
   edit_buttons.add(3, right);
   
+  //edit bar buttons 
+  Button colorFilters = new Button(20, 505, 100, 25, true, "colorFilters");
+  edit_buttons.add(colorFilters);
+  Button kernelFilters = new Button(145, 505, 100, 25, true, "kernelFilters");
+  edit_buttons.add(kernelFilters);
+  Button adjust = new Button(270, 505, 100, 25, true, "adjust");
+  edit_buttons.add(adjust);
+  Button sticker = new Button(395, 505, 100, 25, true, "sticker");
+  edit_buttons.add(sticker);
+  Button frames = new Button(520, 505, 100, 25, true, "framers");
+  edit_buttons.add(frames);
+  Button drawings = new Button(645, 505, 100, 25, true, "drawings");
+  edit_buttons.add(drawings);
+  
   //color filters, sample pictures of filter are overlaid over these 
   Button noFilter = new Button (20, 550, 100, 75, true, "noFilter");
   color_buttons.add(noFilter);
@@ -125,9 +139,13 @@ void draw_editor(){
   text("CANCEL", 710, 680);
   
   editBar();
-  //else if (filterMode == 2) kernelBar();
-  //else if (filterMode == 3) sliderBar(); 
-  //else if (filterMode == 4) stickerBar();
+  
+  text("COLOR", 72, 522);
+  text("EFFECTS", 197, 522);
+  text("ADJUST", 322, 522);
+  text("STICKERS", 447, 522);
+  text("FRAMES", 572, 522);
+  text("DRAW", 697, 522);
 }
 
 void mouseDragged_edit() {
