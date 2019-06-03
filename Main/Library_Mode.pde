@@ -87,6 +87,8 @@ void mouseClicked_lib(){
       mode = 3;
       to_edit = libimages.get(i);
       copy = to_edit.copy();
+      sample = to_edit.copy();
+      sample.resize(100,75);
     }
   }
   

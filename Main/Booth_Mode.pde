@@ -99,6 +99,8 @@ void mouseClicked_booth(){
           toBeSaved = false;
           to_edit = get(0, 50, 768, 576);
           copy = to_edit.copy();
+          sample = to_edit.copy();
+          sample.resize(100,75);
           mode = 3;
         }
       }

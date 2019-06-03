@@ -40,7 +40,7 @@ class Button {
   
   void display() {
     if (pic){
-      image(img, x, y, img.width, img.height);
+      image(img, x, y);
     }
     else{
       if (shape){
@@ -74,35 +74,8 @@ class Button {
   void setPopup(boolean x){
     popup = x;
   }
-}
-/*
-class SliderButton extends Button {
-  float value;
   
-  SliderButton(float x, float y, PImage im) {
-    super(x,y,im, "slider");
-  }
-  
-  void display(){
-  }
-  
-  void slide(float f) {
-  }
-  
-  void action() {
+  void shiftX(float x){
+    this.x += x;
   }
 }
-
-class ButtonPanel {
-  Button[] buttons;
-  
-  void setup() {
-  }
-  
-  void draw() {
-  }
-  
-  void scroll() {
-  }
-}
-*/
