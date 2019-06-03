@@ -31,6 +31,8 @@ void setup_editor(){
   edit_buttons.add(1,cancel);
   
   //color filters
+  Button noFilter = new Button (20, 550, 100, 75, true, "noFilter");
+  edit_buttons.add(noFilter);
   Button grayFilter = new Button (145, 550, 100, 75, true, "grayFilter");
   edit_buttons.add(grayFilter);
   Button redFilter = new Button (270, 550, 100, 75, true, "redFilter");
@@ -143,6 +145,9 @@ void mouseClicked_editor(){
         }
         
         if (filterMode == 1){
+          if (b.type.equals("noFilter")){
+            copy = to_edit.copy();
+          }
           if (b.type.equals("grayFilter")){
             copy = to_edit.copy();
             grayscale(copy);
@@ -193,16 +198,16 @@ void mouseClicked_editor(){
 }
 
 void editBar(){
-  for (int i = 0; i < 8; i++){
+  for (int i = 0; i < 9; i++){
     PImage sample_copy = sample.copy();
-    if (i == 0) grayscale(sample_copy);
-    if (i == 1) redscale(sample_copy);
-    if (i == 2) orangescale(sample_copy);
-    if (i == 3) yellowscale(sample_copy);
-    if (i == 4) greenscale(sample_copy);
-    if (i == 5) bluescale(sample_copy);
-    if (i == 6) purplescale(sample_copy);
-    if (i == 7) invert(sample_copy);
+    if (i == 1) grayscale(sample_copy);
+    if (i == 2) redscale(sample_copy);
+    if (i == 3) orangescale(sample_copy);
+    if (i == 4) yellowscale(sample_copy);
+    if (i == 5) greenscale(sample_copy);
+    if (i == 6) bluescale(sample_copy);
+    if (i == 7) purplescale(sample_copy);
+    if (i == 8) invert(sample_copy);
     image(sample_copy, i * 125 + 20, 550);
   }
 }
