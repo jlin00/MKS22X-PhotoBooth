@@ -198,12 +198,13 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br><ul>
-      <li></li>
+      <li>started to implement stickers to appear</li>
+      <li>setup the mouseClicked, mousePressed, and mouseReleased for stickers</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      <li></li>
-      <li></li>
+      <li>adjusted and created the edit bar for filters</li>
+      <li>worked on implementing buttons for each filter</li>
     </ul><br>
     </td>
   </tr>
@@ -212,12 +213,14 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br><ul>
-      <li></li>
+      <li>implemented mouse drag of stickers</li>
+      <li>created dog sticker button</li>
+      <li>fixed bugs so that multiple stickers could be made with the buttons</li>
+      <li>user now able to save pictures with the stickers</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      <li></li>
-      <li></li>
+      <li>fixed merge errors</li>
     </ul><br>
     </td>
   </tr>
@@ -226,12 +229,14 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br><ul>
-      <li></li>
+      <li>debugged stickers and editor mode</li>
+      <li>corrected, updated, and made edits to prototype</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      <li></li>
-      <li></li>
+      <li>implemented the clickable edit bar with filters</li>
+      <li>eliminated extra code</li>
+      <li>added a revert button</li>
     </ul><br>
     </td>
   </tr>
