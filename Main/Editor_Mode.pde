@@ -149,35 +149,27 @@ void mouseClicked_editor(){
             copy = to_edit.copy();
           }
           if (b.type.equals("grayFilter")){
-            copy = to_edit.copy();
             grayscale(copy);
           }
           if (b.type.equals("redFilter")) {
-            copy = to_edit.copy();
             redscale(copy);
           }
           if (b.type.equals("orangeFilter")) {
-            copy = to_edit.copy();
             orangescale(copy);
           }
           if (b.type.equals("yellowFilter")) {
-            copy = to_edit.copy();
             yellowscale(copy);
             }
           if (b.type.equals("greenFilter")) {
-            copy = to_edit.copy();
             greenscale(copy);
           }
           if (b.type.equals("blueFilter")) {
-            copy = to_edit.copy();
             bluescale(copy);
           }
           if (b.type.equals("purpleFilter")) {
-            copy = to_edit.copy();
             purplescale(copy);
           }
           if (b.type.equals("invertFilter")) {
-            copy = to_edit.copy();
             invert(copy);
           }
         }

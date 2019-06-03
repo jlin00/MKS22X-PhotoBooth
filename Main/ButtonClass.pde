@@ -29,34 +29,20 @@ class Button {
     pic = false;
   }
   
-  Button(float x, float y, PImage img, String id){
-    this.x = x;
-    this.y = y;
-    type = id;
-    this.img = img;
-    popup = true;
-    pic = true;
-  }
-  
   void display() {
-    if (pic){
-      image(img, x, y);
-    }
-    else{
-      if (shape){
+    if (shape){
       noStroke();
       rect(x,y,w,h,6);
-      }
-      else{
+    }     
+    else{
       stroke(0);
       ellipse(x,y,d,d);
       if (type.equals("take")){
         strokeWeight(1);
         fill(255);
         ellipse(x,y,d*0.8,d*0.8);
-      }
-    }
-  }
+     }
+   }
 }
   
   void contract(){ //contract the capture button when clicked
