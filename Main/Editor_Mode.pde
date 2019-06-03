@@ -8,13 +8,13 @@ ArrayList<Button> edit_buttons; //buttons in mode 3
 ArrayList<Button> color_buttons;
 ArrayList<Button> kernel_buttons; 
 ArrayList<ScrollBar> scroll_buttons; 
-int[] filters; 
 int filterMode;
 int adjust;
 int adjustRight;
 int adjustLeft;
 boolean leftmost;
 boolean rightmost;
+int scroll_mode = 1; 
 
 ArrayList<Sticker> stickers;
 PImage dogSticker;
@@ -27,9 +27,7 @@ void setup_editor(){
   edit_buttons = new ArrayList<Button>();
   color_buttons = new ArrayList<Button>();
   kernel_buttons = new ArrayList<Button>();
-  scroll_buttons = new ArrayList<ScrollBar>(); 
-  filters = new int[2]; //first index with store color filter, second stores kernel effects 
-                        //you can only apply one of each 
+  scroll_buttons = new ArrayList<ScrollBar>();  
   filterMode = 2;
   leftmost = true; //for navigation bar
   rightmost = false; //for navigation bar 
@@ -393,9 +391,9 @@ void editBar(){
       s.update();
       
       fill(0);
-      text("BRIGHTNESS", 100, 555);
-      text("SATURATION", 100, 585);
-      text("CONTRAST", 100, 615);
+      text("BRIGHTNESS", 100, 558);
+      text("SATURATION", 100, 588);
+      text("CONTRAST", 100, 618);
     }
   }
 }
