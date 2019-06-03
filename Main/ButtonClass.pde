@@ -16,7 +16,6 @@ class Button {
     this.shape = shape;
     type = id;
     popup = true;
-    pic = false;
   }
   
   Button(float x, float y, float d, boolean shape, String id){
@@ -26,12 +25,15 @@ class Button {
     this.shape = shape;
     type = id;
     popup = true;
-    pic = false;
   }
   
   void display() {
     if (shape){
       noStroke();
+      if (type.equals("left") || type.equals("right")){
+        fill(180);
+      }
+      else fill(255);
       rect(x,y,w,h,6);
     }     
     else{

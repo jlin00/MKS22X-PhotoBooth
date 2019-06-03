@@ -5,8 +5,12 @@ PImage to_edit; //image to be edited
 PImage copy; //copy of to_edit
 PImage sample; //sample displayed in editor panel 
 ArrayList<Button> edit_buttons; //buttons in mode 3
+ArrayList<Button> color_buttons;
 int[] filters; 
 int filterMode;
+int adjust;
+boolean leftmost;
+boolean rightmost;
 
 ArrayList<Sticker> stickers;
 PImage dogSticker;
@@ -17,9 +21,12 @@ void setup_editor(){
   
   //initializing variables
   edit_buttons = new ArrayList<Button>();
+  color_buttons = new ArrayList<Button>();
   filters = new int[2]; //first index with store color filter, second stores kernel effects 
                         //you can only apply one of each 
   filterMode = 1;
+  leftmost = true; //for navigation bar
+  rightmost = false; //for navigation bar 
   
   Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
   edit_buttons.add(go_to_lib);
@@ -29,26 +36,31 @@ void setup_editor(){
   edit_buttons.add(0,save);
   Button cancel = new Button(675, 662, 75, 25, true, "cancel"); // cancel button
   edit_buttons.add(1,cancel);
+  Button left = new Button (5, 550, 10, 75, true, "left"); //left arrow button 
+  left.setPopup(false);
+  edit_buttons.add(2, left);
+  Button right = new Button (753, 550, 10, 75, true, "right"); //right arrow button 
+  edit_buttons.add(3, right);
   
-  //color filters
+  //color filters, sample pictures of filter are overlaid over these 
   Button noFilter = new Button (20, 550, 100, 75, true, "noFilter");
-  edit_buttons.add(noFilter);
+  color_buttons.add(noFilter);
   Button grayFilter = new Button (145, 550, 100, 75, true, "grayFilter");
-  edit_buttons.add(grayFilter);
+  color_buttons.add(grayFilter);
   Button redFilter = new Button (270, 550, 100, 75, true, "redFilter");
-  edit_buttons.add(redFilter);
+  color_buttons.add(redFilter);
   Button orangeFilter = new Button (395, 550, 100, 75, true, "yellowFilter");
-  edit_buttons.add(orangeFilter);
+  color_buttons.add(orangeFilter);
   Button yellowFilter = new Button (520, 550, 100, 75, true, "orangeFilter");
-  edit_buttons.add(yellowFilter);
+  color_buttons.add(yellowFilter);
   Button greenFilter = new Button (645, 550, 100, 75, true, "greenFilter");
-  edit_buttons.add(greenFilter);
+  color_buttons.add(greenFilter);
   Button blueFilter = new Button (770, 550, 100, 75, true, "blueFilter");
-  edit_buttons.add(blueFilter);
+  color_buttons.add(blueFilter);
   Button purpleFilter = new Button (895, 550, 100, 75, true, "purpleFilter");
-  edit_buttons.add(purpleFilter);
+  color_buttons.add(purpleFilter);
   Button invertFilter = new Button (1020, 550, 100, 75, true, "invertFilter");
-  edit_buttons.add(invertFilter);
+  color_buttons.add(invertFilter);
   
   
   //kernel image processing 
@@ -76,7 +88,7 @@ void draw_editor(){
   image(copy, 153.5, 115, 461, 346);
   
   for (Button b : edit_buttons) {
-    b.display();
+    if (b.popup) b.display();
   }
   
   for (Sticker s : stickers) {
@@ -143,35 +155,26 @@ void mouseClicked_editor(){
           loadLibrary(); 
           mode = 1; 
         }
+        if (b.popup && b.type.equals("right")){
+          adjust = -748;
+          for (Button b2: color_buttons){
+            b2.shiftX(-748);
+          }
+          edit_buttons.get(2).setPopup(true);
+          edit_buttons.get(3).setPopup(false);
+          leftmost = false;
+          rightmost = true;
+        }
         
-        if (filterMode == 1){
-          if (b.type.equals("noFilter")){
-            copy = to_edit.copy();
+        if (b.popup && b.type.equals("left")){
+          adjust = 0;
+          for (Button b2: color_buttons){
+            b2.shiftX(748);
           }
-          if (b.type.equals("grayFilter")){
-            grayscale(copy);
-          }
-          if (b.type.equals("redFilter")) {
-            redscale(copy);
-          }
-          if (b.type.equals("orangeFilter")) {
-            orangescale(copy);
-          }
-          if (b.type.equals("yellowFilter")) {
-            yellowscale(copy);
-            }
-          if (b.type.equals("greenFilter")) {
-            greenscale(copy);
-          }
-          if (b.type.equals("blueFilter")) {
-            bluescale(copy);
-          }
-          if (b.type.equals("purpleFilter")) {
-            purplescale(copy);
-          }
-          if (b.type.equals("invertFilter")) {
-            invert(copy);
-          }
+          edit_buttons.get(2).setPopup(false);
+          edit_buttons.get(3).setPopup(true);
+          leftmost = true;
+          rightmost = false;
         }
         
         if (b.type.equals("blur")) {
@@ -187,6 +190,48 @@ void mouseClicked_editor(){
       }
     }
   }
+  
+  if (filterMode == 1){
+    for (Button b: color_buttons){
+      if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
+        if (b.type.equals("noFilter")){
+            copy = to_edit.copy();
+          }
+          if (b.type.equals("grayFilter")){
+            copy = to_edit.copy();
+            grayscale(copy);
+          }
+          if (b.type.equals("redFilter")) {
+            copy = to_edit.copy();
+            redscale(copy);
+          }
+          if (b.type.equals("orangeFilter")) {
+            copy = to_edit.copy();
+            orangescale(copy);
+          }
+          if (b.type.equals("yellowFilter")) {
+            copy = to_edit.copy();
+            yellowscale(copy);
+          }
+          if (b.type.equals("greenFilter")) {
+            copy = to_edit.copy();
+            greenscale(copy);
+          }
+          if (b.type.equals("blueFilter")) {
+            copy = to_edit.copy();
+            bluescale(copy);
+          }
+          if (b.type.equals("purpleFilter")) {
+            copy = to_edit.copy();
+            purplescale(copy);
+          }
+          if (b.type.equals("invertFilter")) {
+            copy = to_edit.copy();
+            invert(copy);
+          }
+      }
+    }
+  }
 }
 
 void editBar(){
@@ -194,12 +239,12 @@ void editBar(){
     PImage sample_copy = sample.copy();
     if (i == 1) grayscale(sample_copy);
     if (i == 2) redscale(sample_copy);
-    if (i == 3) orangescale(sample_copy);
-    if (i == 4) yellowscale(sample_copy);
+    if (i == 3) yellowscale(sample_copy);
+    if (i == 4) orangescale(sample_copy);
     if (i == 5) greenscale(sample_copy);
     if (i == 6) bluescale(sample_copy);
     if (i == 7) purplescale(sample_copy);
     if (i == 8) invert(sample_copy);
-    image(sample_copy, i * 125 + 20, 550);
+    image(sample_copy, i * 125 + 20 + adjust, 550);
   }
 }
