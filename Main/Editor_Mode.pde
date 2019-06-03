@@ -392,7 +392,19 @@ void editBar(){
       
       float init_pos = s.bar_x + s.bar_width/2 - s.bar_height/2;
       float value = s.scroll_x - init_pos;
+      //println(value);
       
+      if (s.type.equals("brightness")){
+        if (value < 0) value = (value / (s.bar_width/2)) * 60;
+        else value = (value / (s.bar_width / 2)) * 70;
+      }
+      if (s.type.equals("saturation")){
+        if (value < 0) value = (value / (s.bar_width/2)) * 255;
+        else value = (value / (s.bar_width / 2)) * 70;
+      }
+      if (s.type.equals("brightness")){
+        value = (value / (s.bar_width/2)) * 128;
+      }
     }
     fill(0);
     text("BRIGHTNESS", 100, 558);
