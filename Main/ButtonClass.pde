@@ -36,7 +36,7 @@ class Button {
       else if (type.equals("adjust") && filterMode == 3) fill (225);
       else if (type.equals("sticker") && filterMode == 4) fill (225);
       else if (type.equals("frames") && filterMode == 5) fill (225);
-      else if (type.equals("drawing") && filterMode == 16) fill (225);
+      else if (type.equals("drawing") && filterMode == 6) fill (225);
       else fill(255);
       rect(x,y,w,h,6);
     }     

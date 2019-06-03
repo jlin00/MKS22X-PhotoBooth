@@ -1,60 +1,37 @@
-PImage orig;
-float multiplier = 1.0/49;
-float[][] kernel = { {1, 1, 1, 1, 1, 1, 1},
-                     {1, 1, 1, 1, 1, 1, 1},
-                     {1, 1, 1, 1, 1, 1, 1}, 
-                     {1, 1, 1, 1, 1, 1, 1},
-                     {1, 1, 1, 1, 1, 1, 1},
-                     {1, 1, 1, 1, 1, 1, 1},
-                     {1, 1, 1, 1, 1, 1, 1} };
+import java.awt.Color;
 
+PImage orig;
+PImage copy;
 
 void setup(){
   size(1200,800);
   background(255);
   
   orig = loadImage("monkey.jpeg");
-  //edited = loadImage("monkey.jpeg");
+  copy = saturation(orig, 255);
 }
 
 
 void draw(){
-  orig = convolute();
-  image(orig, 50, 50);
+  image(orig, 0, 0, 500, 500);
+  image(copy, 600, 0, 500, 500);
 }
 
-PImage convolute() {
-  orig.loadPixels();
-  PImage edit = createImage(orig.width, orig.height, RGB);
+PImage saturation(PImage img, int adj){
+  PImage edit = img.copy();
+  colorMode(HSB);
   edit.loadPixels();
-  
-  for (int x = 0; x < orig.width - 3; x++){
-    for (int y = 0; y < orig.height - 3; y++){
-      float sum_r = 0;
-      float sum_g = 0;
-      float sum_b = 0;
-      for (int kx = -3; kx <= 3; kx++){
-        for (int ky = -3; ky <= 3; ky++){
-          int pos = (y + ky) * orig.width + (x + kx);
-          color c = color(0,0,0);
-          if (pos < 0) {
-            c = color(0,0,0);
-          }
-          else {
-            c = orig.pixels[pos];
-          }
-          
-          float kernelNum = kernel[kx+3][ky+3];
-          
-          sum_r += multiplier * kernelNum * (red(c));
-          sum_g += multiplier * kernelNum * (green(c));
-          sum_b += multiplier * kernelNum * (blue(c));
-          
-          //edit.pixels[y * orig.width + x] = color(sum_r, sum_g, sum_b);
-        }
-      }
-      edit.pixels[y * orig.width + x] = color(sum_r, sum_g, sum_b);
-    }
+  for (int i = 0; i < edit.pixels.length; i++){
+    color current_color = edit.pixels[i];
+    float img_hue = hue(current_color);
+    float img_saturation = saturation(current_color);
+    float img_brightness = brightness(current_color);
+    
+    //float new_saturation = img_saturation + (255 - img_saturation) * 10.0/10;
+    float new_saturation = img_saturation + adj; 
+    if (new_saturation >= 80) new_saturation = 80;
+    if (new_saturation <= 0) new_saturation = 0;
+    edit.pixels[i] = color(img_hue, img_saturation + 70, img_brightness);
   }
   edit.updatePixels();
   return edit;

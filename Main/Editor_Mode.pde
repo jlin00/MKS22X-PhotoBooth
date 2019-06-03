@@ -57,9 +57,9 @@ void setup_editor(){
   edit_buttons.add(adjust);
   Button sticker = new Button(395, 505, 100, 25, true, "sticker");
   edit_buttons.add(sticker);
-  Button frames = new Button(520, 505, 100, 25, true, "framers");
+  Button frames = new Button(520, 505, 100, 25, true, "frames");
   edit_buttons.add(frames);
-  Button drawings = new Button(645, 505, 100, 25, true, "drawings");
+  Button drawings = new Button(645, 505, 100, 25, true, "drawing");
   edit_buttons.add(drawings);
   
   //color filters, sample pictures of filter are overlaid over these 
