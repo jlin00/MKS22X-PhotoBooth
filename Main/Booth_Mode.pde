@@ -102,6 +102,7 @@ void mouseClicked_booth(){
           sample = to_edit.copy();
           sample.resize(100,75);
           mode = 3;
+          reset_editor();
         }
       }
     }

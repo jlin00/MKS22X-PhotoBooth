@@ -85,6 +85,7 @@ void mouseClicked_lib(){
     int ycor = i / 4 * 145 + 60 + scroll;
     if (mouseX >= xcor && mouseX <= xcor + 188 && mouseY >= ycor && mouseY <= ycor + 141 && mouseY >= 50){
       mode = 3;
+      reset_editor();
       to_edit = libimages.get(i);
       copy = to_edit.copy();
       sample = to_edit.copy();

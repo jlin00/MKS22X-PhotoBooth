@@ -5,8 +5,9 @@ class ScrollBar{
   float scroll_min, scroll_max; //min and max values of slider, based on bar 
   boolean over; //mouse over slider
   boolean clicked; //once mouse is pressed and mosue is over slider, clicked is true
+  String type; 
   
-  ScrollBar(float bar_x, float bar_y, int bar_width, int bar_height){
+  ScrollBar(float bar_x, float bar_y, int bar_width, int bar_height, String type){
     this.bar_x = bar_x;
     this.bar_y = bar_y;
     this.bar_width = bar_width;
@@ -18,6 +19,8 @@ class ScrollBar{
     
     over = false;
     clicked = false;
+    
+    this.type = type; 
   }
   
   boolean mouseOver(){ //is the mouse hovering over the bar
@@ -27,9 +30,22 @@ class ScrollBar{
   void update(){
     over = mouseOver();
     
-    if (mousePressed && over) clicked = true; //if clicked on slider, clicked is true
+    if (mousePressed && over && type.equals("brightness")){
+      clicked = true; //if clicked on slider, clicked is true
+      scroll_mode = 1;
+    }
+    else if (mousePressed && over && type.equals("saturation")){
+      clicked = true; //if clicked on slider, clicked is true
+      scroll_mode = 2;
+    }
+    else if(mousePressed && over && type.equals("contrast")){
+      clicked = true; //if clicked on slider, clicked is true
+      scroll_mode = 3;
+    }
     if (!mousePressed) clicked = false; //if you let go of mouse, clicked is false
-    if (clicked){ //move the slider to where mouse is 
+    if ((clicked && type.equals("brightness") && scroll_mode == 1)
+        || (clicked && type.equals("saturation") && scroll_mode == 2)
+        || (clicked && type.equals("contrast") && scroll_mode == 3)){ //move the slider to where mouse is 
       if (mouseX < scroll_min) scroll_x = scroll_min;
       else if (mouseX > scroll_max - bar_height) scroll_x = scroll_max - bar_height;
       else scroll_x = mouseX;

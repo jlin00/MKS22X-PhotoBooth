@@ -14,7 +14,7 @@ int adjustRight;
 int adjustLeft;
 boolean leftmost;
 boolean rightmost;
-int scroll_mode = 1; 
+int scroll_mode; 
 
 ArrayList<Sticker> stickers;
 PImage dogSticker;
@@ -103,11 +103,11 @@ void setup_editor(){
   kernel_buttons.add(vertLines);
   
   //adjustment scrollbars 
-  ScrollBar bright_adj = new ScrollBar(180, 550, 500, 10);
+  ScrollBar bright_adj = new ScrollBar(180, 550, 500, 10, "brightness");
   scroll_buttons.add(bright_adj);
-  ScrollBar sat_adj = new ScrollBar(180, 580, 500, 10);
+  ScrollBar sat_adj = new ScrollBar(180, 580, 500, 10, "saturation");
   scroll_buttons.add(sat_adj);
-  ScrollBar cont_adj = new ScrollBar(180, 610, 500, 10);
+  ScrollBar cont_adj = new ScrollBar(180, 610, 500, 10, "contrast");
   scroll_buttons.add(cont_adj);
   
   
@@ -396,4 +396,14 @@ void editBar(){
       text("CONTRAST", 100, 618);
     }
   }
+}
+
+void reset_editor(){ //must be reset everytime new image is being edited 
+  for (ScrollBar s: scroll_buttons){
+    s.scroll_x = s.bar_x + s.bar_width/2 - s.bar_height/2;
+  }
+  leftmost = true;
+  rightmost = false;
+  adjust = 0;
+  filterMode = 1;
 }
