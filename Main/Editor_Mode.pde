@@ -390,11 +390,14 @@ void editBar(){
       s.display();
       s.update();
       
-      fill(0);
-      text("BRIGHTNESS", 100, 558);
-      text("SATURATION", 100, 588);
-      text("CONTRAST", 100, 618);
+      float init_pos = s.bar_x + s.bar_width/2 - s.bar_height/2;
+      float value = s.scroll_x - init_pos;
+      
     }
+    fill(0);
+    text("BRIGHTNESS", 100, 558);
+    text("SATURATION", 100, 588);
+    text("CONTRAST", 100, 618);
   }
 }
 

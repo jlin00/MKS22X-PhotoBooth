@@ -91,8 +91,7 @@ void mouseClicked_lib(){
       sample = to_edit.copy();
       sample.resize(100,75);
     }
-  }
-  
+  }  
 }
 
 //mouse_Wheel method for library to be used in main 
