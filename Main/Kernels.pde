@@ -19,6 +19,14 @@ float[][] emboss = new float[][] { {-2, -1, 0},
 float[][] sobelEdge = new float[][] { {-1, -2, -1},
                                       {0, 0, 0},
                                       {1, 2, 1} };
+                                      
+ float[][] hoznLines = new float[][] { {-1, 2, -1},
+                                      {-1, 2, -1},
+                                      {-1, 2, -1} };  
+                                      
+ float[][] vertLines = new float[][] { {-1, -1, -1},
+                                      {2, 2, 2},
+                                      {-1, -1, -1} };                                        
 
 float multiplier = 1.0/49;
 float[][] blur = { {1, 1, 1, 1, 1, 1, 1},

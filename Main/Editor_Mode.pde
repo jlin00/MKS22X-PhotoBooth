@@ -51,6 +51,7 @@ void setup_editor(){
   //color filters, sample pictures of filter are overlaid over these 
   Button noFilter = new Button (20, 550, 100, 75, true, "noFilter");
   color_buttons.add(noFilter);
+  kernel_buttons.add(noFilter);
   Button grayFilter = new Button (145, 550, 100, 75, true, "grayFilter");
   color_buttons.add(grayFilter);
   Button redFilter = new Button (270, 550, 100, 75, true, "redFilter");
@@ -82,6 +83,10 @@ void setup_editor(){
   kernel_buttons.add(emboss);
   Button sobelEdge = new Button(770, 550, 100, 75, true, "sobelEdge");
   kernel_buttons.add(sobelEdge);
+  Button hoznLines = new Button(895, 550, 100, 75, true, "hoznLines");
+  kernel_buttons.add(hoznLines);
+  Button vertLines = new Button(1020, 550, 100, 75, true, "vertLines");
+  kernel_buttons.add(vertLines);
   
   Button dogS = new Button(0, 300, 100, 25, true, "dogS");
   edit_buttons.add(dogS);
@@ -177,8 +182,15 @@ void mouseClicked_editor(){
         }
         if (b.popup && b.type.equals("right")){
           adjust = -748;
-          for (Button b2: color_buttons){
-            b2.shiftX(-748);
+          if (filterMode == 1){
+            for (Button b2: color_buttons){
+              b2.shiftX(-748);
+            }
+          }
+          if (filterMode == 2){
+            for (Button b3: kernel_buttons){
+              b3.shiftX(-748);
+            }
           }
           edit_buttons.get(2).setPopup(true);
           edit_buttons.get(3).setPopup(false);
@@ -188,8 +200,15 @@ void mouseClicked_editor(){
         
         if (b.popup && b.type.equals("left")){
           adjust = 0;
-          for (Button b2: color_buttons){
-            b2.shiftX(748);
+          if (filterMode == 1){
+            for (Button b2: color_buttons){
+              b2.shiftX(748);
+            }
+          }
+          if (filterMode == 2){
+            for (Button b3: kernel_buttons){
+              b3.shiftX(748);
+            }
           }
           edit_buttons.get(2).setPopup(false);
           edit_buttons.get(3).setPopup(true);
@@ -252,6 +271,48 @@ void mouseClicked_editor(){
       }
     }
   }
+  
+  if (filterMode == 2){
+    for (Button b: kernel_buttons){
+      if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
+        if (b.type.equals("noFilter")){
+          copy = to_edit.copy();
+        }
+        if (b.type.equals("blur")){
+          copy = to_edit.copy();
+          copy = convoluteBlur(copy, blur);
+        }
+        if (b.type.equals("sharpen")){
+          copy = to_edit.copy();
+          copy = convolute(copy, sharpen);
+        }
+        if (b.type.equals("edgeEnhance")){
+          copy = to_edit.copy();
+          copy = convolute(copy, edgeEnhance);
+        }
+        if (b.type.equals("edgeDetect")){
+          copy = to_edit.copy();
+          copy = convolute(copy, edgeDetect);
+        }
+        if (b.type.equals("emboss")){
+          copy = to_edit.copy();
+          copy = convolute(copy, emboss);
+        }
+        if (b.type.equals("sobelEdge")){
+          copy = to_edit.copy();
+          copy = convolute(copy, sobelEdge);
+        }
+        if (b.type.equals("hoznLines")){
+          copy = to_edit.copy();
+          copy = convolute(copy, hoznLines);
+        }
+        if (b.type.equals("vertLines")){
+          copy = to_edit.copy();
+          copy = convolute(copy, vertLines);
+        }
+      }
+    }
+  }
 }
 
 void editBar(){
@@ -270,7 +331,7 @@ void editBar(){
     }
   }
   else if (filterMode == 2) {
-    for (int i = 0; i < 7; i++){
+    for (int i = 0; i < 9; i++){
       PImage sample_copy = sample.copy();
       if (i == 1) sample_copy = convoluteBlur(sample, blur);
       if (i == 2) sample_copy = convolute(sample, sharpen);
@@ -278,6 +339,8 @@ void editBar(){
       if (i == 4) sample_copy = convolute(sample, edgeDetect);
       if (i == 5) sample_copy = convolute(sample, emboss);
       if (i == 6) sample_copy = convolute(sample, sobelEdge);
+      if (i == 7) sample_copy = convolute(sample, hoznLines);
+      if (i == 8) sample_copy = convolute(sample, vertLines);
       image(sample_copy, i * 125 + 20 + adjust, 550);
     }
   }
