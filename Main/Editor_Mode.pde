@@ -7,6 +7,7 @@ PImage sample; //sample displayed in editor panel
 ArrayList<Button> edit_buttons; //buttons in mode 3
 ArrayList<Button> color_buttons;
 ArrayList<Button> kernel_buttons; 
+ArrayList<ScrollBar> scroll_buttons; 
 int[] filters; 
 int filterMode;
 int adjust;
@@ -26,6 +27,7 @@ void setup_editor(){
   edit_buttons = new ArrayList<Button>();
   color_buttons = new ArrayList<Button>();
   kernel_buttons = new ArrayList<Button>();
+  scroll_buttons = new ArrayList<ScrollBar>(); 
   filters = new int[2]; //first index with store color filter, second stores kernel effects 
                         //you can only apply one of each 
   filterMode = 2;
@@ -101,6 +103,15 @@ void setup_editor(){
   kernel_buttons.add(hoznLines);
   Button vertLines = new Button(1020, 550, 100, 75, true, "vertLines");
   kernel_buttons.add(vertLines);
+  
+  //adjustment scrollbars 
+  ScrollBar bright_adj = new ScrollBar(180, 550, 500, 10);
+  scroll_buttons.add(bright_adj);
+  ScrollBar sat_adj = new ScrollBar(180, 580, 500, 10);
+  scroll_buttons.add(sat_adj);
+  ScrollBar cont_adj = new ScrollBar(180, 610, 500, 10);
+  scroll_buttons.add(cont_adj);
+  
   
   Button dogS = new Button(0, 300, 100, 25, true, "dogS");
   edit_buttons.add(dogS);
@@ -374,6 +385,17 @@ void editBar(){
       if (i == 7) sample_copy = convolute(sample, hoznLines);
       if (i == 8) sample_copy = convolute(sample, vertLines);
       image(sample_copy, i * 125 + 20 + adjust, 550);
+    }
+  }
+  else if (filterMode == 3){
+    for (ScrollBar s: scroll_buttons){
+      s.display();
+      s.update();
+      
+      fill(0);
+      text("BRIGHTNESS", 100, 555);
+      text("SATURATION", 100, 585);
+      text("CONTRAST", 100, 615);
     }
   }
 }
