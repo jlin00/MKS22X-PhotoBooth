@@ -216,11 +216,6 @@ void mouseClicked_editor(){
           rightmost = false;
         }
         
-        if (b.type.equals("blur")) {
-          copy = to_edit.copy();
-          copy = convoluteBlur(copy, blur);
-        }
-        
         if (b.type.equals("dogS")) {
           Sticker dog = new Sticker(dogSticker, 80, 80);
           stickers.add(dog);

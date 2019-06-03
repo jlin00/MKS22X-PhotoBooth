@@ -1,16 +1,16 @@
 // all the kernels. all of them
 
-float[][] sharpen = new float[][] { {0, -1, 0},
-                                    {-1, 5, -1},
-                                    {0, -1, 0} };
+float[][] sharpen = new float[][] { {-1, -1, -1},
+                                    {-1, 9, -1},
+                                    {-1, -1, -1} };
 
 float[][] edgeEnhance = new float[][] { {0, 0, 0},
                                         {-1, 1, 0},
                                         {0, 0, 0} };
 
-float[][] edgeDetect = new float[][] { {0, 1, 0},
-                                       {1, -4, 1},
-                                       {0, 1, 0} };
+float[][] edgeDetect = new float[][] { {-1, -1, -1},
+                                       {-1, 8, -1},
+                                       {-1, -1, -1} };
 
 float[][] emboss = new float[][] { {-2, -1, 0},
                                    {-1, 1, 1},
@@ -20,13 +20,13 @@ float[][] sobelEdge = new float[][] { {-1, -2, -1},
                                       {0, 0, 0},
                                       {1, 2, 1} };
                                       
- float[][] hoznLines = new float[][] { {-1, 2, -1},
-                                      {-1, 2, -1},
-                                      {-1, 2, -1} };  
+ float[][] hoznLines = new float[][] { {-2, 4, -2},
+                                      {-2, 4, -2},
+                                      {-2, 4, -2} };  
                                       
- float[][] vertLines = new float[][] { {-1, -1, -1},
-                                      {2, 2, 2},
-                                      {-1, -1, -1} };                                        
+ float[][] vertLines = new float[][] { {-2, -2, -2},
+                                      {4, 4, 4},
+                                      {-2, -2, -2} };
 
 float multiplier = 1.0/49;
 float[][] blur = { {1, 1, 1, 1, 1, 1, 1},
@@ -35,7 +35,7 @@ float[][] blur = { {1, 1, 1, 1, 1, 1, 1},
                      {1, 1, 1, 1, 1, 1, 1},
                      {1, 1, 1, 1, 1, 1, 1},
                      {1, 1, 1, 1, 1, 1, 1},
-                     {1, 1, 1, 1, 1, 1, 1} };
+                     {1, 1, 1, 1, 1, 1, 1} };   
 
 PImage convolute(PImage orig, float[][] kernel) {
   orig.loadPixels();
