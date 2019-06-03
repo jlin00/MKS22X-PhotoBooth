@@ -125,12 +125,14 @@ void mouseClicked_editor(){
           text_clicked();
           text("LIBRARY", 714, 30);
           mode = 1;
+          for (Sticker s : stickers) s.appear = false;
           stickers = new ArrayList<Sticker>();
         }
         if (b.type.equals("redirectB")){
           text_clicked();
           text("BOOTH", 56, 30);
           mode = 2;
+          for (Sticker s : stickers) s.appear = false;
           stickers = new ArrayList<Sticker>();
         }
         if (b.type.equals("save")){
@@ -142,6 +144,8 @@ void mouseClicked_editor(){
         if (b.type.equals("cancel")){
           loadLibrary(); 
           mode = 1; 
+          for (Sticker s : stickers) s.appear = false;
+          stickers = new ArrayList<Sticker>();
         }
         
         if (filterMode == 1){
