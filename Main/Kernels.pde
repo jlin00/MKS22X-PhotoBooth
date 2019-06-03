@@ -53,9 +53,9 @@ PImage convolute(PImage orig, float[][] kernel) {
           
           float kernelNum = kernel[kx+1][ky+1];
           
-          sum_r += multiplier * kernelNum * (red(c));
-          sum_g += multiplier * kernelNum * (green(c));
-          sum_b += multiplier * kernelNum * (blue(c));
+          sum_r += kernelNum * (red(c));
+          sum_g += kernelNum * (green(c));
+          sum_b += kernelNum * (blue(c));
           
           //edit.pixels[y * orig.width + x] = color(sum_r, sum_g, sum_b);
         }

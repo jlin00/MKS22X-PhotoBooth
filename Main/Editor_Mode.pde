@@ -6,9 +6,12 @@ PImage copy; //copy of to_edit
 PImage sample; //sample displayed in editor panel 
 ArrayList<Button> edit_buttons; //buttons in mode 3
 ArrayList<Button> color_buttons;
+ArrayList<Button> kernel_buttons; 
 int[] filters; 
 int filterMode;
 int adjust;
+int adjustRight;
+int adjustLeft;
 boolean leftmost;
 boolean rightmost;
 
@@ -22,11 +25,14 @@ void setup_editor(){
   //initializing variables
   edit_buttons = new ArrayList<Button>();
   color_buttons = new ArrayList<Button>();
+  kernel_buttons = new ArrayList<Button>();
   filters = new int[2]; //first index with store color filter, second stores kernel effects 
                         //you can only apply one of each 
-  filterMode = 1;
+  filterMode = 2;
   leftmost = true; //for navigation bar
   rightmost = false; //for navigation bar 
+  //adjustLeft = 0;
+  //adjustRight = 1;
   
   Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
   edit_buttons.add(go_to_lib);
@@ -64,8 +70,18 @@ void setup_editor(){
   
   
   //kernel image processing 
-  Button blur = new Button(18, 625, 100, 25, true, "blur");
-  edit_buttons.add(blur);
+  Button blur = new Button(145, 550, 100, 75, true, "blur");
+  kernel_buttons.add(blur);
+  Button sharpen = new Button(270, 550, 100, 75, true, "sharpen");
+  kernel_buttons.add(sharpen);
+  Button edgeEnhance = new Button(395, 550, 100, 75, true, "edgeEnhance");
+  kernel_buttons.add(edgeEnhance);
+  Button edgeDetect = new Button(520, 550, 100, 75, true, "edgeDetect");
+  kernel_buttons.add(edgeDetect);
+  Button emboss = new Button(645, 550, 100, 75, true, "emboss");
+  kernel_buttons.add(emboss);
+  Button sobelEdge = new Button(770, 550, 100, 75, true, "sobelEdge");
+  kernel_buttons.add(sobelEdge);
   
   Button dogS = new Button(0, 300, 100, 25, true, "dogS");
   edit_buttons.add(dogS);
@@ -103,7 +119,7 @@ void draw_editor(){
   text("SAVE", 55, 680);
   text("CANCEL", 710, 680);
   
-  if (filterMode == 1) editBar();
+  editBar();
   //else if (filterMode == 2) kernelBar();
   //else if (filterMode == 3) sliderBar(); 
   //else if (filterMode == 4) stickerBar();
@@ -239,16 +255,30 @@ void mouseClicked_editor(){
 }
 
 void editBar(){
-  for (int i = 0; i < 9; i++){
-    PImage sample_copy = sample.copy();
-    if (i == 1) grayscale(sample_copy);
-    if (i == 2) redscale(sample_copy);
-    if (i == 3) yellowscale(sample_copy);
-    if (i == 4) orangescale(sample_copy);
-    if (i == 5) greenscale(sample_copy);
-    if (i == 6) bluescale(sample_copy);
-    if (i == 7) purplescale(sample_copy);
-    if (i == 8) invert(sample_copy);
-    image(sample_copy, i * 125 + 20 + adjust, 550);
+  if (filterMode == 1) {
+    for (int i = 0; i < 9; i++){
+      PImage sample_copy = sample.copy();
+      if (i == 1) grayscale(sample_copy);
+      if (i == 2) redscale(sample_copy);
+      if (i == 3) yellowscale(sample_copy);
+      if (i == 4) orangescale(sample_copy);
+      if (i == 5) greenscale(sample_copy);
+      if (i == 6) bluescale(sample_copy);
+      if (i == 7) purplescale(sample_copy);
+      if (i == 8) invert(sample_copy);
+      image(sample_copy, i * 125 + 20 + adjust, 550);
+    }
+  }
+  else if (filterMode == 2) {
+    for (int i = 0; i < 7; i++){
+      PImage sample_copy = sample.copy();
+      if (i == 1) sample_copy = convoluteBlur(sample, blur);
+      if (i == 2) sample_copy = convolute(sample, sharpen);
+      if (i == 3) sample_copy = convolute(sample, edgeEnhance);
+      if (i == 4) sample_copy = convolute(sample, edgeDetect);
+      if (i == 5) sample_copy = convolute(sample, emboss);
+      if (i == 6) sample_copy = convolute(sample, sobelEdge);
+      image(sample_copy, i * 125 + 20 + adjust, 550);
+    }
   }
 }
