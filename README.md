@@ -203,7 +203,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      <li>adjusted and created the edit bar for filters</li>
+      <li>adjusted and created the edit bar for filters, worked on color filter (filterMode 1)</li>
       <li>worked on implementing buttons for each filter</li>
     </ul><br>
     </td>
@@ -234,9 +234,12 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      <li>implemented the clickable edit bar with filters</li>
+      <li>implemented the clickable edit bar with filters and added a filterMode variable</li>
       <li>eliminated extra code</li>
       <li>added a revert button</li>
+      <li>modified color filter methods</li>
+      <li>added variables and methods to make edit bar navigable with left and right scroll buttons</li>
+      <li>added a kernel filterMode to the edit bar (filterMode 2)</li>
     </ul><br>
     </td>
   </tr>
@@ -245,12 +248,27 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br><ul>
-      <li></li>
+      <li>taking a well-deserved break :) </li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      <li></li>
-      <li></li>
+      deadline is almost upon us but diamonds are made under pressure :) 
+      <li>added new kernels that detect horizontal and vertical lines in image, edited existing kernels</li>
+      <li>made kernel filterMode clickable/functional</li>
+      <li>added functional buttons to navigate between different filterModes in edit bar</li>
+      <li>wrote algorithms to change brightness, saturation and contrast of picture</li>
+      <li>wrote a new ScrollBar class to be used in adjustments (filterMode 3), referenced HScrollbar documentation on Processing website</li>
+      <li>added scrollbars and read values from these scrollbars to change brightness, saturation and contrast of picture (filterMode 3)</li>
+      <li>wrote an apply_adj() function that overlays applied filters and adjustments on the image (as opposed to them being mutually exclusive as they were previously)</li>
+      <li>created a new apply and reset button in filterMode 3 related to the apply_adj() function</li>
+      <li>removed unnecessary files</li>
+      <li>experimented with drawing on a PGraphics buffer, referenced documentation</li>
+      <li>added a PGraphics buffer on top of to_edit image (filterMode 6)</li>
+      <li>added a clickable color palette for draw mode (filterMode 6), also added a clear button to clear all drawings </li>
+      <li>added new frame class and added new photo frame images (code very similar to code for loading images in library)</li>
+      <li>displayed photo frames in edit bar (filterMode 5) and added buttons underneath</li>
+      <li>made buttons clickable to apply a photoframe</li>
+      <li>debugged the left, right scroll buttons in edit bar</li>
     </ul><br>
     </td>
   </tr>
