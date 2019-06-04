@@ -1,5 +1,5 @@
 # Photo Booth/Editor
-<b>Group Name:</b> Big Brains
+<b>Group Name:</b> Big Brains<br>
 <b>Group Members:</b> Grace Mao, Jackie Lin 
 
 ## Table of Contents 
