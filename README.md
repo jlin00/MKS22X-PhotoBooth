@@ -1,5 +1,5 @@
 # Photo Booth/Editor
-<b>Group Name:</b> Big Brains<br>
+<b>Group Name:</b> Big Brains
 <b>Group Members:</b> Grace Mao, Jackie Lin 
 
 ## Table of Contents 
@@ -8,7 +8,6 @@
  <li>[Instructions](#instructions)</li>
  <li>[Development Log](#development-log)</li>
 </ul>
-
 
 ## Project Description 
 
@@ -373,4 +372,3 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     </ul><br>
     </td>
   </tr>
-</table>
