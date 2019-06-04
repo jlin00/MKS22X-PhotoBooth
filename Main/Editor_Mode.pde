@@ -13,6 +13,7 @@ ArrayList<ScrollBar> scroll_buttons;
   float brightness_level;
   float saturate_level;
   float contrast_level;
+ArrayList<Button> draw_buttons;
 int filterMode;
 int adjust;
 int adjustRight;
@@ -21,6 +22,7 @@ boolean leftmost;
 boolean rightmost;
 int scroll_mode; 
 PGraphics pg;
+  color drawcolor; 
 
 ArrayList<Sticker> stickers;
 PImage dogSticker;
@@ -33,11 +35,13 @@ void setup_editor(){
   edit_buttons = new ArrayList<Button>();
   color_buttons = new ArrayList<Button>();
   kernel_buttons = new ArrayList<Button>();
-  scroll_buttons = new ArrayList<ScrollBar>();  
+  scroll_buttons = new ArrayList<ScrollBar>();
+  draw_buttons = new ArrayList<Button>();
   filterMode = 2;
   leftmost = true; //for navigation bar
   rightmost = false; //for navigation bar 
   pg = createGraphics(461, 346);
+  drawcolor = color(0); //default draw color
   //adjustLeft = 0;
   //adjustRight = 1;
   
@@ -119,6 +123,38 @@ void setup_editor(){
   apply = new Button (665, 560, 70, 20, true, "apply");
   reset = new Button (665, 590, 70, 20, true, "reset");
   
+  //draw color palette
+  Button color1 = new Button(40, 580, 20, false, color(0));
+  draw_buttons.add(color1);
+  Button color2 = new Button(80, 580, 20, false, color(128));
+  draw_buttons.add(color2);
+  Button color3 = new Button(120, 580, 20, false, color(255, 0, 0));
+  draw_buttons.add(color3);
+  Button color4 = new Button(160, 580, 20, false, color(255, 128, 0));
+  draw_buttons.add(color4);
+  Button color5 = new Button(200, 580, 20, false, color(255, 255, 0));
+  draw_buttons.add(color5);
+  Button color6 = new Button(240, 580, 20, false, color(128, 255, 0));
+  draw_buttons.add(color6);
+  Button color7 = new Button(280, 580, 20, false, color(0, 255, 0));
+  draw_buttons.add(color7);
+  Button color8 = new Button(320, 580, 20, false, color(0, 255, 128));
+  draw_buttons.add(color8);
+  Button color9 = new Button(360, 580, 20, false, color(0, 255, 255));
+  draw_buttons.add(color9);
+  Button color10 = new Button(400, 580, 20, false, color(0, 128, 255));
+  draw_buttons.add(color10);
+  Button color11 = new Button(440, 580, 20, false, color(0, 0, 255));
+  draw_buttons.add(color11);
+  Button color12 = new Button(480, 580, 20, false, color(127, 0, 255));
+  draw_buttons.add(color12);
+  Button color13 = new Button(520, 580, 20, false, color(255, 0, 255));
+  draw_buttons.add(color13);
+  Button color14 = new Button(560, 580, 20, false, color(255, 0, 127));
+  draw_buttons.add(color14);
+  Button color15 = new Button(600, 580, 20, false, color(255));
+  draw_buttons.add(color15);
+  
   
   Button dogS = new Button(0, 300, 100, 25, true, "dogS");
   edit_buttons.add(dogS);
@@ -153,6 +189,12 @@ void draw_editor(){
     reset.display();
   }
   
+  if (filterMode == 6){
+    for (Button b: draw_buttons){
+      b.display();
+    }
+  }
+  
   textSize(14);
   fill(0);
   text("LIBRARY", 712, 30);
@@ -182,7 +224,7 @@ void mouseDragged_edit() {
     pg.beginDraw(); 
     for (int kx = -2; kx <= 2; kx++){
       for (int ky = -2; ky <= 2; ky++){
-        pg.set(mouseX + kx - 154, mouseY + ky - 115, color(0));
+        pg.set(mouseX + kx - 154, mouseY + ky - 115, drawcolor);
       }
     }
     pg.endDraw(); 
@@ -407,6 +449,16 @@ void mouseClicked_editor(){
     if (mouseX >= reset.x && mouseY >= reset.y && mouseX <= reset.x + reset.w && mouseY <= reset.y + reset.h){
       reset_sliders();
       apply_adj();
+    }
+  }
+  
+  if (filterMode == 6){
+    for (Button b: draw_buttons){
+      float disX = b.x - mouseX;
+      float disY = b.y - mouseY;
+      if (sqrt(sq(disX) + sq(disY)) < b.d/2){ //if clicked on circular color button 
+        drawcolor = b.c;
+      }
     }
   }
 }

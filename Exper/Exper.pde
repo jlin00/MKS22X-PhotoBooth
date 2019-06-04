@@ -21,3 +21,7 @@ void mouseDragged() {
   }
   pg.endDraw(); 
 }
+
+void mouseClicked(){
+  pg.clear();
+}

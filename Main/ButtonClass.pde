@@ -37,6 +37,7 @@ class Button {
     this.shape = shape;
     popup = true;
     this.c = c;
+    type = "";
   }
   
   void display() {
