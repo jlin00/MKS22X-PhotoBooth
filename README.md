@@ -348,8 +348,14 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      <li></li>
-      <li></li>
+      <li>added a button to get rid of photo frame</li>
+      <li>edited the reset_editor function to reset stickers and drawings everytime editor is opened</li>
+      <li>added code so that only one sticker and scrollbar can be dragged at a time </li>
+      <li>added code to allow sticker edit bar to be adjusted with left/right arrow buttons</li>
+      <li>added new stickers and wrote code to make those stickers functional</li>
+      <li>added an erase button in draw mode in the edit bar</li>
+      <li>added comments to the code, removed unnecessary code</li>
+      <li>updated instructions for running the program</li>
     </ul><br>
     </td>
   </tr>
