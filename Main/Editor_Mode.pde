@@ -705,7 +705,7 @@ void editBar(){ //what the edit bar displays based on filterMode
     fill(255);
     rect(20 + adjust, 550, 100, 75);
     fill(120);
-    text("NONE", 70, 591);
+    text("NONE", 70 + adjust, 591);
     fill(0);
   }
   else if (filterMode == 6){ //if filterMode 6
@@ -717,8 +717,6 @@ void editBar(){ //what the edit bar displays based on filterMode
 
 void reset_editor(){ //must be reset everytime new image is being edited 
   reset_sliders(); //reset slider values 
-  leftmost = true; //resets scroll
-  rightmost = false;
   adjust = 0; //all buttons and images are reset to initial position 
   filterMode = 1; //filterMode reset to 1 
   frameNum = 11; //no frame
@@ -728,6 +726,24 @@ void reset_editor(){ //must be reset everytime new image is being edited
   stickers.clear(); //delete all applied stickers
   drawcolor = color(0); //resets draw color to black 
   filter_num = 0; //resets to no filter 
+  if (rightmost){
+    for (Button b2: color_buttons){
+      b2.shiftX(748);
+    }
+    for (Button b3: kernel_buttons){
+      b3.shiftX(748);
+    }
+    for (Button b4: frame_buttons){
+      b4.shiftX(748);
+    }
+    for (Button b5: sticker_buttons){
+      b5.shiftX(748);
+    } 
+   }
+  edit_buttons.get(2).setPopup(false); //left scroll button is no longer available 
+  edit_buttons.get(3).setPopup(true); //right scroll button is now available 
+  leftmost = true;
+  rightmost = false;
 }
 
 void apply_adj(){ //overlay all adjsutments to brightness, saturation and contrast on top of chosen filter 
