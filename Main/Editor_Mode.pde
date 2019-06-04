@@ -57,10 +57,10 @@ void setup_editor(){
       temp.resize(461,346);
       framePics.add(temp);
       Frame f = new Frame(s);
-      frames.add(f);
-    } 
-    Button b = new Button(i * 125 + 20 + adjust, 550, 100, 75, true, s); 
-    frame_buttons.add(b);
+      frames.add(f); 
+      Button b = new Button((i - 1) * 125 + 20 + adjust, 550, 100, 75, true, s); 
+      frame_buttons.add(b);
+    }
   }
   
   //general buttons 
@@ -311,6 +311,11 @@ void mouseClicked_editor(){
               b3.shiftX(-748);
             }
           }
+          if (filterMode == 5){
+            for (Button b4: frame_buttons){
+              b4.shiftX(-748);
+            }
+          }
           edit_buttons.get(2).setPopup(true);
           edit_buttons.get(3).setPopup(false);
           leftmost = false;
@@ -327,6 +332,11 @@ void mouseClicked_editor(){
           if (filterMode == 2){
             for (Button b3: kernel_buttons){
               b3.shiftX(748);
+            }
+          }
+          if (filterMode == 5){
+            for (Button b4: frame_buttons){
+              b4.shiftX(748);
             }
           }
           edit_buttons.get(2).setPopup(false);
@@ -481,40 +491,40 @@ void mouseClicked_editor(){
     for (Button b: frame_buttons){
       if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
         if (b.type.equals("frame1.png")){
-          frameNum = 1;
+          frameNum = 12;
         }
         if (b.type.equals("frame2.png")){
-          frameNum = 2;
-        }
-        if (b.type.equals("frame3.png")){
-          frameNum = 3;
-        }
-        if (b.type.equals("frame4.png")){
-          frameNum = 4;
-        }
-        if (b.type.equals("frame5.png")){
-          frameNum = 5;
-        }
-        if (b.type.equals("frame6.png")){
-          frameNum = 6;
-        }
-        if (b.type.equals("frame7.png")){
-          frameNum = 7;
-        }
-        if (b.type.equals("frame8.png")){
-          frameNum = 8;
-        }
-        if (b.type.equals("frame9.png")){
-          frameNum = 9;
-        }
-        if (b.type.equals("frame10.png")){
-          frameNum = 10;
-        }
-        if (b.type.equals("frame11.png")){
           frameNum = 11;
         }
+        if (b.type.equals("frame3.png")){
+          frameNum = 10;
+        }
+        if (b.type.equals("frame4.png")){
+          frameNum = 5;
+        }
+        if (b.type.equals("frame5.png")){
+          frameNum = 4;
+        }
+        if (b.type.equals("frame6.png")){
+          frameNum = 7;
+        }
+        if (b.type.equals("frame7.png")){
+          frameNum = 8;
+        }
+        if (b.type.equals("frame8.png")){
+          frameNum = 2;
+        }
+        if (b.type.equals("frame9.png")){
+          frameNum = 1;
+        }
+        if (b.type.equals("frame10.png")){
+          frameNum = 9;
+        }
+        if (b.type.equals("frame11.png")){
+          frameNum = 6;
+        }
         if (b.type.equals("frame12.png")){
-          frameNum = 12;
+          frameNum = 9;
         }
       }
     }
@@ -621,6 +631,7 @@ void reset_editor(){ //must be reset everytime new image is being edited
   rightmost = false;
   adjust = 0;
   filterMode = 1;
+  frameNum = 0;
 }
 
 void apply_adj(){
