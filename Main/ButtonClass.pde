@@ -55,7 +55,8 @@ class Button {
     }     
     else{
       stroke(0);
-      fill(c);
+      if (c == color(0,0)) noFill();
+      else fill(c);
       ellipse(x,y,d,d);
       if (type.equals("take")){
         strokeWeight(1);

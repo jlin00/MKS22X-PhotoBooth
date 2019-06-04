@@ -195,7 +195,9 @@ void setup_editor(){
   draw_buttons.add(color14);
   Button color15 = new Button(600, 580, 20, false, color(255));
   draw_buttons.add(color15);
-  Button clear = new Button (640, 572, 80, 20, true, "clear");
+  Button color16 = new Button(640, 580, 20, false, color(0,0));
+  draw_buttons.add(color16);
+  Button clear = new Button (666, 571, 80, 20, true, "clear");
   draw_buttons.add(clear);
   
 }
@@ -708,7 +710,8 @@ void editBar(){
     fill(0);
   }
   else if (filterMode == 6){
-    text("CLEAR", 678, 588); 
+    text("CLEAR", 686, 582); 
+    text("E", 650, 560);
   }
 }
 
