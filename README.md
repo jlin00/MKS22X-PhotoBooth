@@ -8,16 +8,16 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
 2. Open Main.pde in Processing. 
 3. Click the "run" button. 
 4. You will start off in the library mode. You can tell which mode you're in by looking at the heading of the screen, which will read either "Photo Library", "Photo Booth", or "Photo Editor". 
-<br><br>
+<br><br> <br>
 <img src="pic1.png" alt="Diagram 1" align="middle"/>
 (1) Click on this button to button to transition to the Photo Booth. <br>
 (2) Click on any image to open it in Photo Editor. You can also scroll using your mouse to view other images in the library.
-<br><br>
+<br><br> <br>
 <img src="pic2.png" alt="Diagram 2" align="middle"/>
 (1) Click on this button to transition to the Photo Library.  <br>
 (2) This is where the photo from the webcam will be displayed.  <br>
 (3) Click this button to capture a photo. If you click this button, more buttons will appear. (see next diagram)
-<br><br>
+<br><br> <br>
 <img src="pic3.png" alt="Diagram 3" align="middle"/>
 (1) Click on this button to transition to the Photo Library. <br>
 (2) Click on this button to open the photo you just took in the Photo Editor.  <br>
@@ -25,41 +25,48 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
 (4) This button can still be clicked, but it will not be able to take new pictures.  <br>
 (5) Click on this button to save the photo into the library and go back to capture mode. (see previous diagram) <br>
 (6) Click on this button to discard the photo and go back to capture mode. (see previous diagram)
-<br><br>
+<br><br> <br>
 <img src="pic4.png" alt="Diagram 4" align="middle"/>
 (1) Click on this button to transition to the Photo Booth.  <br>
 (2) Click on this button to transition to the Photo Library.  <br>
 (3) This is the image that will be edited.  <br>
 (4) This is the edit bar. Click on any of the buttons to switch the edit mode. The mode displayed in this diagram is "Color".  <br>
-(5) This is the right arrow button. Click on this to display more filters. <br>
+(5) This is the right arrow button. Click on this to display more filters, stickers, or frames. <br>
 (6) Click on this button to save your edited image and return to Photo Library.  <br>
 (7) Click on this button to cancel your edits and return to Photo Library. 
-<br><br>
+<br><br> <br>
 <img src="pic5.png" alt="Diagram 5" align="middle"/>
 (1) This is edit mode 1. Click any of the images to apply the filter seen. Only one filter may be applied at a time (restriction includes the kernel filters). 
-<br><br>
+<br><br> <br>
 <img src="pic6.png" alt="Diagram 6" align="middle"/>
 (1) This is edit mode 2. Click any of the images to apply the filter seen. Only one filter may be applied at a time (restriction includes the color filters). 
-<br><br>
+<br><br> <br>
 <img src="pic7.png" alt="Diagram 7" align="middle"/>
 (1) This is one of the three adjustment scrollbars. Click anywhere on the scrollbar or drag the slider to change its value. <br>
 (2) After you finishing dragging the sliders, click this button to apply the adjustments to your image. <br>
 (3) Click this button to reset your sliders and reset the image.
-<br><br>
+<br><br> <br>
 <img src="pic8.png" alt="Diagram 8" align="middle"/>
 (1) This is edit mode 4. Click any of the images to apply the sticker. Any stickers added during the editing session may be moved around using mouse drag. To remove the sticker from your image, simply drag it out of the image into the surrounding area. 
-<br><br>
+<br><br> <br>
 <img src="pic9.png" alt="Diagram 9" align="middle"/>
 (1) This is edit mode 5. Click any of the images to apply the frame to your image. Click the first image, which says "NONE", in order to remove all frames. Only one frame may be applied at a time during an editing session. 
-<br><br>
+<br><br> <br>
 <img src="pic10.png" alt="Diagram 10" align="middle"/>
 (1) This is edit mode 6. The little circles filled with different colors make up the color palette. Click on any one of them to change the color of your pen. Using your pen, you can drag it over the image in order to draw on it.  <br>
 (2) Click this button to set your pen to erase mode. Now you can drag it over any drawings on the image made during the editing session to erase it.  <br>
 (3) Click this button to clear your image of all drawings made during the editing session. 
- <br> <br>
+ <br> <br> <br>
 
 
 <b>Important Notes</b>
+<ul>
+ <li>Unless you explicitly click the save button, none of your images will be saved.</li>
+ <li>DO NOT add stickers, or frames to the "Stickers" and "Frames" folders.</li> 
+ <li>DO NOT add images to the "Images" folder externally whiling running the program.</li>
+ <li>After you save an image, all the filters, stickers, adjustments, frames, and drawings become PART of the image. You cannot edit them again. </li>
+ <li>The program may be a little laggy because there is a lot going on at once. That being said, DO NOT click a button you want to use multiple times just because there is a lag. It will not make the program run any faster, and the buttons are not built to handle multiple clicks at once. It will just perform the button action multiple times, which can cause problems for you. Also while the program is loading, DO NOT click any other buttons. It will make the program even more laggy. </li>
+</ul>
 
 ## Development Log
 <table>
