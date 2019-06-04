@@ -59,8 +59,8 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
       <li>experimented with setup (including size of screen, size of capture area)</li>
       <li>worked with Grace to move experimental code into Main class (especially the Capture class)</li>
     </ul><br>
+      <i>Note: tried to implement mouseClick method in ButtonClass, which didn't work, will be moved to Main</i>
     </td>
-    <i>Note: tried to implement mouseClick method in ButtonClass, which didn't work, will be moved to Main</i>
   </tr>
   <tr>
     <td>5/22/19</td>
