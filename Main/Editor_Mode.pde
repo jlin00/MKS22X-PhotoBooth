@@ -257,9 +257,11 @@ void draw_editor(){
 }
 
 void mouseDragged_edit() {
-  for (Sticker s : stickers) {
+  if (filterMode != 6){
+    for (Sticker s : stickers) {
     //println("yee");
     s.drag();
+    }
   }
   if (filterMode == 6){
     pg.beginDraw(); 
@@ -678,6 +680,10 @@ void reset_editor(){ //must be reset everytime new image is being edited
   adjust = 0;
   filterMode = 1;
   frameNum = 11;
+  pg.beginDraw();
+  pg.clear();
+  pg.endDraw();
+  stickers.clear();
 }
 
 void apply_adj(){
