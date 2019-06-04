@@ -36,10 +36,10 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
 (7) Click on this button to cancel your edits and return to Photo Library. 
 <br><br> <br>
 <img src="pic5.png" alt="Diagram 5" align="middle"/>
-(1) This is edit mode 1. Click any of the images to apply the filter seen. Only one filter may be applied at a time (restriction includes the kernel filters). 
+(1) This is edit mode 1. Click any of the images to apply the filter seen. Only one filter may be applied at a time (restriction includes the kernel filters). The available color filters are grayscale, redscale, orangescale, yellowscale, greenscale, bluescale, purplescale, and invert color (displayed in that order on the screen). Click the first image to remove any filters.
 <br><br> <br>
 <img src="pic6.png" alt="Diagram 6" align="middle"/>
-(1) This is edit mode 2. Click any of the images to apply the filter seen. Only one filter may be applied at a time (restriction includes the color filters). 
+(1) This is edit mode 2, which displays kernel filters. Click any of the images to apply the filter seen. Only one filter may be applied at a time (restriction includes the color filters). The available kernel filters are blur, sharpen, edgeEnhance, edgeDetect, emboss, sobelEdge, horizontal line detector and vertical line detector (displayed in that order on the screen). Click the first image to remove any filters. 
 <br><br> <br>
 <img src="pic7.png" alt="Diagram 7" align="middle"/>
 (1) This is one of the three adjustment scrollbars. Click anywhere on the scrollbar or drag the slider to change its value. <br>
