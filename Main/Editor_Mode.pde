@@ -456,7 +456,8 @@ void editBar(){
     text("BRIGHTNESS", 70, 558);
     text("SATURATION", 70, 588);
     text("CONTRAST", 70, 618);
-    text("APPLY", 698, 588);
+    text("APPLY", 698, 575);
+    text("RESET", 698, 605);
   }
 }
 

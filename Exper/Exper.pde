@@ -13,7 +13,7 @@ void setup(){
   orig = loadImage("lena.jpeg");
   copy = brightness(orig, 255);
   copy2 = saturation(copy, 255); 
-  copy3 = contrast(copy2, 0);
+  copy3 = contrast(copy2, 100);
 }
 
 
