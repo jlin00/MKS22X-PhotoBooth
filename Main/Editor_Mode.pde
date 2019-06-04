@@ -154,6 +154,8 @@ void setup_editor(){
   draw_buttons.add(color14);
   Button color15 = new Button(600, 580, 20, false, color(255));
   draw_buttons.add(color15);
+  Button clear = new Button (640, 580, 60, 20, true, "clear");
+  draw_buttons.add(clear);
   
   
   Button dogS = new Button(0, 300, 100, 25, true, "dogS");
@@ -454,10 +456,21 @@ void mouseClicked_editor(){
   
   if (filterMode == 6){
     for (Button b: draw_buttons){
-      float disX = b.x - mouseX;
-      float disY = b.y - mouseY;
-      if (sqrt(sq(disX) + sq(disY)) < b.d/2){ //if clicked on circular color button 
-        drawcolor = b.c;
+      if (b.shape){
+        if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
+          if (b.type.equals("clear")){
+            pg.beginDraw();
+            pg.clear();
+            pg.endDraw();
+          }
+        }
+      }
+      else{
+        float disX = b.x - mouseX;
+        float disY = b.y - mouseY;
+        if (sqrt(sq(disX) + sq(disY)) < b.d/2){ //if clicked on circular color button 
+          drawcolor = b.c;
+        }
       }
     }
   }
@@ -523,6 +536,10 @@ void editBar(){
     text("CONTRAST", 70, 618);
     text("APPLY", 698, 575);
     text("RESET", 698, 605);
+  }
+  
+  else if (filterMode == 6){
+    text("CLEAR", 650, 590); 
   }
 }
 
