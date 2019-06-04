@@ -20,6 +20,7 @@ int adjustLeft;
 boolean leftmost;
 boolean rightmost;
 int scroll_mode; 
+PGraphics pg;
 
 ArrayList<Sticker> stickers;
 PImage dogSticker;
@@ -36,6 +37,7 @@ void setup_editor(){
   filterMode = 2;
   leftmost = true; //for navigation bar
   rightmost = false; //for navigation bar 
+  pg = createGraphics(461, 346);
   //adjustLeft = 0;
   //adjustRight = 1;
   
@@ -167,12 +169,23 @@ void draw_editor(){
   text("STICKERS", 447, 522);
   text("FRAMES", 572, 522);
   text("DRAW", 697, 522);
+  
+  image(pg, 153.5, 115);
 }
 
 void mouseDragged_edit() {
   for (Sticker s : stickers) {
     //println("yee");
     s.drag();
+  }
+  if (filterMode == 6){
+    pg.beginDraw(); 
+    for (int kx = -2; kx <= 2; kx++){
+      for (int ky = -2; ky <= 2; ky++){
+        pg.set(mouseX + kx - 150, mouseY + ky - 150, color(0));
+      }
+    }
+    pg.endDraw(); 
   }
 }
 
