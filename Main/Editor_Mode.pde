@@ -25,8 +25,9 @@ PGraphics pg;
 Frame[] frames;
 PImage[] framePics;
   int frameNum = 11; 
-Sticker[] stickers;
+ArrayList<Sticker> stickers;
 PImage[] stickerPics;
+Button[] sticker_buttons;
 
 //setup for editor mode to be used in main
 void setup_editor(){
@@ -44,8 +45,9 @@ void setup_editor(){
   rightmost = false; //for navigation bar 
   pg = createGraphics(461, 346);
   drawcolor = color(0); //default draw color
-  stickers = new Sticker[6];
+  stickers = new ArrayList<Sticker>();
   stickerPics = new PImage[6];
+  sticker_buttons = new Button[6];
   
   //picture frames
   String path = sketchPath("Frames");
@@ -69,7 +71,7 @@ void setup_editor(){
   
   //stickers
   String path2 = sketchPath("Stickers");
-  String[] stickernames = listFileNames(path);
+  String[] stickernames = listFileNames(path2);
   for (int i = 0; i < stickernames.length; i++) {
     String s = stickernames[i];
     if (!s.substring(0,1).equals(".")){
@@ -78,10 +80,8 @@ void setup_editor(){
       PImage temp = loadImage("Stickers/" + s);
       temp.resize(80,80);
       stickerPics[index-1] = temp;
-      Sticker f = new Sticker(s);
-      frames[index-1] = f;
-      Button b = new Button(index * 125 + 20 + adjust, 550, 100, 75, true, s); 
-      frame_buttons[index-1] = b;
+      Button b = new Button((index-1) * 125 + 20 + adjust, 550, 100, 75, true, s); 
+      sticker_buttons[index-1] = b;
     }
   }
   
@@ -133,8 +133,7 @@ void setup_editor(){
   Button purpleFilter = new Button (895, 550, 100, 75, true, "purpleFilter");
   color_buttons.add(purpleFilter);
   Button invertFilter = new Button (1020, 550, 100, 75, true, "invertFilter");
-  color_buttons.add(invertFilter);
-  
+  color_buttons.add(invertFilter); 
   
   //kernel image processing 
   Button blur = new Button(145, 550, 100, 75, true, "blur");
@@ -197,10 +196,6 @@ void setup_editor(){
   draw_buttons.add(color15);
   Button clear = new Button (640, 572, 80, 20, true, "clear");
   draw_buttons.add(clear);
-  
-  
-  Button dogS = new Button(0, 300, 100, 25, true, "dogS");
-  edit_buttons.add(dogS);
   
 }
 
@@ -353,12 +348,6 @@ void mouseClicked_editor(){
           rightmost = false;
         }
         
-        if (b.type.equals("dogS")) {
-          Sticker dog = new Sticker(dogSticker, 80, 80);
-          stickers.add(dog);
-          stickers.get(stickers.size()-1).appear = true;
-        }
-        
         if (b.type.equals("colorFilters")){
           filterMode = 1;
         }
@@ -495,6 +484,44 @@ void mouseClicked_editor(){
     }
   }
   
+  if (filterMode == 4) {
+    for (Button b : sticker_buttons) {
+      if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
+        if (b.type.equals("sticker1.png")) {
+          Sticker one = new Sticker(stickerPics[0]);
+          stickers.add(one);
+          stickers.get(stickers.size()-1).appear = true;
+        }
+        if (b.type.equals("sticker2.png")) {
+          Sticker two = new Sticker(stickerPics[1]);
+          stickers.add(two);
+          stickers.get(stickers.size()-1).appear = true;
+        }
+        if (b.type.equals("sticker3.png")) {
+          Sticker three = new Sticker(stickerPics[2]);
+          stickers.add(three);
+          stickers.get(stickers.size()-1).appear = true;
+        }
+        if (b.type.equals("sticker4.png")) {
+          Sticker four = new Sticker(stickerPics[3]);
+          stickers.add(four);
+          stickers.get(stickers.size()-1).appear = true;
+        }
+        if (b.type.equals("sticker5.png")) {
+          Sticker five = new Sticker(stickerPics[4]);
+          stickers.add(five);
+          stickers.get(stickers.size()-1).appear = true;
+        }
+        if (b.type.equals("sticker6.png")) {
+          Sticker six = new Sticker(stickerPics[5]);
+          stickers.add(six);
+          stickers.get(stickers.size()-1).appear = true;
+        }
+      }
+    }
+  }
+    
+  
   if (filterMode == 5){
     for (Button b: frame_buttons){
       if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
@@ -620,6 +647,9 @@ void editBar(){
     text("CONTRAST", 70, 618);
     text("APPLY", 698, 575);
     text("RESET", 698, 605);
+  }
+  else if (filterMode == 4){
+    for (int i = 0; i
   }
   else if (filterMode == 5){
     for (int i = 0; i < framePics.length; i++){
