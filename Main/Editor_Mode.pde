@@ -182,7 +182,7 @@ void mouseDragged_edit() {
     pg.beginDraw(); 
     for (int kx = -2; kx <= 2; kx++){
       for (int ky = -2; ky <= 2; ky++){
-        pg.set(mouseX + kx - 150, mouseY + ky - 150, color(0));
+        pg.set(mouseX + kx - 154, mouseY + ky - 115, color(0));
       }
     }
     pg.endDraw(); 
