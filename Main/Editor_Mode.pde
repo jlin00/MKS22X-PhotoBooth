@@ -301,20 +301,14 @@ void mouseClicked_editor(){
         }
         if (b.popup && b.type.equals("right")){
           adjust = -748;
-          if (filterMode == 1){
-            for (Button b2: color_buttons){
-              b2.shiftX(-748);
-            }
+          for (Button b2: color_buttons){
+            b2.shiftX(-748);
           }
-          if (filterMode == 2){
-            for (Button b3: kernel_buttons){
-              b3.shiftX(-748);
-            }
+          for (Button b3: kernel_buttons){
+            b3.shiftX(-748);
           }
-          if (filterMode == 5){
-            for (Button b4: frame_buttons){
-              b4.shiftX(-748);
-            }
+          for (Button b4: frame_buttons){
+            b4.shiftX(-748);
           }
           edit_buttons.get(2).setPopup(true);
           edit_buttons.get(3).setPopup(false);
@@ -324,20 +318,14 @@ void mouseClicked_editor(){
         
         if (b.popup && b.type.equals("left")){
           adjust = 0;
-          if (filterMode == 1){
-            for (Button b2: color_buttons){
-              b2.shiftX(748);
-            }
+          for (Button b2: color_buttons){
+            b2.shiftX(748);
           }
-          if (filterMode == 2){
-            for (Button b3: kernel_buttons){
-              b3.shiftX(748);
-            }
+          for (Button b3: kernel_buttons){
+            b3.shiftX(748);
           }
-          if (filterMode == 5){
-            for (Button b4: frame_buttons){
-              b4.shiftX(748);
-            }
+          for (Button b4: frame_buttons){
+            b4.shiftX(748);
           }
           edit_buttons.get(2).setPopup(false);
           edit_buttons.get(3).setPopup(true);
