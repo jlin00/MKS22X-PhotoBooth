@@ -45,14 +45,17 @@ void setup_editor(){
   drawcolor = color(0); //default draw color
   
   //picture frames
-  Frame frame1 = new Frame("frame1.png");
-  
-  frames.add(frame1);
-   for (Frame f: frames){
-     PImage temp = loadImage("Frames/" + f.pic); //load all the frame pictures
-     temp.resize(461, 346);
-     framePics.add(temp);
-   }
+  String path = sketchPath("Frames");
+  String[] framenames = listFileNames(path);
+  for (String s: framenames){
+    if (!s.substring(0,1).equals(".")){
+      PImage temp = loadImage("Frames/" + s);
+      temp.resize(461,346);
+      framePics.add(temp);
+      Frame f = new Frame(s);
+      frames.add(f);
+    } 
+  }
   
   //general buttons 
   Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
@@ -132,6 +135,9 @@ void setup_editor(){
   scroll_buttons.add(cont_adj);
   apply = new Button (665, 560, 70, 20, true, "apply");
   reset = new Button (665, 590, 70, 20, true, "reset");
+  
+  //frame buttons 
+  
   
   //draw color palette
   Button color1 = new Button(40, 580, 20, false, color(0));
@@ -551,7 +557,11 @@ void editBar(){
     text("APPLY", 698, 575);
     text("RESET", 698, 605);
   }
-  
+  else if (filterMode == 5){
+    for (int i = 0; i < framePics.size(); i++){
+      image(framePics.get(i), i * 125 + 20 + adjust, 550, 100, 75); 
+    }
+  }
   else if (filterMode == 6){
     text("CLEAR", 678, 588); 
   }
