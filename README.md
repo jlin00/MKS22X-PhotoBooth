@@ -1,13 +1,11 @@
 # Photo Booth/Editor
-<b>Group Name:</b> Big Brains
+<b>Group Name:</b> Big Brains <br>
 <b>Group Members:</b> Grace Mao, Jackie Lin 
 
 ## Table of Contents 
-<ul>
- <li>[Project Description](#project-description)</li>
- <li>[Instructions](#instructions)</li>
- <li>[Development Log](#development-log)</li>
-</ul>
+1. [Project Description](#project-description)
+2. [Instructions](#instructions)
+3. [Development Log](#development-log)
 
 ## Project Description 
 
