@@ -16,15 +16,15 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
 <img src="pic2.png" alt="Diagram 2" align="middle"/>
 (1) Click on this button to transition to the Photo Library.  <br>
 (2) This is where the photo from the webcam will be displayed.  <br>
-(3) Click this button to capture a photo. If you click this button, more buttons will appear. (see below diagram)
+(3) Click this button to capture a photo. If you click this button, more buttons will appear. (see next diagram)
 <br><br>
 <img src="pic3.png" alt="Diagram 3" align="middle"/>
 (1) Click on this button to transition to the Photo Library. <br>
 (2) Click on this button to open the photo you just took in the Photo Editor.  <br>
 (3) This is where the photo you just took will be displayed. <br>
 (4) This button can still be clicked, but it will not be able to take new pictures.  <br>
-(5) Click on this button to save the photo and go back to capture mode. (see above diagram) <br>
-(6) Click on this button to discard the photo and go back to capture mode. (see above diagram)
+(5) Click on this button to save the photo into the library and go back to capture mode. (see previous diagram) <br>
+(6) Click on this button to discard the photo and go back to capture mode. (see previous diagram)
 <br><br>
 <img src="pic4.png" alt="Diagram 4" align="middle"/>
 (1) Click on this button to transition to the Photo Booth.  <br>
