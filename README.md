@@ -4,7 +4,20 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
 
 ## Instructions
 
-<i>(to be updated later on)</i>
+1. After cloning the repository, open up the Main folder. 
+2. Open Main.pde in Processing. 
+3. Click the "run" button. 
+4. You will start off in the library mode. You can tell which mode you're in by looking at the heading of the screen, which will read either "Photo Library", "Photo Booth", or "Photo Editor". 
+
+<img src="pic1.png" alt="Diagram 1" align="middle"/>
+
+(1) Click on this button to button to transition to the Photo Booth. 
+(2) Click on any image to open it in Photo Editor. You can also scroll using your mouse to view other images in the library.
+
+
+
+
+<b>Important Notes</b>
 
 ## Development Log
 <table>
