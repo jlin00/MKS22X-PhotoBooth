@@ -10,11 +10,38 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
 4. You will start off in the library mode. You can tell which mode you're in by looking at the heading of the screen, which will read either "Photo Library", "Photo Booth", or "Photo Editor". 
 
 <img src="pic1.png" alt="Diagram 1" align="middle"/>
-
 (1) Click on this button to button to transition to the Photo Booth. 
 (2) Click on any image to open it in Photo Editor. You can also scroll using your mouse to view other images in the library.
-
-
+<br>
+<img src="pic2.png" alt="Diagram 2" align="middle"/>
+(1) Click on this button to transition to the Photo Library. 
+(2) This is where the photo from the webcam will be displayed. 
+(3) Click this button to capture a photo. If you click this button, more buttons will appear. (see below diagram)
+<br>
+<img src="pic3.png" alt="Diagram 3" align="middle"/>
+(1) Click on this button to transition to the Photo Library.
+(2) Click on this button to open the photo you just took in the Photo Editor. 
+(3) This is where the photo you just took will be displayed.
+(4) This button can still be clicked, but it will not be able to take new pictures. 
+(5) Click on this button to save the photo and go back to capture mode. (see above diagram)
+(6) Click on this button to discard the photo and go back to capture mode. (see above diagram)
+<br>
+<img src="pic4.png" alt="Diagram 4" align="middle"/>
+(1) Click on this button to transition to the Photo Booth.
+(2) Click on this button to transition to the Photo Library. 
+(3) This is the image that will be edited. 
+(4) This is the edit bar. Click on any of the buttons to switch the edit mode. The mode displayed in this diagram is "Color". 
+(5) This is the right arrow button. Click on this to display more filters.
+(6) Click on this button to save your edited image and return to Photo Library. 
+(7) Click on this button to cancel your edits and return to Photo Library. 
+<br>
+<img src="pic5.png" alt="Diagram 5" align="middle"/>
+(1) This is edit mode 1. Click any of the images to apply the filter seen. 
+<br>
+<img src="pic6.png" alt="Diagram 6" align="middle"/>
+(1) This is edit mode 2. Click any of the images to apply the filter seen. 
+<br>
+<img src="pic7.png" alt="Diagram 7" align="middle"/>
 
 
 <b>Important Notes</b>
