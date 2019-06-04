@@ -44,8 +44,12 @@ void setup_editor(){
   pg = createGraphics(461, 346);
   drawcolor = color(0); //default draw color
   
+  //picture frames
+  Frame frame1 = new Frame("frame1.png");
+  
+  frames.add(frame1);
    for (Frame f: frames){
-     PImage temp = loadImage("/Frames/" + f.pic); //load all the frame pictures
+     PImage temp = loadImage("Frames/" + f.pic); //load all the frame pictures
      temp.resize(461, 346);
      framePics.add(temp);
    }
