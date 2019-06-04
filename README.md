@@ -1,4 +1,14 @@
 # Photo Booth/Editor
+<b>Group Name:</b> Big Brains
+<b>Group Members:</b> Grace Mao, Jackie Lin 
+
+## Table of Contents 
+1. [Project Description](#project-description)
+2. [Instructions](#instructions)
+3. [Development Log](#development-log)
+
+
+## Project Description 
 
 The core of our final project is a Photo Booth/Editor created in Processing through the Capture class. Processing provides a unique opportunity for smooth graphics and a Photo Booth/Editor would efficiently use our resources to make a project that is both useful and aesthetic. In our Photo Booth/Editor, users will be able to, of course, take pictures of themselves and edit them afterwards. Features include adding filters in the photo booth and placing stickers in the editor. Additionally, images are able to be stored or deleted. Other features may be implemented depending on our usage of Processing and our ability to change the look of the camera.
 
@@ -66,6 +76,8 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
  <li>DO NOT add images to the "Images" folder externally whiling running the program.</li>
  <li>After you save an image, all the filters, stickers, adjustments, frames, and drawings become PART of the image. You cannot edit them again. </li>
  <li>The program may be a little laggy because there is a lot going on at once. That being said, DO NOT click a button you want to use multiple times just because there is a lag. It will not make the program run any faster, and the buttons are not built to handle multiple clicks at once. It will just perform the button action multiple times, which can cause problems for you. Also while the program is loading, DO NOT click any other buttons. It will make the program even more laggy. </li>
+ <li>When you click the left or right arrow button, it affects every part of the edit bar, including the filters, stickers and frames.</li>
+ <li>In the Photo Editor, only what is within the image will be saved. That means that if your sticker does not fit on the image it will be cut off. </li>
 </ul>
 
 ## Development Log
