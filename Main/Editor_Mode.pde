@@ -7,7 +7,12 @@ PImage sample; //sample displayed in editor panel
 ArrayList<Button> edit_buttons; //buttons in mode 3
 ArrayList<Button> color_buttons;
 ArrayList<Button> kernel_buttons; 
+  int filter_num; 
 ArrayList<ScrollBar> scroll_buttons; 
+  Button apply; 
+  float brightness_level;
+  float saturate_level;
+  float contrast_level;
 int filterMode;
 int adjust;
 int adjustRight;
@@ -109,7 +114,7 @@ void setup_editor(){
   scroll_buttons.add(sat_adj);
   ScrollBar cont_adj = new ScrollBar(180, 610, 500, 10, "contrast");
   scroll_buttons.add(cont_adj);
-  
+  apply = new Button (600, 300, 100, 25, true, "apply");
   
   Button dogS = new Button(0, 300, 100, 25, true, "dogS");
   edit_buttons.add(dogS);
@@ -138,6 +143,8 @@ void draw_editor(){
   for (Sticker s : stickers) {
     if (s.appear) s.display();
   }
+  
+  apply.display();
   
   textSize(14);
   fill(0);
@@ -250,22 +257,22 @@ void mouseClicked_editor(){
         }
         
         if (b.type.equals("colorFilters")){
-          filterMode = 1;;
+          filterMode = 1;
         }
         if (b.type.equals("kernelFilters")){
-          filterMode = 2;;
+          filterMode = 2;
         }
         if (b.type.equals("adjust")){
-          filterMode = 3;;
+          filterMode = 3;
         }
         if (b.type.equals("sticker")){
-          filterMode = 4;;
+          filterMode = 4;
         }
         if (b.type.equals("frames")){
-          filterMode = 5;;
+          filterMode = 5;
         }
         if (b.type.equals("drawing")){
-          filterMode = 6;;
+          filterMode = 6;
         }
       }
     }
@@ -276,38 +283,47 @@ void mouseClicked_editor(){
       if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
         if (b.type.equals("noFilter")){
             copy = to_edit.copy();
+            filter_num = 0;
           }
           if (b.type.equals("grayFilter")){
             copy = to_edit.copy();
             grayscale(copy);
+            filter_num = 1;
           }
           if (b.type.equals("redFilter")) {
             copy = to_edit.copy();
             redscale(copy);
+            filter_num = 2;
           }
           if (b.type.equals("orangeFilter")) {
             copy = to_edit.copy();
             orangescale(copy);
+            filter_num = 3;
           }
           if (b.type.equals("yellowFilter")) {
             copy = to_edit.copy();
             yellowscale(copy);
+            filter_num = 4;
           }
           if (b.type.equals("greenFilter")) {
             copy = to_edit.copy();
             greenscale(copy);
+            filter_num = 5;
           }
           if (b.type.equals("blueFilter")) {
             copy = to_edit.copy();
             bluescale(copy);
+            filter_num = 6;
           }
           if (b.type.equals("purpleFilter")) {
             copy = to_edit.copy();
             purplescale(copy);
+            filter_num = 7;
           }
           if (b.type.equals("invertFilter")) {
             copy = to_edit.copy();
             invert(copy);
+            filter_num = 8;
           }
       }
     }
@@ -322,36 +338,50 @@ void mouseClicked_editor(){
         if (b.type.equals("blur")){
           copy = to_edit.copy();
           copy = convoluteBlur(copy, blur);
+          filter_num = 9;
         }
         if (b.type.equals("sharpen")){
           copy = to_edit.copy();
           copy = convolute(copy, sharpen);
+          filter_num = 10;
         }
         if (b.type.equals("edgeEnhance")){
           copy = to_edit.copy();
           copy = convolute(copy, edgeEnhance);
+          filter_num = 11;
         }
         if (b.type.equals("edgeDetect")){
           copy = to_edit.copy();
           copy = convolute(copy, edgeDetect);
+          filter_num = 12;
         }
         if (b.type.equals("emboss")){
           copy = to_edit.copy();
           copy = convolute(copy, emboss);
+          filter_num = 13;
         }
         if (b.type.equals("sobelEdge")){
           copy = to_edit.copy();
           copy = convolute(copy, sobelEdge);
+          filter_num = 14;
         }
         if (b.type.equals("hoznLines")){
           copy = to_edit.copy();
           copy = convolute(copy, hoznLines);
+          filter_num = 15;
         }
         if (b.type.equals("vertLines")){
           copy = to_edit.copy();
           copy = convolute(copy, vertLines);
+          filter_num = 16;
         }
       }
+    }
+  }
+  
+  if (filterMode == 3){
+    if (mouseX >= apply.x && mouseY >= apply.y && mouseX <= apply.x + apply.w && mouseY <= apply.y + apply.h){
+      apply_adj();
     }
   }
 }
@@ -397,14 +427,18 @@ void editBar(){
       if (s.type.equals("brightness")){
         if (value < 0) value = (value / (s.bar_width/2)) * 60;
         else value = (value / (s.bar_width / 2)) * 70;
+        brightness_level = value;
       }
       if (s.type.equals("saturation")){
         if (value < 0) value = (value / (s.bar_width/2)) * 255;
         else value = (value / (s.bar_width / 2)) * 70;
+        saturate_level = value;
       }
-      if (s.type.equals("brightness")){
+      if (s.type.equals("contrast")){
         value = (value / (s.bar_width/2)) * 128;
+        contrast_level = value;
       }
+
     }
     fill(0);
     text("BRIGHTNESS", 100, 558);
@@ -421,4 +455,30 @@ void reset_editor(){ //must be reset everytime new image is being edited
   rightmost = false;
   adjust = 0;
   filterMode = 1;
+}
+
+void apply_adj(){
+  copy = brighten(to_edit, brightness_level);
+  copy = saturate(copy, saturate_level);
+  copy = contrast(copy, contrast_level);
+  
+  if (filter_num == 1) grayscale(copy);
+  else if (filter_num == 2) redscale(copy);
+  else if (filter_num == 3) orangescale(copy);
+  else if (filter_num == 4) yellowscale(copy);
+  else if (filter_num == 5) greenscale(copy);
+  else if (filter_num == 6) bluescale(copy);
+  else if (filter_num == 7) purplescale(copy);
+  else if (filter_num == 8) invert(copy);
+  else if (filter_num == 9) copy = convoluteBlur(copy, blur);
+  else if (filter_num == 10) copy = convolute(copy, sharpen);
+  else if (filter_num == 11) copy = convolute(copy, edgeEnhance);
+  else if (filter_num == 12) copy = convolute(copy, edgeDetect);
+  else if (filter_num == 13) copy = convolute(copy, emboss);
+  else if (filter_num == 14) copy = convolute(copy, sobelEdge);
+  else if (filter_num == 15) copy = convolute(copy, hoznLines);
+  else if (filter_num == 16) copy = convolute(copy, vertLines);
+  
+  
+  
 }
