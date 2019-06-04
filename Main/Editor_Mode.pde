@@ -13,6 +13,7 @@ ArrayList<ScrollBar> scroll_buttons;
   float brightness_level;
   float saturate_level;
   float contrast_level;
+ArrayList<Button> frame_buttons;
 ArrayList<Button> draw_buttons;
 int filterMode;
 int adjust;
@@ -23,6 +24,7 @@ PGraphics pg;
   color drawcolor; 
 ArrayList<Frame> frames;
 ArrayList<PImage> framePics;
+  int frameNum; 
 ArrayList<Sticker> stickers;
 PImage dogSticker;
 
@@ -36,6 +38,7 @@ void setup_editor(){
   kernel_buttons = new ArrayList<Button>();
   scroll_buttons = new ArrayList<ScrollBar>();
   draw_buttons = new ArrayList<Button>();
+  frame_buttons = new ArrayList<Button>();
   frames = new ArrayList<Frame>();
   framePics = new ArrayList<PImage>();
   filterMode = 2;
@@ -47,7 +50,8 @@ void setup_editor(){
   //picture frames
   String path = sketchPath("Frames");
   String[] framenames = listFileNames(path);
-  for (String s: framenames){
+  for (int i = 0; i < framenames.length; i++){
+    String s = framenames[i];
     if (!s.substring(0,1).equals(".")){
       PImage temp = loadImage("Frames/" + s);
       temp.resize(461,346);
@@ -55,6 +59,8 @@ void setup_editor(){
       Frame f = new Frame(s);
       frames.add(f);
     } 
+    Button b = new Button(i * 125 + 20 + adjust, 550, 100, 75, true, s); 
+    frame_buttons.add(b);
   }
   
   //general buttons 
@@ -135,9 +141,6 @@ void setup_editor(){
   scroll_buttons.add(cont_adj);
   apply = new Button (665, 560, 70, 20, true, "apply");
   reset = new Button (665, 590, 70, 20, true, "reset");
-  
-  //frame buttons 
-  
   
   //draw color palette
   Button color1 = new Button(40, 580, 20, false, color(0));
@@ -232,8 +235,8 @@ void draw_editor(){
   
   image(pg, 153.5, 115);
   
-  for (int i = 0; i < framePics.size(); i++){
-    if (frames.get(i).appear) image(framePics.get(i), 153.5, 115);
+  if (frameNum != 0){
+    image(framePics.get(frameNum - 1), 153.5, 115);
   }
 }
 
@@ -471,6 +474,49 @@ void mouseClicked_editor(){
     if (mouseX >= reset.x && mouseY >= reset.y && mouseX <= reset.x + reset.w && mouseY <= reset.y + reset.h){
       reset_sliders();
       apply_adj();
+    }
+  }
+  
+  if (filterMode == 5){
+    for (Button b: frame_buttons){
+      if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
+        if (b.type.equals("frame1.png")){
+          frameNum = 1;
+        }
+        if (b.type.equals("frame2.png")){
+          frameNum = 2;
+        }
+        if (b.type.equals("frame3.png")){
+          frameNum = 3;
+        }
+        if (b.type.equals("frame4.png")){
+          frameNum = 4;
+        }
+        if (b.type.equals("frame5.png")){
+          frameNum = 5;
+        }
+        if (b.type.equals("frame6.png")){
+          frameNum = 6;
+        }
+        if (b.type.equals("frame7.png")){
+          frameNum = 7;
+        }
+        if (b.type.equals("frame8.png")){
+          frameNum = 8;
+        }
+        if (b.type.equals("frame9.png")){
+          frameNum = 9;
+        }
+        if (b.type.equals("frame10.png")){
+          frameNum = 10;
+        }
+        if (b.type.equals("frame11.png")){
+          frameNum = 11;
+        }
+        if (b.type.equals("frame12.png")){
+          frameNum = 12;
+        }
+      }
     }
   }
   
