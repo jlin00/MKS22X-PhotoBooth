@@ -7,6 +7,7 @@ class Button {
   boolean pic; 
   String type;
   boolean popup; //for buttons that are not always available
+  color c;
   
   Button(float x, float y, float w, float h, boolean shape, String id){
     this.x = x;
@@ -16,6 +17,7 @@ class Button {
     this.shape = shape;
     type = id;
     popup = true;
+    c = color(255, 255, 255);
   }
   
   Button(float x, float y, float d, boolean shape, String id){
@@ -25,6 +27,16 @@ class Button {
     this.shape = shape;
     type = id;
     popup = true;
+    c = color(255, 255, 255);
+  }
+  
+  Button(float x, float y, float d, boolean shape, color c){
+    this.x = x;
+    this.y = y;
+    this.d = d;
+    this.shape = shape;
+    popup = true;
+    this.c = c;
   }
   
   void display() {
@@ -42,12 +54,14 @@ class Button {
     }     
     else{
       stroke(0);
+      fill(c);
       ellipse(x,y,d,d);
       if (type.equals("take")){
         strokeWeight(1);
         fill(255);
         ellipse(x,y,d*0.8,d*0.8);
      }
+     fill(255);
    }
 }
   
