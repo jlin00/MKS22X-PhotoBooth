@@ -22,8 +22,8 @@ boolean rightmost;
 int scroll_mode; 
 PGraphics pg;
   color drawcolor; 
-ArrayList<Frame> frames;
-ArrayList<PImage> framePics;
+Frame[] frames;
+PImage[] framePics;
   int frameNum; 
 ArrayList<Sticker> stickers;
 PImage dogSticker;
@@ -39,8 +39,8 @@ void setup_editor(){
   scroll_buttons = new ArrayList<ScrollBar>();
   draw_buttons = new ArrayList<Button>();
   frame_buttons = new ArrayList<Button>();
-  frames = new ArrayList<Frame>();
-  framePics = new ArrayList<PImage>();
+  frames = new Frame[12];
+  framePics = new PImage[12];
   filterMode = 2;
   leftmost = true; //for navigation bar
   rightmost = false; //for navigation bar 
@@ -55,11 +55,13 @@ void setup_editor(){
   for (int i = 0; i < framenames.length; i++){
     String s = framenames[i];
     if (!s.substring(0,1).equals(".")){
+      String sub = s.substring(s.indexOf("e")+1, s.indexOf("."));
+      int index = Integer.parseInt(sub);
       PImage temp = loadImage("Frames/" + s);
       temp.resize(461,346);
-      framePics.add(temp);
+      framePics[index] = temp;
       Frame f = new Frame(s);
-      frames.add(f); 
+      frames[index] = f;
       Button b = new Button(i * 125 + 20 + adjust, 550, 100, 75, true, s); 
       frame_buttons.add(b);
     }
@@ -239,7 +241,7 @@ void draw_editor(){
   image(pg, 153.5, 115);
   
   if (frameNum != 0){
-    image(framePics.get(frameNum - 1), 153.5, 115);
+    image(framePics[frameNum], 153.5, 115);
   }
 }
 
@@ -482,16 +484,19 @@ void mouseClicked_editor(){
     for (Button b: frame_buttons){
       if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
         if (b.type.equals("frame1.png")){
-          frameNum = 11;
+          frameNum = 1;
         }
         if (b.type.equals("frame2.png")){
-          frameNum = 10;
+          frameNum = 2;
         }
         if (b.type.equals("frame3.png")){
-          frameNum = 9;
+          frameNum = 3;
+        }
+        if (b.type.equals("frame4.png")){
+          frameNum = 4;
         }
         if (b.type.equals("frame5.png")){
-          frameNum = 4;
+          frameNum = 5;
         }
         if (b.type.equals("frame6.png")){
           frameNum = 6;
@@ -500,19 +505,16 @@ void mouseClicked_editor(){
           frameNum = 7;
         }
         if (b.type.equals("frame8.png")){
-          frameNum = 2;
+          frameNum = 8;
         }
         if (b.type.equals("frame9.png")){
-          frameNum = 1;
+          frameNum = 9;
         }
         if (b.type.equals("frame10.png")){
-          frameNum = 3;
+          frameNum = 10;
         }
         if (b.type.equals("frame11.png")){
-          frameNum = 5;
-        }
-        if (b.type.equals("frame12.png")){
-          frameNum = 8;
+          frameNum = 11;
         }
         if (b.type.equals("noFrame")){
           frameNum = 0;
@@ -605,8 +607,8 @@ void editBar(){
     text("RESET", 698, 605);
   }
   else if (filterMode == 5){
-    for (int i = 0; i < framePics.size(); i++){
-      image(framePics.get(i), (i + 1) * 125 + 20 + adjust, 550, 100, 75); 
+    for (int i = 0; i < framePics.length; i++){
+      image(framePics[i], (i + 1) * 125 + 20 + adjust, 550, 100, 75); 
     }
     fill(255);
     rect(20 + adjust, 550, 100, 75);

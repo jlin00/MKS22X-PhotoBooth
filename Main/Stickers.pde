@@ -40,7 +40,4 @@ class Sticker {
     }
   }
   
-  void resizes(float x, float y) {
-  }
-  
 }
