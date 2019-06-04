@@ -18,8 +18,6 @@ ArrayList<ScrollBar> scroll_buttons; //buttons for filterMode 3
 Button[] frame_buttons; //buttons for filterMode 5
 ArrayList<Button> draw_buttons; //buttons for filterMode 6
 int adjust; //adjusts the images and buttons in the edit bar after left/right scroll buttons are clicked 
-  boolean leftmost; //has the panel reached its leftmost point 
-  boolean rightmost; //has the panel reached its rightmost point 
 PGraphics pg; //drawing buffer to be used in drawing mode 
   color drawcolor; //color of drawing 
 Frame[] frames; //array of frames that can be applied to picture 
@@ -42,8 +40,6 @@ void setup_editor(){
   frames = new Frame[11];
   framePics = new PImage[11];
   filterMode = 1; //always start off in filterMode 1
-  leftmost = true; //for navigation bar
-  rightmost = false; //for navigation bar 
   pg = createGraphics(461, 346); //creates buffer over to_edit
   drawcolor = color(0); //default draw color is black 
   stickers = new ArrayList<Sticker>(); 
@@ -337,8 +333,6 @@ void mouseClicked_editor(){ //if mouseClicked
           }
           edit_buttons.get(2).setPopup(true); //left scroll button is now available
           edit_buttons.get(3).setPopup(false); //right scroll button is no longer available 
-          leftmost = false; 
-          rightmost = true;
         }
         
         if (b.popup && b.type.equals("left")){ //left scroll button 
@@ -357,8 +351,6 @@ void mouseClicked_editor(){ //if mouseClicked
           } 
           edit_buttons.get(2).setPopup(false); //left scroll button is no longer available 
           edit_buttons.get(3).setPopup(true); //right scroll button is now available 
-          leftmost = true;
-          rightmost = false;
         }
         //buttons that change filterMode of edit bar
         if (b.type.equals("colorFilters")){
@@ -717,7 +709,6 @@ void editBar(){ //what the edit bar displays based on filterMode
 
 void reset_editor(){ //must be reset everytime new image is being edited 
   reset_sliders(); //reset slider values 
-  adjust = 0; //all buttons and images are reset to initial position 
   filterMode = 1; //filterMode reset to 1 
   frameNum = 11; //no frame
   pg.beginDraw(); //clear all drawings 
@@ -726,7 +717,7 @@ void reset_editor(){ //must be reset everytime new image is being edited
   stickers.clear(); //delete all applied stickers
   drawcolor = color(0); //resets draw color to black 
   filter_num = 0; //resets to no filter 
-  if (rightmost){
+  if (adjust == -748){
     for (Button b2: color_buttons){
       b2.shiftX(748);
     }
@@ -742,8 +733,7 @@ void reset_editor(){ //must be reset everytime new image is being edited
    }
   edit_buttons.get(2).setPopup(false); //left scroll button is no longer available 
   edit_buttons.get(3).setPopup(true); //right scroll button is now available 
-  leftmost = true;
-  rightmost = false;
+  adjust = 0; //all buttons and images are reset to initial position 
 }
 
 void apply_adj(){ //overlay all adjsutments to brightness, saturation and contrast on top of chosen filter 
