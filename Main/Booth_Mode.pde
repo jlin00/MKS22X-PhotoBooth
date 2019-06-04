@@ -70,6 +70,10 @@ void mouseClicked_booth(){
         
         //redirect to library action 
         if (b.type.equals("redirectL")){ 
+          toBeSaved = false;
+          booth_buttons.get(0).setPopup(false);
+          booth_buttons.get(1).setPopup(false);
+          booth_buttons.get(2).setPopup(false);
           text_clicked(); //formatting 
           text("LIBRARY", 714, 30);
           mode = 1; //changes library
@@ -93,6 +97,10 @@ void mouseClicked_booth(){
           toBeSaved = false;
         }
         else if (b.type.equals("redirectE") && b.popup == true){ //go to editor button, only available after picture is taken 
+          toBeSaved = false;
+          booth_buttons.get(0).setPopup(false);
+          booth_buttons.get(1).setPopup(false);
+          booth_buttons.get(2).setPopup(false);
           b.setPopup(false);
           booth_buttons.get(0).setPopup(false);
           booth_buttons.get(1).setPopup(false);
