@@ -252,7 +252,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
-      deadline is almost upon us but diamonds are made under pressure :) 
+      <i> deadline is almost upon us but diamonds are made under pressure :) </i>
       <li>added new kernels that detect horizontal and vertical lines in image, edited existing kernels</li>
       <li>made kernel filterMode clickable/functional</li>
       <li>added functional buttons to navigate between different filterModes in edit bar</li>
