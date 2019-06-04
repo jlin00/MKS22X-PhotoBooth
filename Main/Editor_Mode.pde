@@ -47,8 +47,8 @@ void setup_editor(){
   pg = createGraphics(461, 346);
   drawcolor = color(0); //default draw color
   stickers = new ArrayList<Sticker>();
-  stickerPics = new PImage[6];
-  sticker_buttons = new Button[6];
+  stickerPics = new PImage[7];
+  sticker_buttons = new Button[7];
   
   //picture frames
   String path = sketchPath("Frames");
@@ -332,6 +332,9 @@ void mouseClicked_editor(){
           for (Button b4: frame_buttons){
             b4.shiftX(-748);
           }
+          for (Button b5: sticker_buttons){
+            b5.shiftX(-748);
+          }
           edit_buttons.get(2).setPopup(true);
           edit_buttons.get(3).setPopup(false);
           leftmost = false;
@@ -348,6 +351,9 @@ void mouseClicked_editor(){
           }
           for (Button b4: frame_buttons){
             b4.shiftX(748);
+          }
+          for (Button b5: sticker_buttons){
+            b5.shiftX(748);
           }
           edit_buttons.get(2).setPopup(false);
           edit_buttons.get(3).setPopup(true);
@@ -522,6 +528,11 @@ void mouseClicked_editor(){
         if (b.type.equals("sticker6.png")) {
           Sticker six = new Sticker(stickerPics[5], 400, 350);
           stickers.add(six);
+          stickers.get(stickers.size()-1).appear = true;
+        }
+        if (b.type.equals("sticker7.png")) {
+          Sticker seven = new Sticker(stickerPics[6], 400, 350);
+          stickers.add(seven);
           stickers.get(stickers.size()-1).appear = true;
         }
       }
