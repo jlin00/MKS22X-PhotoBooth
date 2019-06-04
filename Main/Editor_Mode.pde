@@ -25,8 +25,8 @@ PGraphics pg;
 Frame[] frames;
 PImage[] framePics;
   int frameNum = 11; 
-ArrayList<Sticker> stickers;
-PImage dogSticker;
+Sticker[] stickers;
+PImage[] stickerPics;
 
 //setup for editor mode to be used in main
 void setup_editor(){
