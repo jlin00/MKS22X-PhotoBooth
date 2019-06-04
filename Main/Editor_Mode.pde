@@ -28,6 +28,7 @@ PImage[] framePics;
 ArrayList<Sticker> stickers;
 PImage[] stickerPics;
 Button[] sticker_buttons;
+boolean mouseDown = false;
 
 //setup for editor mode to be used in main
 void setup_editor(){
@@ -273,7 +274,6 @@ void mouseDragged_edit() {
 
 void mousePressed_edit() {
   for (Sticker s : stickers) {
-    //println("yaa");
     s.press();
   }
 }
