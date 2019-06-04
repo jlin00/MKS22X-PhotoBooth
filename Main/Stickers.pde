@@ -6,12 +6,12 @@ class Sticker {
   boolean over = false;
   float xOffset, yOffset;
   
-  Sticker(PImage image) {
+  Sticker(PImage image, float x, float y) {
     this.image = image;
     w = 80;
     h = 80;
-    this.x = 300;
-    this.y = 300;
+    this.x = x;
+    this.y = y;
     appear = false;
  
   }

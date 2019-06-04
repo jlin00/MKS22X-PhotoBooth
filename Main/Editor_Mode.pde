@@ -488,32 +488,32 @@ void mouseClicked_editor(){
     for (Button b : sticker_buttons) {
       if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
         if (b.type.equals("sticker1.png")) {
-          Sticker one = new Sticker(stickerPics[0]);
+          Sticker one = new Sticker(stickerPics[0], 500, 300);
           stickers.add(one);
           stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker2.png")) {
-          Sticker two = new Sticker(stickerPics[1]);
+          Sticker two = new Sticker(stickerPics[1], 400, 150);
           stickers.add(two);
           stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker3.png")) {
-          Sticker three = new Sticker(stickerPics[2]);
+          Sticker three = new Sticker(stickerPics[2], 200, 200);
           stickers.add(three);
           stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker4.png")) {
-          Sticker four = new Sticker(stickerPics[3]);
+          Sticker four = new Sticker(stickerPics[3], 250, 250);
           stickers.add(four);
           stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker5.png")) {
-          Sticker five = new Sticker(stickerPics[4]);
+          Sticker five = new Sticker(stickerPics[4], 300, 300);
           stickers.add(five);
           stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker6.png")) {
-          Sticker six = new Sticker(stickerPics[5]);
+          Sticker six = new Sticker(stickerPics[5], 400, 350);
           stickers.add(six);
           stickers.get(stickers.size()-1).appear = true;
         }
