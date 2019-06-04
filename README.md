@@ -8,16 +8,16 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
 2. Open Main.pde in Processing. 
 3. Click the "run" button. 
 4. You will start off in the library mode. You can tell which mode you're in by looking at the heading of the screen, which will read either "Photo Library", "Photo Booth", or "Photo Editor". 
-
+<br><br>
 <img src="pic1.png" alt="Diagram 1" align="middle"/>
 (1) Click on this button to button to transition to the Photo Booth. 
 (2) Click on any image to open it in Photo Editor. You can also scroll using your mouse to view other images in the library.
-<br>
+<br><br>
 <img src="pic2.png" alt="Diagram 2" align="middle"/>
 (1) Click on this button to transition to the Photo Library. 
 (2) This is where the photo from the webcam will be displayed. 
 (3) Click this button to capture a photo. If you click this button, more buttons will appear. (see below diagram)
-<br>
+<br><br>
 <img src="pic3.png" alt="Diagram 3" align="middle"/>
 (1) Click on this button to transition to the Photo Library.
 (2) Click on this button to open the photo you just took in the Photo Editor. 
@@ -25,7 +25,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
 (4) This button can still be clicked, but it will not be able to take new pictures. 
 (5) Click on this button to save the photo and go back to capture mode. (see above diagram)
 (6) Click on this button to discard the photo and go back to capture mode. (see above diagram)
-<br>
+<br><br>
 <img src="pic4.png" alt="Diagram 4" align="middle"/>
 (1) Click on this button to transition to the Photo Booth.
 (2) Click on this button to transition to the Photo Library. 
@@ -34,14 +34,28 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
 (5) This is the right arrow button. Click on this to display more filters.
 (6) Click on this button to save your edited image and return to Photo Library. 
 (7) Click on this button to cancel your edits and return to Photo Library. 
-<br>
+<br><br>
 <img src="pic5.png" alt="Diagram 5" align="middle"/>
-(1) This is edit mode 1. Click any of the images to apply the filter seen. 
-<br>
+(1) This is edit mode 1. Click any of the images to apply the filter seen. Only one filter may be applied at a time (restriction includes the kernel filters). 
+<br><br>
 <img src="pic6.png" alt="Diagram 6" align="middle"/>
-(1) This is edit mode 2. Click any of the images to apply the filter seen. 
-<br>
+(1) This is edit mode 2. Click any of the images to apply the filter seen. Only one filter may be applied at a time (restriction includes the color filters). 
+<br><br>
 <img src="pic7.png" alt="Diagram 7" align="middle"/>
+(1) This is one of the three adjustment scrollbars. Click anywhere on the scrollbar or drag the slider to change its value.
+(2) After you finishing dragging the sliders, click this button to apply the adjustments to your image.
+(3) Click this button to reset your sliders and reset the image.
+<br><br>
+<img src="pic8.png" alt="Diagram 8" align="middle"/>
+(1) This is edit mode 4. Click any of the images to apply the sticker. Any stickers added during the editing session may be moved around using mouse drag. To remove the sticker from your image, simply drag it out of the image into the surrounding area. 
+<br><br>
+<img src="pic9.png" alt="Diagram 9" align="middle"/>
+(1) This is edit mode 5. Click any of the images to apply the frame to your image. Click the first image, which says "NONE", in order to remove all frames. Only one frame may be applied at a time during an editing session. 
+<br><br>
+<img src="pic10.png" alt="Diagram 10" align="middle"/>
+(1) This is edit mode 6. The little circles filled with different colors make up the color palette. Click on any one of them to change the color of your pen. Using your pen, you can drag it over the image in order to draw on it. 
+(2) Click this button to set your pen to erase mode. Now you can drag it over any drawings on the image made during the editing session to erase it. 
+(3) Click this button to clear your image of all drawings made during the editing session. 
 
 
 <b>Important Notes</b>
