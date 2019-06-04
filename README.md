@@ -282,6 +282,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
       <li>successfully implemented the sticker panel for all six stickers</li>
       <li>adjusted size of stickers</li>
       <li>fixed order of frames in the editor panel</li>
+      <li>adjusted the placement of stickers when first created</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
