@@ -13,7 +13,7 @@ ArrayList<ScrollBar> scroll_buttons;
   float brightness_level;
   float saturate_level;
   float contrast_level;
-ArrayList<Button> frame_buttons;
+Button[] frame_buttons;
 ArrayList<Button> draw_buttons;
 int filterMode;
 int adjust;
@@ -24,7 +24,7 @@ PGraphics pg;
   color drawcolor; 
 Frame[] frames;
 PImage[] framePics;
-  int frameNum; 
+  int frameNum = 11; 
 ArrayList<Sticker> stickers;
 PImage dogSticker;
 
@@ -38,9 +38,9 @@ void setup_editor(){
   kernel_buttons = new ArrayList<Button>();
   scroll_buttons = new ArrayList<ScrollBar>();
   draw_buttons = new ArrayList<Button>();
-  frame_buttons = new ArrayList<Button>();
-  frames = new Frame[12];
-  framePics = new PImage[12];
+  frame_buttons = new Button[12];
+  frames = new Frame[11];
+  framePics = new PImage[11];
   filterMode = 2;
   leftmost = true; //for navigation bar
   rightmost = false; //for navigation bar 
@@ -51,7 +51,7 @@ void setup_editor(){
   String path = sketchPath("Frames");
   String[] framenames = listFileNames(path);
   Button noFrame = new Button(20 + adjust, 550, 100, 75, true, "noFrame");
-  frame_buttons.add(noFrame);
+  frame_buttons[11] = noFrame;
   for (int i = 0; i < framenames.length; i++){
     String s = framenames[i];
     if (!s.substring(0,1).equals(".")){
@@ -59,11 +59,11 @@ void setup_editor(){
       int index = Integer.parseInt(sub);
       PImage temp = loadImage("Frames/" + s);
       temp.resize(461,346);
-      framePics[index] = temp;
+      framePics[index-1] = temp;
       Frame f = new Frame(s);
-      frames[index] = f;
-      Button b = new Button(i * 125 + 20 + adjust, 550, 100, 75, true, s); 
-      frame_buttons.add(b);
+      frames[index-1] = f;
+      Button b = new Button(index * 125 + 20 + adjust, 550, 100, 75, true, s); 
+      frame_buttons[index-1] = b;
     }
   }
   printArray(framenames);
@@ -240,7 +240,7 @@ void draw_editor(){
   
   image(pg, 153.5, 115);
   
-  if (frameNum != 0){
+  if (frameNum != 11){
     image(framePics[frameNum], 153.5, 115);
   }
 }
@@ -484,40 +484,40 @@ void mouseClicked_editor(){
     for (Button b: frame_buttons){
       if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
         if (b.type.equals("frame1.png")){
-          frameNum = 1;
+          frameNum = 0;
         }
         if (b.type.equals("frame2.png")){
-          frameNum = 2;
+          frameNum = 1;
         }
         if (b.type.equals("frame3.png")){
-          frameNum = 3;
+          frameNum = 2;
         }
         if (b.type.equals("frame4.png")){
-          frameNum = 4;
+          frameNum = 3;
         }
         if (b.type.equals("frame5.png")){
-          frameNum = 5;
+          frameNum = 4;
         }
         if (b.type.equals("frame6.png")){
-          frameNum = 6;
+          frameNum = 5;
         }
         if (b.type.equals("frame7.png")){
-          frameNum = 7;
+          frameNum = 6;
         }
         if (b.type.equals("frame8.png")){
-          frameNum = 8;
+          frameNum = 7;
         }
         if (b.type.equals("frame9.png")){
-          frameNum = 9;
+          frameNum = 8;
         }
         if (b.type.equals("frame10.png")){
-          frameNum = 10;
+          frameNum = 9;
         }
         if (b.type.equals("frame11.png")){
-          frameNum = 11;
+          frameNum = 10;
         }
         if (b.type.equals("noFrame")){
-          frameNum = 0;
+          frameNum = 11;
         }
       }
     }
@@ -629,7 +629,7 @@ void reset_editor(){ //must be reset everytime new image is being edited
   rightmost = false;
   adjust = 0;
   filterMode = 1;
-  frameNum = 0;
+  frameNum = 11;
 }
 
 void apply_adj(){
