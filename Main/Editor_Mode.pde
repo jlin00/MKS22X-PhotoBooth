@@ -16,8 +16,6 @@ ArrayList<ScrollBar> scroll_buttons;
 ArrayList<Button> draw_buttons;
 int filterMode;
 int adjust;
-int adjustRight;
-int adjustLeft;
 boolean leftmost;
 boolean rightmost;
 int scroll_mode; 
@@ -42,9 +40,8 @@ void setup_editor(){
   rightmost = false; //for navigation bar 
   pg = createGraphics(461, 346);
   drawcolor = color(0); //default draw color
-  //adjustLeft = 0;
-  //adjustRight = 1;
   
+  //general buttons 
   Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
   edit_buttons.add(go_to_lib);
   Button go_to_booth = new Button(18, 12.5, 75, 25, true, "redirectB"); //redirect to editor button 
@@ -154,7 +151,7 @@ void setup_editor(){
   draw_buttons.add(color14);
   Button color15 = new Button(600, 580, 20, false, color(255));
   draw_buttons.add(color15);
-  Button clear = new Button (640, 580, 60, 20, true, "clear");
+  Button clear = new Button (640, 572, 80, 20, true, "clear");
   draw_buttons.add(clear);
   
   
@@ -539,7 +536,7 @@ void editBar(){
   }
   
   else if (filterMode == 6){
-    text("CLEAR", 650, 590); 
+    text("CLEAR", 678, 588); 
   }
 }
 
