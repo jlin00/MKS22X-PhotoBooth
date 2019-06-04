@@ -50,6 +50,8 @@ void setup_editor(){
   //picture frames
   String path = sketchPath("Frames");
   String[] framenames = listFileNames(path);
+  Button noFrame = new Button(20 + adjust, 550, 100, 75, true, "noFrame");
+  frame_buttons.add(noFrame);
   for (int i = 0; i < framenames.length; i++){
     String s = framenames[i];
     if (!s.substring(0,1).equals(".")){
@@ -58,10 +60,11 @@ void setup_editor(){
       framePics.add(temp);
       Frame f = new Frame(s);
       frames.add(f); 
-      Button b = new Button((i - 1) * 125 + 20 + adjust, 550, 100, 75, true, s); 
+      Button b = new Button(i * 125 + 20 + adjust, 550, 100, 75, true, s); 
       frame_buttons.add(b);
     }
   }
+  printArray(framenames);
   
   //general buttons 
   Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
@@ -479,25 +482,22 @@ void mouseClicked_editor(){
     for (Button b: frame_buttons){
       if (mouseX >= b.x && mouseY >= b.y && mouseX <= b.x + b.w && mouseY <= b.y + b.h){
         if (b.type.equals("frame1.png")){
-          frameNum = 12;
-        }
-        if (b.type.equals("frame2.png")){
           frameNum = 11;
         }
-        if (b.type.equals("frame3.png")){
+        if (b.type.equals("frame2.png")){
           frameNum = 10;
         }
-        if (b.type.equals("frame4.png")){
-          frameNum = 5;
+        if (b.type.equals("frame3.png")){
+          frameNum = 9;
         }
         if (b.type.equals("frame5.png")){
           frameNum = 4;
         }
         if (b.type.equals("frame6.png")){
-          frameNum = 7;
+          frameNum = 6;
         }
         if (b.type.equals("frame7.png")){
-          frameNum = 8;
+          frameNum = 7;
         }
         if (b.type.equals("frame8.png")){
           frameNum = 2;
@@ -506,13 +506,16 @@ void mouseClicked_editor(){
           frameNum = 1;
         }
         if (b.type.equals("frame10.png")){
-          frameNum = 9;
+          frameNum = 3;
         }
         if (b.type.equals("frame11.png")){
-          frameNum = 6;
+          frameNum = 5;
         }
         if (b.type.equals("frame12.png")){
-          frameNum = 9;
+          frameNum = 8;
+        }
+        if (b.type.equals("noFrame")){
+          frameNum = 0;
         }
       }
     }
@@ -603,8 +606,13 @@ void editBar(){
   }
   else if (filterMode == 5){
     for (int i = 0; i < framePics.size(); i++){
-      image(framePics.get(i), i * 125 + 20 + adjust, 550, 100, 75); 
+      image(framePics.get(i), (i + 1) * 125 + 20 + adjust, 550, 100, 75); 
     }
+    fill(255);
+    stroke(0);
+    rect(20 + adjust, 550, 100, 75);
+    fill(0);
+    noStroke();
   }
   else if (filterMode == 6){
     text("CLEAR", 678, 588); 
