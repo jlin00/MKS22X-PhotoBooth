@@ -2,7 +2,6 @@ class Sticker {
   int w, h; //width and height 
   float x, y; //position 
   PImage image; //stickerPic 
-  boolean appear;
   boolean over = false; //whether or not mouse is over sticker 
   float xOffset, yOffset; //adjusts mouse drag 
   
@@ -12,8 +11,6 @@ class Sticker {
     h = 80;
     this.x = x;
     this.y = y;
-    appear = false;
- 
   }
   
   void display() { //display the sticker 

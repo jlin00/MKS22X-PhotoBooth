@@ -216,7 +216,7 @@ void draw_editor(){
   }
   
   for (Sticker s : stickers) { //display any applied stickers 
-    if (s.appear) s.display();
+    s.display();
   }
   
   if (filterMode == 3){ //if filterMode 3, display apply and reset buttons 
@@ -296,14 +296,12 @@ void mouseClicked_editor(){ //if mouseClicked
           text_clicked();
           text("LIBRARY", 714, 30);
           mode = 1;
-          for (Sticker s : stickers) s.appear = false;
           stickers = new ArrayList<Sticker>();
         }
         if (b.type.equals("redirectB")){ //redirect to booth 
           text_clicked();
           text("BOOTH", 56, 30);
           mode = 2;
-          for (Sticker s : stickers) s.appear = false;
           stickers = new ArrayList<Sticker>();
         }
         if (b.type.equals("save")){ //save edited image and redirect to library 
@@ -314,7 +312,6 @@ void mouseClicked_editor(){ //if mouseClicked
         }
         if (b.type.equals("cancel")){ //direct to library 
           mode = 1; 
-          for (Sticker s : stickers) s.appear = false;
           stickers = new ArrayList<Sticker>();
         }
         if (b.popup && b.type.equals("right")){ //right scroll button 
@@ -495,62 +492,50 @@ void mouseClicked_editor(){ //if mouseClicked
         if (b.type.equals("sticker1.png")) { //type dependent on filename 
           Sticker one = new Sticker(stickerPics[0], 500, 300); //creates a new sticker 
           stickers.add(one); //adds sticker to list of stickers applied on image 
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker2.png")) {
           Sticker two = new Sticker(stickerPics[1], 400, 150);
           stickers.add(two);
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker3.png")) {
           Sticker three = new Sticker(stickerPics[2], 200, 200);
           stickers.add(three);
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker4.png")) {
           Sticker four = new Sticker(stickerPics[3], 250, 250);
           stickers.add(four);
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker5.png")) {
           Sticker five = new Sticker(stickerPics[4], 300, 300);
           stickers.add(five);
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker6.png")) {
           Sticker six = new Sticker(stickerPics[5], 400, 350);
           stickers.add(six);
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker7.png")) {
           Sticker seven = new Sticker(stickerPics[6], 400, 350);
           stickers.add(seven);
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker8.png")) {
           Sticker eight = new Sticker(stickerPics[7], 400, 350);
           stickers.add(eight);
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker9.png")) {
           Sticker nine = new Sticker(stickerPics[8], 400, 350);
           stickers.add(nine);
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker10.png")) {
           Sticker ten = new Sticker(stickerPics[9], 400, 350);
           stickers.add(ten);
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker11.png")) {
           Sticker eleven = new Sticker(stickerPics[10], 400, 350);
           stickers.add(eleven);
-          stickers.get(stickers.size()-1).appear = true;
         }
         if (b.type.equals("sticker12.png")) {
           Sticker twelve = new Sticker(stickerPics[11], 400, 350);
           stickers.add(twelve);
-          stickers.get(stickers.size()-1).appear = true;
         }
       }
     }
