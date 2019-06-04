@@ -30,8 +30,6 @@ PImage[] stickerPics;
 
 //setup for editor mode to be used in main
 void setup_editor(){
-  dogSticker = loadImage("puppy.png");
-  
   //initializing variables
   edit_buttons = new ArrayList<Button>();
   color_buttons = new ArrayList<Button>();
@@ -46,6 +44,8 @@ void setup_editor(){
   rightmost = false; //for navigation bar 
   pg = createGraphics(461, 346);
   drawcolor = color(0); //default draw color
+  stickers = new Sticker[6];
+  stickerPics = new PImage[6];
   
   //picture frames
   String path = sketchPath("Frames");
@@ -66,7 +66,24 @@ void setup_editor(){
       frame_buttons[index-1] = b;
     }
   }
-  printArray(framenames);
+  
+  //stickers
+  String path2 = sketchPath("Stickers");
+  String[] stickernames = listFileNames(path);
+  for (int i = 0; i < stickernames.length; i++) {
+    String s = stickernames[i];
+    if (!s.substring(0,1).equals(".")){
+      String sub = s.substring(s.indexOf("r")+1, s.indexOf("."));
+      int index = Integer.parseInt(sub);
+      PImage temp = loadImage("Stickers/" + s);
+      temp.resize(80,80);
+      stickerPics[index-1] = temp;
+      Sticker f = new Sticker(s);
+      frames[index-1] = f;
+      Button b = new Button(index * 125 + 20 + adjust, 550, 100, 75, true, s); 
+      frame_buttons[index-1] = b;
+    }
+  }
   
   //general buttons 
   Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
@@ -184,8 +201,6 @@ void setup_editor(){
   
   Button dogS = new Button(0, 300, 100, 25, true, "dogS");
   edit_buttons.add(dogS);
-  
-  stickers = new ArrayList<Sticker>();
   
 }
 
