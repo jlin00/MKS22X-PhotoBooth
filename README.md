@@ -248,7 +248,7 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br><ul>
-      <li>taking a well-deserved break :) </li>
+      <li>worked on editing prototype and started new UML diagram</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
@@ -277,7 +277,11 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     <td>
     Grace: :octocat:
     <br><ul>
-      <li></li>
+      <li>finished editing prototype and new UML diagram</li>
+      <li>found stickers to add to the panel in editor mode</li>
+      <li>successfully implemented the sticker panel for all six stickers</li>
+      <li>adjusted size of stickers</li>
+      <li>fixed order of frames in the editor panel</li>
     </ul><br>
     Jackie: :hatched_chick:
     <br><ul>
