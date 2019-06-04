@@ -1,4 +1,4 @@
-//this class is for various methods that don't belong in other classes but would clutter up the main if written in there
+//this class is for formatting methods that don't belong in other classes but would clutter up the main if written in there
 
 void text_clicked(){
   fill(172,172,172);
@@ -10,7 +10,7 @@ void heading_settings(){ //setup for heading of each mode
   rect(0,0,768,50);
   fill(255);
   textAlign(CENTER);
-  PFont font = createFont("NEOTERICc - Bold DEMO VERSION.ttf",23);
+  PFont font = createFont("NEOTERICc - Bold DEMO VERSION.ttf",23); //cute font 
   textFont(font);
 }
 

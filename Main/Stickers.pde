@@ -1,12 +1,12 @@
 class Sticker {
-  int w, h;
-  float x, y;
-  PImage image;
+  int w, h; //width and height 
+  float x, y; //position 
+  PImage image; //stickerPic 
   boolean appear;
-  boolean over = false;
-  float xOffset, yOffset;
+  boolean over = false; //whether or not mouse is over sticker 
+  float xOffset, yOffset; //adjusts mouse drag 
   
-  Sticker(PImage image, float x, float y) {
+  Sticker(PImage image, float x, float y) { //constructor 
     this.image = image;
     w = 80;
     h = 80;
@@ -16,28 +16,26 @@ class Sticker {
  
   }
   
-  void display() {
+  void display() { //display the sticker 
     image.resize(w, h);
     image(image, x, y);
     
-    if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
-      //println("hehe");
+    if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) { //if mouse over sticker 
       over = true;  
-      //if (toMove == null) toMove = this;
     } else {
       over = false;
     }
   }
   
-  void press() {
+  void press() { //if mousePressed 
     xOffset = mouseX-x;
     yOffset = mouseY-y;
   }
   
-  void drag() {
-    if (over) {
-      if (toMove == null) toMove = this;
-      if (toMove == this){
+  void drag() { //if mouseDragged 
+    if (over) { //if mouse over sticker 
+      if (toMove == null) toMove = this; //only one sticker may be dragged at once
+      if (toMove == this){ //if this sticker is the one to be moved
         x = mouseX-xOffset;
         y = mouseY-yOffset;
       }
