@@ -649,7 +649,10 @@ void editBar(){
     text("RESET", 698, 605);
   }
   else if (filterMode == 4){
-    for (int i = 0; i
+    for (int i = 0; i < stickerPics.length; i++) {
+      image(stickerPics[i], i * 125 + 20 + adjust, 550, 80, 80);
+    }
+    
   }
   else if (filterMode == 5){
     for (int i = 0; i < framePics.length; i++){
