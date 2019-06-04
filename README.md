@@ -19,10 +19,10 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
 (3) Click this button to capture a photo. If you click this button, more buttons will appear. (see next diagram)
 <br><br> <br>
 <img src="pic3.png" alt="Diagram 3" align="middle"/>
-(1) Click on this button to transition to the Photo Library. <br>
+(1) Click on this button to transition to the Photo Library. The photo you took will not be saved automatically. <br>
 (2) Click on this button to open the photo you just took in the Photo Editor.  <br>
 (3) This is where the photo you just took will be displayed. <br>
-(4) This button can still be clicked, but it will not be able to take new pictures.  <br>
+(4) This button can still be clicked, but it will not be able to take new pictures until you click either save or cancel.  <br>
 (5) Click on this button to save the photo into the library and go back to capture mode. (see previous diagram) <br>
 (6) Click on this button to discard the photo and go back to capture mode. (see previous diagram)
 <br><br> <br>
