@@ -2,9 +2,10 @@
 
 //variables 
 PImage to_edit; //image to be edited
-PImage copy; //copy of to_edit
-PImage sample; //sample displayed in editor panel 
+  PImage copy; //copy of to_edit
+  PImage sample; //sample displayed in editor panel 
 ArrayList<Button> edit_buttons; //buttons in mode 3
+  int filterMode;
 ArrayList<Button> color_buttons;
 ArrayList<Button> kernel_buttons; 
   int filter_num; //only one color fitler or kernel filter can be applied
@@ -13,21 +14,20 @@ ArrayList<ScrollBar> scroll_buttons;
   float brightness_level;
   float saturate_level;
   float contrast_level;
+  ScrollBar toDrag;
 Button[] frame_buttons;
 ArrayList<Button> draw_buttons;
-int filterMode;
 int adjust;
-boolean leftmost;
-boolean rightmost;
-int scroll_mode; 
+  boolean leftmost;
+  boolean rightmost;
 PGraphics pg;
   color drawcolor; 
 Frame[] frames;
-PImage[] framePics;
+  PImage[] framePics;
   int frameNum = 11; 
 ArrayList<Sticker> stickers;
-PImage[] stickerPics;
-Button[] sticker_buttons;
+  PImage[] stickerPics;
+  Button[] sticker_buttons;
   Sticker toMove; //sticker to be moved, only one at a time 
 
 //setup for editor mode to be used in main
@@ -282,6 +282,7 @@ void mousePressed_edit() {
 
 void mouseReleased_edit(){
   toMove = null;
+  toDrag = null;
 }
 
 //mouseClicked method for editor mode to be used in main 

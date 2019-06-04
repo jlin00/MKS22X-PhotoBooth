@@ -29,23 +29,13 @@ class ScrollBar{
   
   void update(){
     over = mouseOver();
-    
-    if (mousePressed && over && type.equals("brightness")){
-      clicked = true; //if clicked on slider, clicked is true
-      scroll_mode = 1;
+    if (over){
+      if (toDrag == null) toDrag = this;
     }
-    else if (mousePressed && over && type.equals("saturation")){
-      clicked = true; //if clicked on slider, clicked is true
-      scroll_mode = 2;
-    }
-    else if(mousePressed && over && type.equals("contrast")){
-      clicked = true; //if clicked on slider, clicked is true
-      scroll_mode = 3;
-    }
+    if (mousePressed && over && toDrag == this) clicked = true; //if clicked on slider, clicked is true
     if (!mousePressed) clicked = false; //if you let go of mouse, clicked is false
-    if ((clicked && type.equals("brightness") && scroll_mode == 1)
-        || (clicked && type.equals("saturation") && scroll_mode == 2)
-        || (clicked && type.equals("contrast") && scroll_mode == 3)){ //move the slider to where mouse is 
+    
+    if (clicked){ //move the slider to where mouse is 
       if (mouseX < scroll_min) scroll_x = scroll_min;
       else if (mouseX > scroll_max - bar_height) scroll_x = scroll_max - bar_height;
       else scroll_x = mouseX;
