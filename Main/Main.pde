@@ -47,6 +47,10 @@ void mousePressed() {
   mousePressed_edit();
 }
 
+void mouseReleased(){
+  mouseReleased_edit();
+}
+
 void draw() {
   if (mode == 1) { //library mode
     draw_lib();

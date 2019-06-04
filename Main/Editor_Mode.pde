@@ -28,7 +28,7 @@ PImage[] framePics;
 ArrayList<Sticker> stickers;
 PImage[] stickerPics;
 Button[] sticker_buttons;
-boolean mouseDown = false;
+  Sticker toMove; //sticker to be moved, only one at a time 
 
 //setup for editor mode to be used in main
 void setup_editor(){
@@ -278,6 +278,10 @@ void mousePressed_edit() {
   for (Sticker s : stickers) {
     s.press();
   }
+}
+
+void mouseReleased_edit(){
+  toMove = null;
 }
 
 //mouseClicked method for editor mode to be used in main 

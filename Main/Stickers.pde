@@ -23,6 +23,7 @@ class Sticker {
     if (mouseX >= x && mouseX <= x+w && mouseY >= y && mouseY <= y+h) {
       //println("hehe");
       over = true;  
+      //if (toMove == null) toMove = this;
     } else {
       over = false;
     }
@@ -35,8 +36,11 @@ class Sticker {
   
   void drag() {
     if (over) {
-      x = mouseX-xOffset;
-      y = mouseY-yOffset;
+      if (toMove == null) toMove = this;
+      if (toMove == this){
+        x = mouseX-xOffset;
+        y = mouseY-yOffset;
+      }
     }
   }
   
