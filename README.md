@@ -3,14 +3,18 @@
 <b>Group Members:</b> Grace Mao, Jackie Lin 
 
 ## Table of Contents 
-1. [Project Description](#project-description)
-2. [Instructions](#instructions)
-3. [Development Log](#development-log)
+<ul>
+ <li>[Project Description](#project-description)</li>
+ <li>[Instructions](#instructions)</li>
+ <li>[Development Log](#development-log)</li>
+</ul>
 
 
 ## Project Description 
 
 The core of our final project is a Photo Booth/Editor created in Processing through the Capture class. Processing provides a unique opportunity for smooth graphics and a Photo Booth/Editor would efficiently use our resources to make a project that is both useful and aesthetic. In our Photo Booth/Editor, users will be able to, of course, take pictures of themselves and edit them afterwards. Features include adding filters in the photo booth and placing stickers in the editor. Additionally, images are able to be stored or deleted. Other features may be implemented depending on our usage of Processing and our ability to change the look of the camera.
+<br>
+[Back to top](#photo-booth/editor)
 
 ## Instructions
 
@@ -79,7 +83,8 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
  <li>When you click the left or right arrow button, it affects every part of the edit bar, including the filters, stickers and frames.</li>
  <li>In the Photo Editor, only what is within the image will be saved. That means that if your sticker does not fit on the image it will be cut off. </li>
 </ul>
-
+<br>
+[Back to top](#photo-booth/editor)
 ## Development Log
 <table>
   <th>Log Date</th>
@@ -371,3 +376,5 @@ The core of our final project is a Photo Booth/Editor created in Processing thro
     </ul><br>
     </td>
   </tr>
+  
+  [Back to top](#photo-booth/editor)
