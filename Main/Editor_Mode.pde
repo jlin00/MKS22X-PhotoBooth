@@ -609,10 +609,10 @@ void editBar(){
       image(framePics.get(i), (i + 1) * 125 + 20 + adjust, 550, 100, 75); 
     }
     fill(255);
-    stroke(0);
     rect(20 + adjust, 550, 100, 75);
+    fill(120);
+    text("NONE", 70, 591);
     fill(0);
-    noStroke();
   }
   else if (filterMode == 6){
     text("CLEAR", 678, 588); 
