@@ -7,6 +7,8 @@ void setup() {
 
 void draw() {
   background(204);
+  fill(0);
+  rect(50,50,100,100);
   image(pg, 0, 0); 
 }
 
@@ -16,12 +18,8 @@ void mouseDragged() {
   //pg.clear();
   for (int kx = -2; kx <= 2; kx++){
     for (int ky = -2; ky <= 2; ky++){
-      pg.set(mouseX + kx, mouseY + ky, color(0));
+      pg.set(mouseX + kx, mouseY + ky, color(0, 255));
     }
   }
   pg.endDraw(); 
-}
-
-void mouseClicked(){
-  pg.clear();
 }
