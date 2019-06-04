@@ -21,7 +21,8 @@ boolean rightmost;
 int scroll_mode; 
 PGraphics pg;
   color drawcolor; 
-
+ArrayList<Frame> frames;
+ArrayList<PImage> framePics;
 ArrayList<Sticker> stickers;
 PImage dogSticker;
 
@@ -35,11 +36,19 @@ void setup_editor(){
   kernel_buttons = new ArrayList<Button>();
   scroll_buttons = new ArrayList<ScrollBar>();
   draw_buttons = new ArrayList<Button>();
+  frames = new ArrayList<Frame>();
+  framePics = new ArrayList<PImage>();
   filterMode = 2;
   leftmost = true; //for navigation bar
   rightmost = false; //for navigation bar 
   pg = createGraphics(461, 346);
   drawcolor = color(0); //default draw color
+  
+   for (Frame f: frames){
+     PImage temp = loadImage("/Frames/" + f.pic); //load all the frame pictures
+     temp.resize(461, 346);
+     framePics.add(temp);
+   }
   
   //general buttons 
   Button go_to_lib = new Button(675, 12.5, 75, 25, true, "redirectL");
@@ -212,6 +221,10 @@ void draw_editor(){
   text("DRAW", 697, 522);
   
   image(pg, 153.5, 115);
+  
+  for (int i = 0; i < framePics.size(); i++){
+    if (frames.get(i).appear) image(framePics.get(i), 153.5, 115);
+  }
 }
 
 void mouseDragged_edit() {
