@@ -16,6 +16,7 @@ void setup() {
   //setup for loading cameras 
   String[] cameras = Capture.list();
 
+  //if no available cameras 
   if (cameras.length == 0) {
     println("There are no cameras available for capture.");
     exit();
@@ -24,7 +25,8 @@ void setup() {
 }
 
 void mouseClicked(){ //if mouse is clicked 
-  if (mode == 1) {
+  //mouseClicked calls different methods and functions depending on the mode 
+  if (mode == 1) { 
     mouseClicked_lib();
   }
   else if (mode == 2) {
@@ -35,32 +37,32 @@ void mouseClicked(){ //if mouse is clicked
   }
 }
 
-void mouseWheel(MouseEvent event){ //only necessary for library mode
+void mouseWheel(MouseEvent event){ //only library mode utilizes scrolling 
   mouseWheel_lib(event);
 }
 
-void mouseDragged() {
+void mouseDragged() { //only editor mode utilizes dragging 
   mouseDragged_edit();
 }
 
-void mousePressed() {
+void mousePressed() { //only necessary for editor mode 
   mousePressed_edit();
 }
 
-void mouseReleased(){
+void mouseReleased(){ //only necessary for editor mode 
   mouseReleased_edit();
 }
 
-void draw() {
-  if (mode == 1) { //library mode
+void draw() { //different screen is drawn depending on the mode 
+  if (mode == 1) {
     draw_lib();
   }
   
-  if (mode == 2) { //booth mode
+  if (mode == 2) { 
     draw_booth();
   }
   
-  if (mode == 3) { //edit mode
+  if (mode == 3) {
     draw_editor();
   }
 }
